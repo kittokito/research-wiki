@@ -36,6 +36,8 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Evaluation
 - [SWE-CI](papers/Evaluation/swe-ci.md) — CI環境でのコードベース保守能力評価ベンチマーク (Chen et al., 2026)
+- [P-hacking with one prompt](papers/Evaluation/p-hacking-with-one-prompt.md) — たった一つのプロンプトでLLMがp-hackingに加担する危険性を実証 (Kawahara, 2026)
+- [SECURE: Benchmarking LLMs for Cybersecurity](papers/Evaluation/secure-cybersecurity-benchmark.md) — ICS特化6データセットでLLMのサイバーセキュリティ能力を評価、OOD検出に大きな性能差 (Bhusal et al., 2024)
 
 ### Technical_Report
 - [Kimi K2.5](papers/Technical_Report/kimi-k25.md) — オープンソースマルチモーダルエージェントモデル (Kimi Team, 2026)
@@ -44,6 +46,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Mind the Gap](papers/Reasoning/mind-the-gap-self-improvement.md) — 生成よりも検証の方が容易であることを示した自己改善研究 (Song et al., 2024)
 - [The Reversal Curse](papers/Reasoning/reversal-curse.md) — 「AはB」で学習しても「BはA」に汎化しない (Berglund et al., 2023)
 - [GSM-Symbolic](papers/Reasoning/gsm-symbolic.md) — 数値変更だけでLLM数学推論が大きくばらつく、パターンマッチングの限界 (Mirzadeh et al., 2024)
+- [The Geometry of Forgetting](papers/Reasoning/geometry-of-forgetting.md) — 埋め込み空間の幾何学から忘却・偽記憶が必然的に発生、有効次元~16のdimensionality illusion (Barman et al., 2026)
 - [Large Language Model Reasoning Failures](papers/Surveys_Overview/llm-reasoning-failures.md) — LLM推論失敗の包括的サーベイ (Song et al., 2026)
 
 ### Safety_Alignment
@@ -67,6 +70,9 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Automated PLC Test Generation](papers/Domain_Specific/automated-plc-test-generation.md) — LLMによるPLC制御ロジックテストケース自動生成 (Koziolek et al., 2024)
 - [Sarashina-Embedding-v2](papers/Domain_Specific/sarashina-embedding-v2.md) — 日本語特化テキスト埋め込みモデル (SB Intuitions, 2025)
 
+### Social_Science
+- [The AI Layoff Trap](papers/Social_Science/ai-layoff-trap.md) — 需要外部性による自動化軍拡競争、ピグー税のみが解消可能 (Hemenway Falk & Tsoukalas, 2026)
+
 ### Physical_AI
 - [DreamZero](papers/Physical_AI/dreamzero-world-action-models.md) — ビデオ拡散によるゼロショットロボットポリシー (Ye et al., 2026)
 - [V-JEPA 2](papers/Physical_AI/v-jepa-2.md) — 自己教師あり動画モデルによるロボット理解・予測・計画 (Assran et al., 2025)
@@ -75,9 +81,13 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ### Efficiency_Optimization
 - [Flash-KMeans](papers/Efficiency_Optimization/flash-kmeans.md) — GPU最適化K-meansで最大17.9倍高速化 (Yang et al., 2026)
 - [TurboQuant](papers/Efficiency_Optimization/turboquant.md) — KVキャッシュ6倍圧縮 (Zandieh & Mirrokni, 2026)
+- [The Lottery Ticket Hypothesis](papers/Efficiency_Optimization/lottery-ticket-hypothesis.md) — 密なネットワーク内のスパースなwinning ticketの発見 (Frankle & Carbin, 2018)
 
 ### Graph_Network
 - [From Louvain to Leiden](papers/Graph_Network/louvain-to-leiden.md) — 精製ステップとキュー管理で連結コミュニティを保証するグラフ分割アルゴリズム (Traag et al., 2019)
+
+### Symbolic_Computation
+- [All elementary functions from a single binary operator](papers/Symbolic_Computation/eml-single-operator.md) — eml(x,y)=exp(x)−ln(y)と定数1で全初等関数を生成、連続版NANDゲート (Odrzywołek, 2026)
 
 ### Press_Releases
 - [Karpathy Wiki Workflow](papers/Press_Releases/karpathy-tweet.md) — LLMでソース文書を構造化wikiにコンパイル (Karpathy, 2026)
@@ -96,4 +106,4 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ## Engineering
 （実装メモ・ノウハウ）
 
-*まだページがありません。*
+- [AWS上でGPU分散学習・ML開発をする自分向け注意事項まとめ](engineering/aws-gpu-ml-security-practices.md) — IAM/S3/SSH/Secrets/ログ/学習データ/チーム運用/コスト/法務を網羅した実践ルール集

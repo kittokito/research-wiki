@@ -66,5 +66,30 @@
 - [ ] 精製ステップで孤立ノード（どのサブコミュニティにも属さない）が発生した場合の挙動の詳細は？ → [paper](../wiki/papers/Graph_Network/louvain-to-leiden.md)
 - [ ] 解像度パラメータの選択指針（resolution limit問題への対処）はどの程度確立されているか？ → [paper](../wiki/papers/Graph_Network/louvain-to-leiden.md)
 
+### The Lottery Ticket Hypothesis より
+- [ ] LLM規模でのLTHの成立条件は？大規模Transformerでのwinning ticketの性質はCNN時代と異なるか？ → [paper](../wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md)
+
+### The AI Layoff Trap より
+- [ ] ピグー税の最適税率はどのように算定するか？AI能力の急速な変化にどう追従するか？ → [paper](../wiki/papers/Social_Science/ai-layoff-trap.md)
+- [ ] 新タスク創出（compensating effect）をモデルに組み込んだ場合、過剰自動化の結論はどの程度変わるか？ → [paper](../wiki/papers/Social_Science/ai-layoff-trap.md)
+
+### P-hacking with one prompt より
+- [ ] RLHF等でp-hackingを明示的に拒否するようモデルを訓練できるか？正当な探索的分析の有用性を損なわないか？ → [paper](../wiki/papers/Evaluation/p-hacking-with-one-prompt.md)
+- [ ] Code Interpreter付きLLMは、コード実行によりp-hackingの検出・抑止がしやすいか？ → [paper](../wiki/papers/Evaluation/p-hacking-with-one-prompt.md)
+
+### All elementary functions from a single binary operator より
+- [ ] 定数を必要としない二項Sheffer演算子（純粋な2要素系）は存在するか？ → [paper](../wiki/papers/Symbolic_Computation/eml-single-operator.md)
+- [ ] EML記号回帰は深さ5以上で実用的にスケールするか？構造探索との組み合わせは有効か？ → [paper](../wiki/papers/Symbolic_Computation/eml-single-operator.md)
+- [ ] EMLツリーを活性化関数としたNNアーキテクチャは、標準NNと比較して解釈可能性・性能面でどのような特性を示すか？ → [paper](../wiki/papers/Symbolic_Computation/eml-single-operator.md)
+
+### The Geometry of Forgetting より
+- [ ] 有効次元数を意図的に増加させた埋め込みモデルは干渉をどの程度低減できるか？精度とのトレードオフは？ → [paper](../wiki/papers/Reasoning/geometry-of-forgetting.md)
+- [ ] LLMの内部表現の有効次元数は埋め込みモデルの~16と同程度か、それとも異なるレジームにあるか？ → [paper](../wiki/papers/Reasoning/geometry-of-forgetting.md)
+- [ ] メタデータ制約やハイブリッド検索（lexical + semantic）はvector averaging fallacyをどの程度緩和するか？ → [paper](../wiki/papers/Reasoning/geometry-of-forgetting.md)
+
+### SECURE: Benchmarking LLMs for Cybersecurity より
+- [ ] 最新モデル（Claude Opus 4.6, GPT-4o等）でVOODの性能差は縮小しているか？ → [paper](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md)
+- [ ] ICS以外のサイバーセキュリティ領域（Web脆弱性、マルウェア分析等）に拡張した場合、同様の傾向が見られるか？ → [paper](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md)
+
 ### TurboQuant / MSA より
 - [ ] TurboQuantとMSAのKVキャッシュ圧縮を組み合わせた効果は？ → [paper](../wiki/papers/Efficiency_Optimization/turboquant.md)

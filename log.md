@@ -92,3 +92,54 @@
 - **カテゴリ追加**: `Graph_Network`（グラフ・ネットワーク科学）を SCHEMA.md に追加
   - `sources/Graph_Network/`, `evidence/Graph_Network/`, `wiki/papers/Graph_Network/`, `wiki/topics/Graph_Network/` を作成
   - 各インデックスを更新
+- **論文追加**: The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks (Frankle & Carbin, 2018)
+  - `sources/Efficiency_Optimization/lottery-ticket-hypothesis.md` 作成
+  - `evidence/Efficiency_Optimization/lottery-ticket-hypothesis.md` 作成
+  - `wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md` 作成
+  - 各インデックスを更新
+
+## 2026-04-13
+
+- **論文追加**: P-hacking with one prompt (Kawahara, 2026)
+  - `sources/Evaluation/p-hacking-with-one-prompt.md` 作成
+  - `evidence/Evaluation/p-hacking-with-one-prompt.md` 作成
+  - `wiki/papers/Evaluation/p-hacking-with-one-prompt.md` 作成
+  - 各インデックスを更新
+
+## 2026-04-14
+
+- **カテゴリ追加**: `Social_Science`（社会科学・経済学・政策・労働）を SCHEMA.md に追加
+  - `sources/Social_Science/`, `evidence/Social_Science/`, `wiki/papers/Social_Science/`, `wiki/topics/Social_Science/` を作成
+- **論文追加**: The AI Layoff Trap (Hemenway Falk & Tsoukalas, 2026)
+  - `sources/Social_Science/ai-layoff-trap.md` 作成
+  - `evidence/Social_Science/ai-layoff-trap.md` 作成
+  - `wiki/papers/Social_Science/ai-layoff-trap.md` 作成
+  - 各インデックスを更新
+  - ※ 当初 `Domain_Specific` に配置されていたが、`Social_Science` カテゴリ新設に伴い移動
+- **論文追加**: The Geometry of Forgetting (Barman, Starenky, Bodnar, Narasimhan & Gopinath, 2026)
+  - `sources/Reasoning/geometry-of-forgetting.md` 作成
+  - `evidence/Reasoning/geometry-of-forgetting.md` 作成
+  - `wiki/papers/Reasoning/geometry-of-forgetting.md` 作成
+  - 内容: 高次元埋め込み空間の幾何学的性質から忘却・偽記憶が発生、干渉がべき乗則忘却の支配的ドライバー、dimensionality illusion（有効次元~16）、DRM偽記憶のパラメータフリー再現、vector averaging fallacyの指摘
+  - 各インデックスを更新
+- **エンジニアリングノート新設**: AWS上でGPU分散学習・ML開発をする自分向け注意事項まとめ（engineering初エントリ）
+  - `wiki/engineering/aws-gpu-ml-security-practices.md` 作成
+  - 内容: IAM/S3/SSH/Secrets/ログ・実験管理/学習データ利用/チェックポイント/チーム開発/監査/コスト/法務・倫理の15章構成
+  - 各インデックスを更新
+## 2026-04-15
+
+- **論文追加**: SECURE: Benchmarking Large Language Models for Cybersecurity (Bhusal et al., 2024)
+  - `sources/Evaluation/secure-cybersecurity-benchmark.md` 作成
+  - `evidence/Evaluation/secure-cybersecurity-benchmark.md` 作成
+  - `wiki/papers/Evaluation/secure-cybersecurity-benchmark.md` 作成
+  - 内容: ICSセクター特化6データセットで7モデルを3軸（知識抽出・理解・推論）評価、VOODでの壊滅的性能差（ChatGPT-4: 87.9% vs ChatGPT-3.5: 8.4%）、セキュリティ領域でのLLM信頼性課題
+  - 各インデックスを更新
+
+- **カテゴリ追加**: `Symbolic_Computation`（記号計算・数式処理・数学的基礎）を SCHEMA.md に追加
+  - `sources/Symbolic_Computation/`, `evidence/Symbolic_Computation/`, `wiki/papers/Symbolic_Computation/`, `wiki/topics/Symbolic_Computation/` を作成
+- **論文追加**: All elementary functions from a single binary operator (Odrzywołek, 2026)
+  - `sources/Symbolic_Computation/eml-single-operator.md` 作成
+  - `evidence/Symbolic_Computation/eml-single-operator.md` 作成
+  - `wiki/papers/Symbolic_Computation/eml-single-operator.md` 作成
+  - 内容: 単一二項演算子 eml(x,y)=exp(x)−ln(y) と定数1で全初等関数を生成（連続版NANDゲート）、EMLツリーによる勾配ベース記号回帰、NNアーキテクチャとの接点
+  - 各インデックスを更新

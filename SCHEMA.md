@@ -57,6 +57,8 @@ research-wiki/
 | `Agent_ToolUse` | エージェント・ツール使用・関数呼び出し |
 | `Physical_AI` | 物理AI・ロボティクス・身体性 |
 | `Graph_Network` | グラフ・ネットワーク科学（コミュニティ検出、GNN、グラフ分割等） |
+| `Symbolic_Computation` | 記号計算・数式処理・数学的基礎（記号回帰、形式的手法、計算代数等） |
+| `Social_Science` | 社会科学・経済学・政策・労働（AI導入の社会的帰結等） |
 | `Press_Releases` | プレスリリース・発表・ニュース |
 
 ## ファイル命名規則

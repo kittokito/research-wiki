@@ -4,8 +4,24 @@
 
 ---
 
+## 2026-04-15
+
+- [SECURE: Benchmarking LLMs for Cybersecurity](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) を追加 — ICS特化6データセット（MAET, CWET, KCV, VOOD, RERT, CPST）で7モデルを評価、ChatGPT-4が4/6タスクで最高、OOD検出（VOOD）でChatGPT-3.5が8.4%に壊滅的劣化 (Bhusal et al., 2024)
+
+## 2026-04-14
+
+- **エンジニアリングノート新設**: [AWS上でGPU分散学習・ML開発をする自分向け注意事項まとめ](../wiki/engineering/aws-gpu-ml-security-practices.md) を追加 — IAM/S3/SSH/Secrets/ログ/学習データ/チーム運用/監査/コスト/法務の15章構成の実践ルール集（engineering初エントリ）
+- [All elementary functions from a single binary operator](../wiki/papers/Symbolic_Computation/eml-single-operator.md) を追加 — eml(x,y)=exp(x)−ln(y)と定数1で全初等関数を生成する連続版NANDゲートの発見、EMLツリーによる勾配ベース記号回帰を実証 (Odrzywołek, 2026)
+- [The Geometry of Forgetting](../wiki/papers/Reasoning/geometry-of-forgetting.md) を追加 — 高次元埋め込み空間の幾何学から忘却・偽記憶が必然的に発生、干渉がべき乗則忘却の支配的ドライバー（b=0.460 vs 人間b≈0.5）、本番モデルの有効次元~16（dimensionality illusion）、DRM偽記憶のパラメータフリー再現 (Barman et al., 2026)
+- [The AI Layoff Trap](../wiki/papers/Social_Science/ai-layoff-trap.md) を追加 — 需要外部性が合理的企業を自動化軍拡競争に閉じ込め、7つの主要政策を棄却しピグー税のみが有効と理論的に導出 (Hemenway Falk & Tsoukalas, 2026)
+
+## 2026-04-13
+
+- [P-hacking with one prompt](../wiki/papers/Evaluation/p-hacking-with-one-prompt.md) を追加 — LLMに「有意差を見つけて」と依頼するだけでp-hackingを実行、主要3システム全てで再現 (Kawahara, 2026)
+
 ## 2026-04-10
 
+- [The Lottery Ticket Hypothesis](../wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md) を追加 — 密なネットワーク内にスクラッチから訓練可能なスパースサブネットワーク（winning tickets）が存在することを実証 (Frankle & Carbin, 2018)
 - [From Louvain to Leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md) を追加 — ライデン法の原論文、精製ステップとキュー管理による高速・高品質コミュニティ検出 (Traag et al., 2019)
 
 ## 2026-04-08
