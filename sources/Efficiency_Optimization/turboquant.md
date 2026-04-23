@@ -5,6 +5,8 @@ authors: ["Amir Zandieh", "Vahab Mirrokni"]
 year: 2026
 url: "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/"
 type: blog
+peer_review: accepted
+venue: "ICLR 2026 (Poster)"
 tags: [quantization, compression, KV-cache, PolarQuant, JL-transform, efficiency]
 date_added: 2026-04-07
 status: processed

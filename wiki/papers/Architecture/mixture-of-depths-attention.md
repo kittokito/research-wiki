@@ -4,10 +4,14 @@ aliases: ["MoDA"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [attention, depth, signal-degradation, architecture]
+peer_review: preprint
+venue: ""
 sources: [src-mixture-of-depths-attention]
 ---
 
 # Mixture-of-Depths Attention
+
+> **査読**: 📝 preprint
 
 Zhu, Fang, Liao, Wang et al. (2026) — arXiv 2603.15619
 

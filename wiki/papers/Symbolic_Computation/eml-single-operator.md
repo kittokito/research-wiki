@@ -4,10 +4,14 @@ aliases: ["EML operator", "EML Sheffer"]
 created: 2026-04-14
 updated: 2026-04-14
 tags: [EML, Sheffer-operator, elementary-functions, symbolic-regression, binary-tree, completeness]
+peer_review: preprint
+venue: ""
 sources: [src-eml-single-operator]
 ---
 
 # All elementary functions from a single binary operator
+
+> **査読**: 📝 preprint
 
 Odrzywołek (2026) — arXiv 2603.21852 / Jagiellonian University
 

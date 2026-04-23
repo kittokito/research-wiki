@@ -4,10 +4,14 @@ aliases: ["DCA", "DeepCrossAttention", "GRN"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [residual-connection, transformer, attention, architecture, training-efficiency]
+peer_review: accepted
+venue: "ICML 2025"
 sources: [src-deep-cross-attention]
 ---
 
 # DeepCrossAttention: Supercharging Transformer Residual Connections
+
+> **査読**: ✅ accepted — ICML 2025
 
 Heddes, Javanmard, Axiotis, Fu, Bateni, Mirrokni (2025) — arXiv 2502.06785
 

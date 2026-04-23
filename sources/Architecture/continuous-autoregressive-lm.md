@@ -5,6 +5,8 @@ authors: ["Chenze Shao", "Darren Li", "Fandong Meng", "Jie Zhou"]
 year: 2025
 url: "https://arxiv.org/abs/2510.27688"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [autoregressive, continuous, autoencoder, token-compression, efficiency]
 date_added: 2026-04-07
 status: processed

@@ -5,6 +5,8 @@ authors: ["Sambartha Ray Barman", "Andrey Starenky", "Sophia Bodnar", "Nikhil Na
 year: 2026
 url: "https://arxiv.org/abs/2604.06222"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [memory, forgetting, embedding, interference, false-memory, geometry, cosine-similarity, dimensionality]
 date_added: 2026-04-14
 status: processed

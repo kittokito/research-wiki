@@ -5,6 +5,8 @@ authors: ["Jonathan Frankle", "Michael Carlin"]
 year: 2018
 url: "https://arxiv.org/abs/1803.03635"
 type: paper
+peer_review: accepted
+venue: "ICLR 2019"
 tags: [pruning, sparsity, lottery-ticket, initialization, subnetwork]
 date_added: 2026-04-10
 status: processed

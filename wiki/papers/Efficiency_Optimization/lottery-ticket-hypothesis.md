@@ -4,10 +4,14 @@ aliases: ["Lottery Ticket Hypothesis", "LTH"]
 created: 2026-04-10
 updated: 2026-04-10
 tags: [pruning, sparsity, lottery-ticket, initialization]
+peer_review: accepted
+venue: "ICLR 2019"
 sources: [src-lottery-ticket-hypothesis]
 ---
 
 # The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks
+
+> **査読**: ✅ accepted — ICLR 2019 (Best Paper)
 
 Frankle & Carbin (2018) — arXiv 1803.03635 — ICLR 2019 Best Paper
 

@@ -5,6 +5,8 @@ authors: ["Mido Assran", "Adrien Bardes", "David Fan", "Quentin Garrido", "Russe
 year: 2025
 url: "https://arxiv.org/abs/2506.09985"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [self-supervised, video, JEPA, robotics, action-conditioned, multimodal]
 date_added: 2026-04-07
 status: processed

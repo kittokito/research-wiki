@@ -4,10 +4,14 @@ aliases: ["Leiden algorithm", "ライデン法"]
 created: 2026-04-10
 updated: 2026-04-10
 tags: [community-detection, graph-algorithm, Leiden, Louvain, modularity]
+peer_review: accepted
+venue: "Scientific Reports 2019"
 sources: [src-louvain-to-leiden]
 ---
 
 # From Louvain to Leiden: guaranteeing well-connected communities
+
+> **査読**: ✅ accepted — Scientific Reports 2019
 
 Traag, Waltman & van Eck (2019) — Scientific Reports 9, 5233 / arXiv 1810.08473
 

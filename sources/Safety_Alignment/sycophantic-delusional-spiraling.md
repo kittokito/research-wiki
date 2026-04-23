@@ -5,6 +5,8 @@ authors: ["Kartik Chandra", "Max Kleiman-Weiner", "Jonathan Ragan-Kelley", "Josh
 year: 2026
 url: "https://arxiv.org/abs/2602.19141"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [sycophancy, AI-psychosis, delusional-spiraling, safety, alignment]
 date_added: 2026-04-07
 status: processed

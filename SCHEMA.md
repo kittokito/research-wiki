@@ -30,6 +30,7 @@ research-wiki/
     ├── topics.md       # トピック索引
     ├── models.md       # モデル索引
     ├── recent.md       # 最近の追加
+    ├── peer-review.md   # 査読・採択状況一覧
     └── open-questions.md # 未解決の問い
 ```
 
@@ -77,6 +78,8 @@ authors: ["著者1", "著者2"]
 year: 2024
 url: "https://..."
 type: paper | blog | code | video | book
+peer_review: accepted | workshop | under-review | preprint | n/a
+venue: "学会・ジャーナル名（例: ICLR 2024, Nature 2025）"
 tags: [tag1, tag2]
 date_added: 2026-04-07
 status: unprocessed | processed | stale
@@ -178,6 +181,32 @@ related_sources: [src-id1]
 - ...
 ```
 
+## peer_review フィールド定義
+
+`sources/` の frontmatter に含める `peer_review` フィールドの値は以下のいずれかとする。
+
+| 値 | 意味 |
+|---|---|
+| `accepted` | 査読付き学会（conference）またはジャーナル（journal）に採択済み |
+| `workshop` | 査読付きワークショップに採択（メイントラックではない） |
+| `under-review` | 査読中（投稿先が判明しているがまだ採否が出ていない） |
+| `preprint` | プレプリント（arXiv等に投稿のみ、査読なし） |
+| `n/a` | 査読の対象外（ブログ記事、ツイート、プレスリリース、テクニカルレポート等） |
+
+`venue` には採択先の学会名・ジャーナル名・年を記載する（例: `"ICLR 2024"`, `"Nature 2025"`, `"ACSAC 2024"`）。
+`preprint` や `n/a` の場合は `venue: ""` とする。
+
+#### venue調査時の注意
+
+**arXivだけを見て `preprint` と判定しない**。arXivのCommentsフィールドに採択情報が記載されていないケースが多く、以下の追加ソースを必ず確認すること:
+
+- **OpenReview**: 論文タイトルで `site:openreview.net` 検索。ICLR/NeurIPS等のconference submissionがあれば `under-review`（decision未了の場合）または `accepted`（decision確定の場合）
+- **arXiv Comments**: `"Submitted to X"` / `"Accepted at X"` / `"To appear in X"` などのフレーズを確認
+- **著者所属サイト・著者個人ページ**: 公式論文リストに採択venue記載がある場合が多い
+- **会議公式の採択リスト**: paperlist.semanticscholar.org、papercopilot.com 等
+
+**偽陽性に注意**: 検索結果で「Published as a conference paper at X」が出ても、**それが対象論文自体のものか、対象論文を引用する別論文のものか**を必ず確認する（PDF冒頭のタイトル・著者を照合）。OpenReviewのforum IDは別論文の可能性があるため、タイトル完全一致を確認すること。
+
 ## 運用ルール
 
 ### 取り込み（Ingest）
@@ -204,6 +233,19 @@ related_sources: [src-id1]
 - evidence参照（wiki/papersから）: `[evidence](../../../evidence/{Category}/{slug}.md)`
 - 外部URL: `[表示名](https://...)`
 
+### インデックスの並び順
+
+各インデックスファイルは役割ごとに異なるソート規則を持つ。
+
+| ファイル | 並び順 |
+|---|---|
+| `wiki/index.md` | カテゴリ内は**話題クラスタ順**（関連論文が隣接するよう手動配置）。同一クラスタ内は**追加順（append）**。論争・系譜・手法バリエーションなど、論点構造が読めるよう配置する。機械的ソートは避ける |
+| `index/recent.md` | **日付降順**（新しい追加が上） |
+| `index/peer-review.md` | 査読状態グループ内で**採択年の昇順**（古い研究から新しい研究へ） |
+| `index/topics.md` | 特に規定なし（トピック追加順が基本。アルファベット順への整列は任意） |
+
+`wiki/index.md` のカテゴリが20件を超えたら、`wiki/topics/{Category}/` にサブトピックページを切り出すことを検討する。
+
 ### メンテナンス（Lint）
 定期的に以下を検出する:
 - 重複ページ
@@ -211,3 +253,4 @@ related_sources: [src-id1]
 - ソースなしの主張
 - 孤立ページ（被リンクゼロ）
 - index未登録のページ
+- `wiki/index.md` のカテゴリ肥大化（20件超）

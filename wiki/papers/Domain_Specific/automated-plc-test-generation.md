@@ -4,10 +4,14 @@ aliases: ["PLC Test Generation"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [PLC, industrial-automation, test-generation]
+peer_review: accepted
+venue: "IEEE ETFA 2024"
 sources: [src-automated-plc-test-generation]
 ---
 
 # Automated Control Logic Test Case Generation using Large Language Models
+
+> **査読**: ✅ accepted — IEEE ETFA 2024
 
 Koziolek, Ashiwal, Bandyopadhyay, K R (2024) — arXiv 2405.01874
 

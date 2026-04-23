@@ -4,10 +4,14 @@ aliases: ["Flash-KMeans"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [k-means, GPU, optimization, efficiency]
+peer_review: preprint
+venue: ""
 sources: [src-flash-kmeans]
 ---
 
 # Flash-KMeans: Fast and Memory-Efficient Exact K-Means
+
+> **査読**: 📝 preprint
 
 Yang, Xi, Zhao et al. (2026) — arXiv 2603.03329
 

@@ -4,10 +4,14 @@ aliases: ["MSA"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [sparse-attention, long-context, 100M-tokens, architecture]
+peer_review: preprint
+venue: ""
 sources: [src-memory-sparse-attention]
 ---
 
 # MSA: Memory Sparse Attention
+
+> **査読**: 📝 preprint
 
 Chen, Chen, Yi et al. (2026) — arXiv 2603.23516
 

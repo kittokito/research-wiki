@@ -5,6 +5,8 @@ authors: ["Brett Hemenway Falk", "Gerry Tsoukalas"]
 year: 2026
 url: "https://arxiv.org/abs/2603.20617"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [AI-economics, labor-displacement, automation, policy, Pigouvian-tax, game-theory]
 date_added: 2026-04-14
 status: processed

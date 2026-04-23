@@ -4,10 +4,14 @@ aliases: ["AI Layoff Trap", "AI自動化の罠"]
 created: 2026-04-14
 updated: 2026-04-14
 tags: [AI-economics, labor-displacement, automation, policy, Pigouvian-tax, game-theory]
+peer_review: preprint
+venue: ""
 sources: [src-ai-layoff-trap]
 ---
 
 # The AI Layoff Trap
+
+> **査読**: 📝 preprint
 
 Hemenway Falk & Tsoukalas (2026) — arXiv 2603.20617
 

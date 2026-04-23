@@ -4,10 +4,14 @@ aliases: ["CodeScout"]
 created: 2026-04-08
 updated: 2026-04-08
 tags: [RL, code-search, localization, SWE-Bench, agent, GSPO, OpenHands]
+peer_review: preprint
+venue: ""
 sources: [src-codescout]
 ---
 
 # CodeScout: RL for Code Search Agents
+
+> **査読**: 📝 preprint
 
 ## ソースからの事実
 - Unix端末のみのミニマルscaffoldでRL訓練し、2-18倍大きいモデルを上回るコード検索性能 [source](../../../sources/RL/codescout.md)

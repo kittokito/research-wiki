@@ -4,10 +4,14 @@ aliases: ["AttnRes", "Block AttnRes"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [residual-connection, attention, architecture, Kimi]
+peer_review: n/a
+venue: ""
 sources: [src-attention-residuals]
 ---
 
 # Attention Residuals
+
+> **査読**: — n/a（テクニカルレポート）
 
 Chen, Zhang, Su et al. (2026) — arXiv 2603.15031
 

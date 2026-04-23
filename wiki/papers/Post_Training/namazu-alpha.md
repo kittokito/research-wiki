@@ -4,10 +4,14 @@ aliases: ["Namazu Alpha", "Namazu"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [post-training, Japanese, localization]
+peer_review: n/a
+venue: ""
 sources: [src-namazu-alpha]
 ---
 
 # Namazu Alpha: オープン基盤モデルの各国仕様適応
+
+> **査読**: — n/a（ブログ記事）
 
 Sakana AI (2026) — sakana.ai Blog
 

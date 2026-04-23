@@ -5,6 +5,8 @@ authors: ["SB Intuitions"]
 year: 2025
 url: "https://www.sbintuitions.co.jp/blog/entry/2025/08/20/160139"
 type: blog
+peer_review: n/a
+venue: ""
 tags: [embedding, Japanese, instruction-tuning, retrieval, JMTEB]
 date_added: 2026-04-07
 status: processed

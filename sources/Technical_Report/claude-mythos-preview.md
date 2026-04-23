@@ -5,6 +5,8 @@ authors: ["Anthropic"]
 year: 2026
 url: "https://www.anthropic.com/glasswing"
 type: blog
+peer_review: n/a
+venue: ""
 tags: [claude, mythos, anthropic, benchmark, cybersecurity, agentic-coding, glasswing]
 date_added: 2026-04-08
 status: processed

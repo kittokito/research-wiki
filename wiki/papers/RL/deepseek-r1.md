@@ -4,10 +4,14 @@ aliases: ["DeepSeek-R1-Zero"]
 created: 2026-04-08
 updated: 2026-04-08
 tags: [RLVR, reasoning, DeepSeek, pure-RL, self-verification, reflection]
+peer_review: accepted
+venue: "Nature 2025"
 sources: [src-deepseek-r1]
 ---
 
 # DeepSeek-R1
+
+> **査読**: ✅ accepted — Nature 2025
 
 ## ソースからの事実
 - DeepSeek-V3-Baseに対しSFTなしのpure RLでreasoning capabilityが大幅に向上 [source](../../../sources/RL/deepseek-r1.md)

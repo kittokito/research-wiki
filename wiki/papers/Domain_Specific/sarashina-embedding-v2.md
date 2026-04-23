@@ -4,10 +4,14 @@ aliases: ["Sarashina Embedding"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [embedding, Japanese, retrieval]
+peer_review: n/a
+venue: ""
 sources: [src-sarashina-embedding-v2]
 ---
 
 # Sarashina-Embedding-v2-1B: 日本語テキスト埋め込みモデル
+
+> **査読**: — n/a（ブログ記事）
 
 SB Intuitions (2025) — sbintuitions.co.jp Blog
 

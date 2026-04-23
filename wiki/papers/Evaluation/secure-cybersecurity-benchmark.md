@@ -4,10 +4,14 @@ aliases: ["SECURE benchmark", "SECURE"]
 created: 2026-04-15
 updated: 2026-04-15
 tags: [cybersecurity, benchmark, ICS, evaluation, LLM-reliability]
+peer_review: accepted
+venue: "ACSAC 2024"
 sources: [src-secure-cybersecurity-benchmark]
 ---
 
 # SECURE: Benchmarking Large Language Models for Cybersecurity
+
+> **査読**: ✅ accepted — ACSAC 2024
 
 ## ソースからの事実
 - ICSセクター特化の6データセット（MAET, CWET, KCV, VOOD, RERT, CPST）で知識抽出・理解・推論を評価 [source](../../../sources/Evaluation/secure-cybersecurity-benchmark.md)

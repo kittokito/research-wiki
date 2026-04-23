@@ -4,10 +4,14 @@ aliases: ["Geometry of Forgetting", "HIDE"]
 created: 2026-04-14
 updated: 2026-04-14
 tags: [memory, forgetting, embedding, interference, false-memory, geometry, dimensionality]
+peer_review: preprint
+venue: ""
 sources: [src-geometry-of-forgetting]
 ---
 
 # The Geometry of Forgetting
+
+> **査読**: 📝 preprint
 
 Barman, Starenky, Bodnar, Narasimhan, Gopinath (2026) — arXiv 2604.06222 / Sentra + MIT
 

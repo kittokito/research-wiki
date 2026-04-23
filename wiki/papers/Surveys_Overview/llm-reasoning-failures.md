@@ -4,10 +4,14 @@ aliases: ["LLM Reasoning Failures"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [LLM, reasoning, robustness, survey, formal-reasoning, informal-reasoning]
+peer_review: accepted
+venue: "TMLR 2026"
 sources: [src-llm-reasoning-failures]
 ---
 
 # Large Language Model Reasoning Failures
+
+> **査読**: ✅ accepted — TMLR 2026
 
 Song, Han, Goodman (2026) — TMLR 2026
 

@@ -5,6 +5,8 @@ authors: ["Seonghyeon Ye", "Yunhao Ge", "Kaiyuan Zheng", "Shenyuan Gao", "Sihyun
 year: 2026
 url: "https://arxiv.org/abs/2602.15922"
 type: paper
+peer_review: workshop
+venue: "ICLR 2026 Workshop on World Models"
 tags: [world-model, video-diffusion, robotics, zero-shot, cross-embodiment]
 date_added: 2026-04-07
 status: processed

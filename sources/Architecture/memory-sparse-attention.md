@@ -5,6 +5,8 @@ authors: ["Yu Chen", "Runkai Chen", "Sheng Yi", "Xinda Zhao", "Xiaohong Li", "Ji
 year: 2026
 url: "https://arxiv.org/abs/2603.23516"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [sparse-attention, long-context, RoPE, KV-cache, 100M-tokens, memory]
 date_added: 2026-04-07
 status: processed

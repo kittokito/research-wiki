@@ -4,10 +4,14 @@ aliases: ["SwallowCode", "SwallowMath"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [pretraining-data, data-quality, code, math]
+peer_review: accepted
+venue: "ICLR 2026"
 sources: [src-rewriting-pretraining-data]
 ---
 
 # Rewriting Pre-Training Data Boosts LLM Performance in Math and Code
+
+> **査読**: ✅ accepted — ICLR 2026
 
 Fujii, Tajima, Mizuki et al. (2025) — arXiv 2505.02881
 

@@ -4,10 +4,14 @@ aliases: ["Self-Organizing LLM Agents"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [multi-agent, self-organization, scalability]
+peer_review: under-review
+venue: "IEEE Access（投稿中）"
 sources: [src-self-organizing-llm-agents]
 ---
 
 # Drop the Hierarchy and Roles: How Self-Organizing LLM Agents Outperform Designed Structures
+
+> **査読**: 🔄 under-review — IEEE Access（投稿中、arXiv Commentsで明記）
 
 Dochkina (2026) — arXiv 2603.28990
 

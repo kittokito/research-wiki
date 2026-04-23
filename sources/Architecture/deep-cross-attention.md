@@ -5,6 +5,8 @@ authors: ["Mike Heddes", "Adel Javanmard", "Kyriakos Axiotis", "Gang Fu", "Moham
 year: 2025
 url: "https://arxiv.org/abs/2502.06785"
 type: paper
+peer_review: accepted
+venue: "ICML 2025"
 tags: [residual-connection, transformer, attention, architecture, training-efficiency]
 date_added: 2026-04-07
 status: processed

@@ -5,6 +5,8 @@ authors: ["Xin Cheng", "Wangding Zeng", "Damai Dai", "Qinyu Chen", "Bingxuan Wan
 year: 2026
 url: "https://arxiv.org/abs/2601.07372"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [sparsity, MoE, N-gram, embedding, scaling-law, architecture, efficiency]
 date_added: 2026-04-07
 status: processed

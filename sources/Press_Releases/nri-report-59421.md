@@ -5,6 +5,8 @@ authors: ["幸田敏宏", "長谷佳明", "権藤亜希子"]
 year: 2026
 url: "https://www.nri.com/jp/knowledge/report/2026forum407.html"
 type: paper
+peer_review: n/a
+venue: ""
 tags: [agentic-AI, AGI, IT-roadmap, NRI, physical-AI, sovereign-AI, responsible-AI]
 date_added: 2026-04-07
 status: processed

@@ -5,6 +5,8 @@ authors: ["Philipp Schmid"]
 year: 2026
 url: "https://www.philschmid.de/kimi-composer-context"
 type: blog
+peer_review: n/a
+venue: ""
 tags: [RL, agent, Kimi, Cursor, Chroma, training, production]
 date_added: 2026-04-07
 status: processed

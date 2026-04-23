@@ -5,6 +5,8 @@ authors: ["Zhenda Xie", "Yixuan Wei", "Huanqi Cao", "Chenggang Zhao", "Chengqi D
 year: 2025
 url: "https://arxiv.org/abs/2512.24880"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [residual-connection, hyper-connections, manifold, identity-mapping, scalability, architecture]
 date_added: 2026-04-07
 status: processed

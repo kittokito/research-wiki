@@ -5,6 +5,8 @@ authors: ["Lianghui Zhu", "Yuxin Fang", "Bencheng Liao", "Shijie Wang", "Tianhen
 year: 2026
 url: "https://arxiv.org/abs/2603.15619"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [attention, depth, signal-degradation, residual, FlashAttention, architecture]
 date_added: 2026-04-07
 status: processed

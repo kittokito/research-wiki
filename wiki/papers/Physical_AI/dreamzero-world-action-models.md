@@ -4,10 +4,14 @@ aliases: ["DreamZero"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [world-model, robotics, zero-shot, video-diffusion]
+peer_review: workshop
+venue: "ICLR 2026 Workshop on World Models"
 sources: [src-dreamzero-world-action-models]
 ---
 
 # World Action Models are Zero-shot Policies (DreamZero)
+
+> **査読**: 📋 workshop — ICLR 2026 Workshop on World Models
 
 Ye, Ge, Zheng et al. (2026) — arXiv 2602.15922
 

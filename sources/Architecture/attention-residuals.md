@@ -5,6 +5,8 @@ authors: ["Guangyu Chen", "Yu Zhang", "Jianlin Su", "Weixin Xu", "Siyuan Pan", "
 year: 2026
 url: "https://arxiv.org/abs/2603.15031"
 type: paper
+peer_review: n/a
+venue: ""
 tags: [residual-connection, attention, PreNorm, architecture, Kimi]
 date_added: 2026-04-07
 status: processed
