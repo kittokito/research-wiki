@@ -5,6 +5,8 @@ authors: ["Lintang Sutawika", "Aditya Bharat Soni", "Bharath Sriraam R R", "Apur
 year: 2026
 url: "https://arxiv.org/abs/2603.17829"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [RL, code-search, localization, SWE-Bench, agent, GSPO, OpenHands]
 date_added: 2026-04-08
 status: processed

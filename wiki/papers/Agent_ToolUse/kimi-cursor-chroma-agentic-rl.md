@@ -4,10 +4,14 @@ aliases: ["Agentic RL Training"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [RL, agent, training, production]
+peer_review: n/a
+venue: ""
 sources: [src-kimi-cursor-chroma-agentic-rl]
 ---
 
 # How Kimi, Cursor, and Chroma Train Agentic Models with RL
+
+> **査読**: — n/a（ブログ記事）
 
 Schmid (2026) — philschmid.de Blog
 

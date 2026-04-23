@@ -5,6 +5,8 @@ authors: ["Shuo Yang", "Haocheng Xi", "Yilong Zhao", "Muyang Li", "Xiaoze Fan", 
 year: 2026
 url: "https://arxiv.org/abs/2603.03329"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [k-means, GPU, optimization, FlashAssign, HBM, CUDA]
 date_added: 2026-04-07
 status: processed

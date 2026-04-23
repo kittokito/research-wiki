@@ -5,6 +5,8 @@ authors: ["Sakana AI"]
 year: 2026
 url: "https://sakana.ai/namazu-alpha/"
 type: blog
+peer_review: n/a
+venue: ""
 tags: [post-training, Japanese, localization, open-weight, Sakana]
 date_added: 2026-04-07
 status: processed

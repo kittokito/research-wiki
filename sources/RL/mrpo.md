@@ -5,6 +5,8 @@ authors: ["Dayu Wang", "Jiaye Yang", "Weikang Li", "Jiahui Liang", "Yang Li"]
 year: 2026
 url: "https://arxiv.org/abs/2602.02545"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [RLVR, MRPO, manifold, reasoning, GRPO, effective-rank, spectral-orthogonal-exploration, math]
 date_added: 2026-04-08
 status: processed

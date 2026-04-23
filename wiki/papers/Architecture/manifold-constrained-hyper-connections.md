@@ -4,10 +4,14 @@ aliases: ["mHC"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [residual-connection, hyper-connections, manifold, architecture]
+peer_review: preprint
+venue: ""
 sources: [src-manifold-constrained-hyper-connections]
 ---
 
 # mHC: Manifold-Constrained Hyper-Connections
+
+> **査読**: 📝 preprint
 
 Xie, Wei, Cao et al. (2025) — arXiv 2512.24880
 

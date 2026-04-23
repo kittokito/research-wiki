@@ -4,10 +4,14 @@ aliases: ["Neural Thickets"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [post-training, pretrained-weights, ensemble]
+peer_review: preprint
+venue: ""
 sources: [src-neural-thickets]
 ---
 
 # Neural Thickets: Diverse Task Experts Are Dense Around Pretrained Weights
+
+> **査読**: 📝 preprint
 
 Gan, Isola (2026) — arXiv 2603.12228
 

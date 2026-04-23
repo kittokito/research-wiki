@@ -4,10 +4,14 @@ aliases: ["Engram", "Conditional Memory"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [sparsity, MoE, N-gram, embedding, scaling-law, architecture, efficiency]
+peer_review: preprint
+venue: ""
 sources: [src-conditional-memory-scalable-lookup]
 ---
 
 # Conditional Memory via Scalable Lookup
+
+> **査読**: 📝 preprint
 
 Cheng, Zeng, Dai et al. (2026) — arXiv 2601.07372
 

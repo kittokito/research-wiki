@@ -4,10 +4,14 @@ aliases: ["SWE-CI"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [evaluation, benchmark, agent, CI]
+peer_review: preprint
+venue: ""
 sources: [src-swe-ci]
 ---
 
 # SWE-CI: Evaluating Agent Capabilities in Maintaining Codebases via Continuous Integration
+
+> **査読**: 📝 preprint
 
 Chen, Xu, Wei, Chen, Zhao (2026) — arXiv 2603.10165
 

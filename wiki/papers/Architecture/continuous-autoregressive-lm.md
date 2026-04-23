@@ -4,10 +4,14 @@ aliases: ["next-vector prediction"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [autoregressive, continuous, efficiency, architecture]
+peer_review: under-review
+venue: "ICLR 2026（投稿中）"
 sources: [src-continuous-autoregressive-lm]
 ---
 
 # Continuous Autoregressive Language Models
+
+> **査読**: 🔄 under-review — ICLR 2026 Conference Submission（OpenReview [Ce6Mep9oie](https://openreview.net/forum?id=Ce6Mep9oie)）
 
 Shao, Li, Meng, Zhou (2025) — arXiv 2510.27688
 

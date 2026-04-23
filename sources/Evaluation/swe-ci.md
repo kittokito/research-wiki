@@ -5,6 +5,8 @@ authors: ["Jialong Chen", "Xander Xu", "Hu Wei", "Chuan Chen", "Bing Zhao"]
 year: 2026
 url: "https://arxiv.org/abs/2603.10165"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [evaluation, benchmark, agent, software-engineering, CI, codebase-maintenance]
 date_added: 2026-04-07
 status: processed

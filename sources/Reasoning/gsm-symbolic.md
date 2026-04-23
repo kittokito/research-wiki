@@ -5,6 +5,8 @@ authors: ["Iman Mirzadeh", "Keivan Alizadeh", "Hooman Shahrokhi", "Oncel Tuzel",
 year: 2024
 url: "https://arxiv.org/abs/2410.05229"
 type: paper
+peer_review: accepted
+venue: "ICLR 2025"
 tags: [reasoning, math, benchmark, GSM8K, symbolic, limitations]
 date_added: 2026-04-07
 status: processed

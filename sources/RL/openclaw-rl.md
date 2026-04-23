@@ -5,6 +5,8 @@ authors: ["Yinjie Wang", "Xuyang Chen", "Xiaolong Jin", "Mengdi Wang", "Ling Yan
 year: 2026
 url: "https://arxiv.org/abs/2604.01193"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [RL, agent, next-state-signal, online-learning, framework]
 date_added: 2026-04-07
 status: processed

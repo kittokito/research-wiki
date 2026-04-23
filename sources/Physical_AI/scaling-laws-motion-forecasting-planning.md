@@ -5,6 +5,8 @@ authors: ["Mustafa Baniodeh", "Kratarth Goel", "Scott Ettinger", "Carlos Fuertes
 year: 2025
 url: "https://arxiv.org/abs/2506.08228"
 type: paper
+peer_review: n/a
+venue: ""
 tags: [scaling-law, autonomous-driving, motion-forecasting, planning, transformer, compute-optimal, closed-loop]
 date_added: 2026-04-08
 status: processed

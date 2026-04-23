@@ -1,11 +1,13 @@
 ---
 id: src-rlvr-does-not-teach-new-reasoning
-title: "Does RLVR Truly Unlock New Reasoning Capabilities?"
-authors: ["Yue et al."]
+title: "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?"
+authors: ["Yang Yue", "Zhiqi Chen", "Rui Lu", "Andrew Zhao", "Zhaokai Wang", "Shiji Song", "Gao Huang"]
 year: 2025
-url: ""
+url: "https://arxiv.org/abs/2504.13837"
 type: paper
-tags: [RLVR, pass-at-k, reasoning, filtering]
+peer_review: accepted
+venue: "NeurIPS 2025"
+tags: [RLVR, pass-at-k, reasoning, filtering, sampling-efficiency, distillation, capability-analysis]
 date_added: 2026-04-08
 status: processed
 ---

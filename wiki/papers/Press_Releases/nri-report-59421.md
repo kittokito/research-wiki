@@ -4,10 +4,14 @@ aliases: ["NRI ITロードマップ2026"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [agentic-AI, AGI, IT-roadmap, NRI]
+peer_review: n/a
+venue: ""
 sources: [src-nri-report-59421]
 ---
 
 # ITロードマップ2026年版【Day2】 エージェント型AIと汎用人工知能
+
+> **査読**: — n/a（業界レポート）
 
 幸田敏宏, 長谷佳明, 権藤亜希子 (2026) — 野村総合研究所
 

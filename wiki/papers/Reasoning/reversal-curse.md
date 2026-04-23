@@ -4,10 +4,14 @@ aliases: ["Reversal Curse"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [reversal-curse, generalization, reasoning]
+peer_review: accepted
+venue: "ICLR 2024"
 sources: [src-reversal-curse]
 ---
 
 # The Reversal Curse: LLMs trained on 'A is B' fail to learn 'B is A'
+
+> **査読**: ✅ accepted — ICLR 2024
 
 Berglund, Tong, Kaufmann, Balesni, Stickland, Korbak, Evans (2023) — arXiv 2309.12288
 

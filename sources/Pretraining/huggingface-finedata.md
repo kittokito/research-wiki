@@ -5,6 +5,8 @@ authors: ["Hugging Face Science Team"]
 year: 2025
 url: "https://huggingface.co/HuggingFaceFW"
 type: code
+peer_review: accepted
+venue: "NeurIPS 2024"
 tags: [pretraining-data, FineWeb, FineWeb-Edu, multilingual, dataset, open-source]
 date_added: 2026-04-07
 status: processed

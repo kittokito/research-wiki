@@ -5,6 +5,8 @@ authors: ["Ruixiang Zhang", "Richard He Bai", "Huangjie Zheng", "Navdeep Jaitly"
 year: 2026
 url: "https://arxiv.org/abs/2603.03823"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [self-distillation, code-generation, SFT, self-improvement]
 date_added: 2026-04-07
 status: processed

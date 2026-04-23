@@ -4,10 +4,14 @@ aliases: ["TurboQuant"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [quantization, compression, KV-cache, efficiency]
+peer_review: accepted
+venue: "ICLR 2026 (Poster)"
 sources: [src-turboquant]
 ---
 
 # TurboQuant: Redefining AI Efficiency with Extreme Compression
+
+> **査読**: ✅ accepted — ICLR 2026 (Poster, [iclr.cc/virtual/2026/poster/10006985](https://iclr.cc/virtual/2026/poster/10006985))
 
 Zandieh, Mirrokni (2026) — Google Research Blog
 

@@ -5,6 +5,8 @@ authors: ["Lukas Berglund", "Meg Tong", "Max Kaufmann", "Mikita Balesni", "Asa C
 year: 2023
 url: "https://arxiv.org/abs/2309.12288"
 type: paper
+peer_review: accepted
+venue: "ICLR 2024"
 tags: [reversal-curse, generalization, autoregressive, reasoning, knowledge]
 date_added: 2026-04-07
 status: processed

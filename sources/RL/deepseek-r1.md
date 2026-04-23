@@ -5,6 +5,8 @@ authors: ["DeepSeek-AI"]
 year: 2025
 url: "https://arxiv.org/abs/2501.12948"
 type: paper
+peer_review: accepted
+venue: "Nature 2025"
 tags: [RLVR, reasoning, DeepSeek, pure-RL, self-verification]
 date_added: 2026-04-08
 status: processed

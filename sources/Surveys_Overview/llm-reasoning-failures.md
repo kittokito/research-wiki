@@ -5,6 +5,8 @@ authors: ["Peiyang Song", "Pengrui Han", "Noah Goodman"]
 year: 2026
 url: "https://arxiv.org/abs/2602.06176"
 type: paper
+peer_review: accepted
+venue: "TMLR 2026"
 tags: [LLM, reasoning, robustness, survey, formal-reasoning, informal-reasoning]
 date_added: 2026-04-07
 status: processed

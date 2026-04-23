@@ -5,6 +5,8 @@ authors: ["Andrzej Odrzywołek"]
 year: 2026
 url: "https://arxiv.org/abs/2603.21852"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [EML, Sheffer-operator, elementary-functions, symbolic-regression, binary-tree, NAND-analog, completeness]
 date_added: 2026-04-14
 status: processed

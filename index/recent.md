@@ -4,9 +4,35 @@
 
 ---
 
+## 2026-04-23
+
+- [LeWorldModel (LeWM): Stable End-to-End JEPA from Pixels](../wiki/papers/Physical_AI/leworldmodel.md) を追加 — raw pixelsからend-to-end安定学習する最初のJEPA、next-embedding prediction + Gaussian正則化の2損失項・1ハイパラ（既存end-to-end代替の6→1）、~15Mパラメータ・単GPU・数時間で学習、foundation-model-based world model比 最大48倍高速な計画を2D/3D制御で実現、潜在空間に物理量がprobingで保持・surprise評価で物理的非現実事象を検出。JEPA系world modelの普及閾値を大きく下げた (Maes, Le Lidec, Scieur, LeCun, Balestriero, 2026 / Meta FAIR)
+
+## 2026-04-22
+
+- [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) を追加 — Qwen2.5 dense全系列（0.5B–72B）で数学推論RL（GRPO）のスケーリング則を体系化、log L(N,X)=−k(N)·log X+E(N) のpower-lawと学習効率飽和 k(N)=K_max/(1+N_0/N) を定式化、データ制約下では「最適化ステップ総数」が「ユニークサンプル数」より支配的。ScaleRL の sigmoid フィットと相補的に、効率側の天井と高品質データ再利用の有効性を追加 (Tan, Geng, Yu et al., 2025 / Shanghai AI Lab × Oxford, ACL 2026 Main)
+
+## 2026-04-21
+
+- [LLM-as-a-Verifier: A General-Purpose Verification Framework](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md) を追加 — scoring granularity / repeated verification / criteria decomposition の3軸でLLM検証をスケール、agent trajectoryの軌跡reward modelとしてtest-time scalingし Terminal-Bench 2 で86.4% (SOTA)・SWE-Bench Verified 77.8%、Claude Opus 4.6 / GPT 5.4 / Geminiを上回る。小型verifier (Gemini 2.5 Flash) で大型generator出力プールを再ランキング (Kwok, Li, Atreya et al., 2026 / Stanford × UC Berkeley × NVIDIA)
+- [Attention to Mamba: A Recipe for Cross-Architecture Distillation](../wiki/papers/Architecture/attention-to-mamba-distillation.md) を追加 — Transformer→Mambaクロスアーキ蒸留の二段階レシピ（kernel trick適用linearized Attention経由で純Mambaへ、hybrid不要）、Pythia-1B teacher perplexity 13.86 → 蒸留後Mamba 14.11 (Moudgil, Huang, Dhekane et al., 2026 / Apple推定)
+- [Video models are zero-shot learners and reasoners](../wiki/papers/Multimodal/video-models-zero-shot-learners.md) を追加 — Veo 3が明示訓練外のタスク（segmentation / edge detection / editing / 物理理解 / affordance / 道具使用）をゼロショットで解ける現象を体系実証、迷路・対称性など初期visual reasoning発現、video modelが汎用視覚基盤モデルへ向かう軌道を主張（Multimodalカテゴリ初エントリ, ICLR 2026投稿 → Rejected）(Wiedemer, Li, Vicol et al., 2025 / Google DeepMind)
+- [ScaleRL: The Art of Scaling Reinforcement Learning Compute for LLMs](../wiki/papers/RL/scale-rl.md) を追加 — 40万GPU時間超の体系実験でLLM向けRLのsigmoid計算-性能曲線を定式化、「漸近性能を動かす設計選択」と「計算効率のみを動かす設計選択（loss aggregation / 正則化 / curriculum / off-policy等）」を切り分け。安定レシピは予測可能scalingを示し、10万GPU時間規模の単一ランで検証損失を事前予測。ベストプラクティス ScaleRL を提案。RLVR能力境界論争を「asymptote vs efficiency」の軸で再定式化する道具立てとして、topics/RL/rlvr-capability-boundary を更新 (Khatri, Madaan, Tiwari et al., 2025 / Meta × UT Austin, ICLR 2026 Oral)
+- [LiveBench: A Challenging, Contamination-Limited LLM Benchmark](../wiki/papers/Evaluation/livebench.md) を追加 — 汚染耐性 + 客観自動採点 + 広範タスク（math/coding/reasoning/language/instruction-following/data analysis）+ 月次更新を同時達成した初のベンチマーク、arXiv・math competitions・news・datasetsから問題構築、Big-Bench Hard / AMPS / IFEval 困難化版を含み、0.5B-405Bのモデル評価でトップでも70%未満。全問題・コード・回答公開 (White, Dooley, Roberts et al., 2024 / Abacus.AI × Meta × NYU × UMD × USC, ICLR 2025 Spotlight)
+
+## 2026-04-20
+
+- [ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md) を追加 — 過去最大規模の多言語スケーリング則研究（774実験 / 10M-8B / 400+学習言語 / 48評価言語）、ATLASが既存スケーリング則を out-of-sample で +0.3 R² 以上上回る、1444言語ペアの転移行列、scratch学習 vs 多言語checkpointからのfinetuneの計算クロスオーバー点を同定 (Longpre, Kudugunta, Muennighoff et al., 2025 / MIT × Google × Stanford, ICLR 2026)
+
+## 2026-04-17
+
+- [Flash-RL / TIS: Your Efficient RL Framework Secretly Brings You Off-Policy RL Training](../wiki/papers/RL/flash-rl-tis.md) を追加 — vLLM/SGLangなrolloutとFSDP/Megatronな学習の実装差分が、同一θでもトークン確率を大きくずらし on-policy RL を暗黙に off-policy 化。Truncated Importance Sampling（`min(π_learner/π_sampler, C)`）による数行の勾配修正で、Qwen2.5-32B+DAPO・INT8 rolloutでも性能回復、entropy collapse／応答長暴走／負のKL推定を解消。VeRL・slime・OAT・SkyRL・OpenRLHF・REINFORCE++ に統合済み (Yao, Liu et al., 2025 / UCSD × MSR)
+- [RS-GRPO: Risk-Sensitive RL for Alleviating Exploration Dilemmas](../wiki/papers/RL/rs-grpo.md) を追加 — sharpened prior × 標準RL目的関数がpass@k低下を招く「exploration dilemma」を定式化、CVaRベースのリスク感応的目的関数でGRPO数行修正、6数学ベンチ×5LLMでpass@1維持+pass@k向上 (Jiang et al., 2025 / 清華大 × ByteDance Seed)
+
 ## 2026-04-15
 
 - [SECURE: Benchmarking LLMs for Cybersecurity](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) を追加 — ICS特化6データセット（MAET, CWET, KCV, VOOD, RERT, CPST）で7モデルを評価、ChatGPT-4が4/6タスクで最高、OOD検出（VOOD）でChatGPT-3.5が8.4%に壊滅的劣化 (Bhusal et al., 2024)
+- [Scalable Extraction of Training Data from LMs](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md) を追加 — 単一トークン反復のdivergence attackでChatGPTの学習データを150倍速で抽出、約$200で10,000+系列、アラインメントはメモリゼーションを隠蔽するだけで除去しない (Nasr, Carlini et al., 2023)
 
 ## 2026-04-14
 

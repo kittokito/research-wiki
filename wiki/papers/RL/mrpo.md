@@ -4,10 +4,14 @@ aliases: ["MRPO", "Beyond Alignment"]
 created: 2026-04-08
 updated: 2026-04-08
 tags: [RLVR, MRPO, manifold, reasoning, GRPO, effective-rank, spectral-orthogonal-exploration, math]
+peer_review: preprint
+venue: ""
 sources: [src-mrpo]
 ---
 
 # MRPO: Manifold-Reshaping Policy Optimization
+
+> **査読**: 📝 preprint
 
 ## ソースからの事実
 - 標準RLVRはbias manifold（低ランク多様体）に閉じ込められ、能力境界を真に拡張できないと主張（"The Trap"） [source](../../../sources/RL/mrpo.md)

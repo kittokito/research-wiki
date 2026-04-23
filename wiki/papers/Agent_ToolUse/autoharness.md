@@ -4,10 +4,14 @@ aliases: ["AutoHarness"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [agent, code-synthesis, harness]
+peer_review: workshop
+venue: "ICLR 2026 Workshop on Recursive Self-Improvement"
 sources: [src-autoharness]
 ---
 
 # AutoHarness: improving LLM agents by automatically synthesizing a code harness
+
+> **査読**: 📋 workshop — ICLR 2026 Workshop on Recursive Self-Improvement
 
 Lou, Lázaro-Gredilla, Dedieu, Wendelken, Lehrach, Murphy (2026) — arXiv 2603.09229
 

@@ -4,10 +4,14 @@ aliases: ["Karpathy Wiki Workflow"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [LLM-workflow, knowledge-management, personal-wiki]
+peer_review: n/a
+venue: ""
 sources: [src-karpathy-tweet-2039805659525644595]
 ---
 
 # LLM Knowledge Bases — Karpathy's Wiki Workflow
+
+> **査読**: — n/a（ツイート）
 
 Andrej Karpathy (2026) — X (Twitter)
 

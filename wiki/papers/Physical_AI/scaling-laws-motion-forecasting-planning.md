@@ -4,10 +4,14 @@ aliases: []
 created: 2026-04-08
 updated: 2026-04-08
 tags: [scaling-law, autonomous-driving, motion-forecasting, planning, transformer, closed-loop]
+peer_review: n/a
+venue: ""
 sources: [src-scaling-laws-motion-forecasting-planning]
 ---
 
 # Scaling Laws of Motion Forecasting and Planning
+
+> **査読**: — n/a（テクニカルレポート）
 
 自動運転の動作予測・計画タスクでのスケーリング則を50万時間の走行データ・84モデルで実証。LLMと同様のべき乗則が成立し、閉ループ評価でもスケーリングが機能することを示した。Waymo研究チーム。
 

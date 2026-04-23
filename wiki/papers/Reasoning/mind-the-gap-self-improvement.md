@@ -4,10 +4,14 @@ aliases: ["Mind the Gap", "Self-Improvement"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [self-improvement, verification, generation, reasoning]
+peer_review: accepted
+venue: "ICLR 2025"
 sources: [src-mind-the-gap-self-improvement]
 ---
 
 # Mind the Gap: Examining the Self-Improvement Capabilities of Large Language Models
+
+> **査読**: ✅ accepted — ICLR 2025
 
 Song, Zhang, Eisenach, Kakade, Foster, Ghai (2024) — arXiv 2412.02674
 

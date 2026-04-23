@@ -5,6 +5,8 @@ authors: ["Kimi Team"]
 year: 2026
 url: "https://arxiv.org/abs/2602.02276"
 type: paper
+peer_review: n/a
+venue: ""
 tags: [multimodal, agent, vision-language, technical-report, Kimi]
 date_added: 2026-04-07
 status: processed

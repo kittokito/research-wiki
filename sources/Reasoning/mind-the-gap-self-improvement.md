@@ -5,6 +5,8 @@ authors: ["Yuda Song", "Hanlin Zhang", "Carson Eisenach", "Sham Kakade", "Dean F
 year: 2024
 url: "https://arxiv.org/abs/2412.02674"
 type: paper
+peer_review: accepted
+venue: "ICLR 2025"
 tags: [self-improvement, verification, generation, self-distillation, reasoning]
 date_added: 2026-04-07
 status: processed

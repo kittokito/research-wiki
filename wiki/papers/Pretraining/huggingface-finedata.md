@@ -4,10 +4,14 @@ aliases: ["FineData", "FineWeb", "HuggingFaceFW"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [pretraining-data, dataset, open-source, multilingual]
+peer_review: accepted
+venue: "NeurIPS 2024"
 sources: [src-huggingface-finedata]
 ---
 
 # FineData: Large-scale Pre-training Datasets by Hugging Face
+
+> **査読**: ✅ accepted — NeurIPS 2024
 
 Hugging Face Science Team (2025) — huggingface.co
 

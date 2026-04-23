@@ -4,10 +4,14 @@ aliases: ["V-JEPA 2"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [self-supervised, video, robotics, JEPA]
+peer_review: preprint
+venue: ""
 sources: [src-v-jepa-2]
 ---
 
 # V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning
+
+> **査読**: 📝 preprint
 
 Assran, Bardes, Fan et al. (2025) — arXiv 2506.09985
 

@@ -5,6 +5,8 @@ authors: ["Shigeto Kawahara"]
 year: 2026
 url: "https://www.researchgate.net/publication/400103592_P-hacking_with_one_prompt"
 type: paper
+peer_review: preprint
+venue: ""
 tags: [p-hacking, LLM, statistical-analysis, evaluation, sycophancy, research-integrity]
 date_added: 2026-04-13
 status: processed

@@ -4,10 +4,14 @@ aliases: ["AI Psychosis", "Delusional Spiraling"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [sycophancy, safety, alignment]
+peer_review: preprint
+venue: ""
 sources: [src-sycophantic-delusional-spiraling]
 ---
 
 # Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians
+
+> **査読**: 📝 preprint
 
 Chandra, Kleiman-Weiner, Ragan-Kelley, Tenenbaum (2026) — arXiv 2602.19141
 

@@ -5,6 +5,8 @@ authors: ["不明（arXiv 2510.04028）"]
 year: 2025
 url: "https://arxiv.org/html/2510.04028v1"
 type: paper
+peer_review: under-review
+venue: ""
 tags: [RLVR, reasoning, capability-boundary, GRPO, exploration, exploitation]
 date_added: 2026-04-08
 status: processed

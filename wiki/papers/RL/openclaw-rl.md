@@ -4,10 +4,14 @@ aliases: ["OpenClaw-RL"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [RL, agent, next-state-signal]
+peer_review: preprint
+venue: ""
 sources: [src-openclaw-rl]
 ---
 
 # OpenClaw-RL: Train Any Agent Simply by Talking
+
+> **査読**: 📝 preprint
 
 Wang, Chen, Jin, Wang, Yang (2026) — arXiv 2604.01193
 

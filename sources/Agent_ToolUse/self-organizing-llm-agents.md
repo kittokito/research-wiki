@@ -5,6 +5,8 @@ authors: ["Victoria Dochkina"]
 year: 2026
 url: "https://arxiv.org/abs/2603.28990"
 type: paper
+peer_review: under-review
+venue: "IEEE Access（投稿中）"
 tags: [multi-agent, self-organization, hierarchy, coordination, scalability]
 date_added: 2026-04-07
 status: processed

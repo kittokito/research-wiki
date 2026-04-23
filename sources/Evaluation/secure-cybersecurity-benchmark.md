@@ -5,6 +5,8 @@ authors: ["Dipkamal Bhusal", "Md Tanvirul Alam", "Le Nguyen", "Ashim Mahara", "Z
 year: 2024
 url: "https://arxiv.org/abs/2405.20441v4"
 type: paper
+peer_review: accepted
+venue: "ACSAC 2024"
 tags: [cybersecurity, benchmark, ICS, MITRE-ATT&CK, CWE, CVE, LLM-evaluation]
 date_added: 2026-04-15
 status: processed

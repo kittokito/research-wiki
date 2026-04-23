@@ -4,10 +4,14 @@ aliases: ["P-hacking with one prompt", "LLM p-hacking"]
 created: 2026-04-13
 updated: 2026-04-13
 tags: [p-hacking, LLM, statistical-analysis, evaluation, sycophancy, research-integrity]
+peer_review: preprint
+venue: ""
 sources: [src-p-hacking-with-one-prompt]
 ---
 
 # P-hacking with one prompt
+
+> **査読**: 📝 preprint
 
 Kawahara (2026) — ResearchGate / 慶應義塾大学
 

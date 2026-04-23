@@ -5,6 +5,8 @@ authors: ["Kazuki Fujii", "Yukito Tajima", "Sakae Mizuki", "Masaki Kawamura", "H
 year: 2025
 url: "https://arxiv.org/abs/2505.02881"
 type: paper
+peer_review: accepted
+venue: "ICLR 2026"
 tags: [pretraining-data, data-quality, code, math, Swallow, rewriting]
 date_added: 2026-04-07
 status: processed

@@ -4,10 +4,14 @@ aliases: ["SSD", "Simple Self-Distillation"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [self-distillation, code-generation, post-training]
+peer_review: preprint
+venue: ""
 sources: [src-simple-self-distillation-code]
 ---
 
 # Embarrassingly Simple Self-Distillation Improves Code Generation
+
+> **査読**: 📝 preprint
 
 Zhang, Bai, Zheng, Jaitly, Collobert, Zhang (2026) — arXiv 2603.03823
 

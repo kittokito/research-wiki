@@ -5,6 +5,8 @@ authors: ["Heiko Koziolek", "Virendra Ashiwal", "Soumyadip Bandyopadhyay", "Chan
 year: 2024
 url: "https://arxiv.org/abs/2405.01874v1"
 type: paper
+peer_review: accepted
+venue: "IEEE ETFA 2024"
 tags: [PLC, industrial-automation, test-generation, DCS, control-logic]
 date_added: 2026-04-07
 status: processed

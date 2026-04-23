@@ -4,10 +4,14 @@ aliases: ["GSM-Symbolic"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [reasoning, math, benchmark, limitations]
+peer_review: accepted
+venue: "ICLR 2025"
 sources: [src-gsm-symbolic]
 ---
 
 # GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models
+
+> **査読**: ✅ accepted — ICLR 2025
 
 Mirzadeh, Alizadeh, Shahrokhi, Tuzel, Bengio, Farajtabar (2024) — arXiv 2410.05229 / Apple Research
 

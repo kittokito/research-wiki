@@ -5,6 +5,8 @@ authors: ["Vincent A. Traag", "Ludo Waltman", "Nees Jan van Eck"]
 year: 2019
 url: "https://arxiv.org/abs/1810.08473"
 type: paper
+peer_review: accepted
+venue: "Scientific Reports 2019"
 tags: [community-detection, graph-algorithm, Leiden, Louvain, modularity, network-analysis]
 date_added: 2026-04-10
 status: processed

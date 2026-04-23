@@ -41,6 +41,12 @@
 - [ ] 閉ループでのスケーリング成立は他のアーキテクチャ（因子分解アテンション等）でも再現するか？ → [paper](../wiki/papers/Physical_AI/scaling-laws-motion-forecasting-planning.md)
 - [ ] end-to-end vision入力にした場合もスケーリング則は維持されるか？ → [paper](../wiki/papers/Physical_AI/scaling-laws-motion-forecasting-planning.md)
 
+### LeWorldModel (LeWM) より
+- [ ] Gaussian-distributed latent 正則化は、V-JEPA 2相当の大規模video + robot trajectoryにスケールしても同じ安定性を維持するか？ → [paper](../wiki/papers/Physical_AI/leworldmodel.md)
+- [ ] Gaussian事前分布はタスク一般に最適か？言語・マルチモーダル等では別の latent 分布が適切ではないか？ → [paper](../wiki/papers/Physical_AI/leworldmodel.md)
+- [ ] 「foundation world model比48倍高速」の倍率は planner (MPC / sampling / policy rollout) や horizon 選択にどこまでロバストか？ → [paper](../wiki/papers/Physical_AI/leworldmodel.md)
+- [ ] 2損失項・1ハイパラのシンプルさを維持したまま、action-conditioned（V-JEPA 2-AC相当）に拡張可能か？ → [paper](../wiki/papers/Physical_AI/leworldmodel.md)
+
 ### DreamZero / V-JEPA 2 より
 - [ ] World Action Model vs JEPAの優劣は？ → [paper](../wiki/papers/Physical_AI/dreamzero-world-action-models.md)
 - [ ] 7Hz以上（30Hz+）のリアルタイム制御は達成可能か？ → [paper](../wiki/papers/Physical_AI/dreamzero-world-action-models.md)
@@ -87,9 +93,59 @@
 - [ ] LLMの内部表現の有効次元数は埋め込みモデルの~16と同程度か、それとも異なるレジームにあるか？ → [paper](../wiki/papers/Reasoning/geometry-of-forgetting.md)
 - [ ] メタデータ制約やハイブリッド検索（lexical + semantic）はvector averaging fallacyをどの程度緩和するか？ → [paper](../wiki/papers/Reasoning/geometry-of-forgetting.md)
 
+### Scalable Extraction of Training Data from LMs より
+- [ ] GPT-4o、Claude等の最新モデルはdivergence attackに対して根本的に堅牢か、それとも同種の攻撃が未発見なだけか？ → [paper](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md)
+- [ ] 差分プライバシー付き学習は実用的なスケールでメモリゼーションをどの程度低減できるか？ → [paper](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md)
+- [ ] メモリゼーション量とモデル性能のトレードオフはどこにあるか？ → [paper](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md)
+
 ### SECURE: Benchmarking LLMs for Cybersecurity より
 - [ ] 最新モデル（Claude Opus 4.6, GPT-4o等）でVOODの性能差は縮小しているか？ → [paper](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md)
 - [ ] ICS以外のサイバーセキュリティ領域（Web脆弱性、マルウェア分析等）に拡張した場合、同様の傾向が見られるか？ → [paper](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md)
 
 ### TurboQuant / MSA より
 - [ ] TurboQuantとMSAのKVキャッシュ圧縮を組み合わせた効果は？ → [paper](../wiki/papers/Efficiency_Optimization/turboquant.md)
+
+### ATLAS: Multilingual Scaling Laws より
+- [ ] 8B以上（70B+ 規模）でATLASの外挿は成立するか？ → [paper](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)
+- [ ] 400+学習言語のうち転移行列に含まれない大多数の言語について、ATLAS係数からの外挿はどの程度信頼できるか？ → [paper](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)
+- [ ] Curse of Multilinguality はモデル容量拡大（MoE等のsparsity活用）で本質的に解消可能か、それとも capacity-agnostic な情報論的限界か？ → [paper](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)
+- [ ] ATLAS は encoder-only / encoder-decoder アーキテクチャでも同等に成立するか？ → [paper](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)
+
+### LiveBench より
+- [ ] 月次更新スケジュールの運用持続性は？コミュニティ貢献が途絶えた場合のフォールバック設計は？ → [paper](../wiki/papers/Evaluation/livebench.md)
+- [ ] 「公開 → 学習データ混入 → 汚染」のラグは実測でどの程度短縮しているか（モデルリリース頻度との関係）？ → [paper](../wiki/papers/Evaluation/livebench.md)
+- [ ] 自由記述・創造的タスクを LiveBench 流の客観採点に落とし込む設計原則は可能か？ → [paper](../wiki/papers/Evaluation/livebench.md)
+- [ ] トップモデル < 70% の制約は月次の困難化でどの程度維持されているか（寿命シミュレーション）？ → [paper](../wiki/papers/Evaluation/livebench.md)
+
+### Scaling Behaviors of LLM RL Post-Training (Tan et al., 2025) より
+- [ ] k(N) saturation の K_max, N_0 はタスク / RLアルゴリズム / 報酬形状でどう変化するか？普遍定数は存在するか？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
+- [ ] Qwen2.5 以外の系列（MoE / LLaMA / DeepSeek / Kimi）でも同じ power-law + k(N) 飽和式が成立するか？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
+- [ ] 「最適化ステップ総数 vs サンプルユニーク数」の支配関係は agentic RL でも成立するか？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
+- [ ] 本論文の power-law と ScaleRL の sigmoid はどの計算量レンジで切り替わるか？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
+- [ ] k(N) saturation の物理的（アーキテクチャ的）起源は何か？表現容量と報酬信号分布のミスマッチが支配因子か？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
+
+### ScaleRL より
+- [ ] 「asymptote を動かす設計選択」のリスト化・体系化は可能か？タスク・モデル規模を跨いで一般化するか？ → [paper](../wiki/papers/RL/scale-rl.md)
+- [ ] 70B+ の大規模モデルでも sigmoid フィッティングが維持されるか、power law に遷移するか？ → [paper](../wiki/papers/RL/scale-rl.md)
+- [ ] 「効率のみ調整する設計選択」は本当に asymptote に影響しないのか、実測計算量が不足しているだけの可能性は？ → [paper](../wiki/papers/RL/scale-rl.md)
+- [ ] ScaleRL の外挿能力は agentic RL（環境内行動・長鎖ツール使用）でも成立するか？ → [paper](../wiki/papers/RL/scale-rl.md)
+- [ ] rollout/学習ミスマッチ（Flash-RL/TIS）を補正しない場合、ScaleRL の sigmoid漸近値推定はどの程度歪むか？ → [paper](../wiki/papers/RL/scale-rl.md)
+
+### Video models are zero-shot learners より
+- [ ] Veo 3 の emergent zero-shot 能力はスケーリング単調比例か、閾値的（phase transition）か？ → [paper](../wiki/papers/Multimodal/video-models-zero-shot-learners.md)
+- [ ] 迷路・対称性以外の難視覚推論（多段因果・抽象パターン）もゼロショットで成立するか？ → [paper](../wiki/papers/Multimodal/video-models-zero-shot-learners.md)
+- [ ] オープンvideo model（Wan 等）で同様の能力は再現するか？ Veo 3 特有の要因は何か？ → [paper](../wiki/papers/Multimodal/video-models-zero-shot-learners.md)
+- [ ] ICLR 2026 Rejection の査読側の具体的な反論は何か（公開コメント確認）？ → [paper](../wiki/papers/Multimodal/video-models-zero-shot-learners.md)
+
+### Attention to Mamba Distillation より
+- [ ] 7B+ 以上でも教師性能保持（Δperplexity < 0.5）が維持されるか？ → [paper](../wiki/papers/Architecture/attention-to-mamba-distillation.md)
+- [ ] Mamba-2・Mamba-3 等の新世代SSMバリアントへの移植は追加設計なしで可能か？ → [paper](../wiki/papers/Architecture/attention-to-mamba-distillation.md)
+- [ ] 二段階蒸留のトークン配分最適解はモデルサイズ依存か、普遍定数か？ → [paper](../wiki/papers/Architecture/attention-to-mamba-distillation.md)
+- [ ] long-chain推論・数学・コード等のタスクで純Mamba蒸留モデルの限界はどこに現れるか？ → [paper](../wiki/papers/Architecture/attention-to-mamba-distillation.md)
+
+### LLM-as-a-Verifier より
+- [ ] 3軸スケール（granularity × repetition × decomposition）の計算コスト対 downstream 改善曲線は？最適配分は？ → [paper](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md)
+- [ ] 同一モデルでのself-verificationと異モデル構成の性能差はどこから生まれるか？ → [paper](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md)
+- [ ] 数学・マルチモーダル・長文要約等の非コーディング領域で同じ3軸スケールが成立するか？ → [paper](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md)
+- [ ] Terminal-Bench pairwise 78.9% が downstream 86.4% までブーストされる理論的説明は？（BoN bound） → [paper](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md)
+- [ ] このフレームワークを RLVR の reward model として訓練時に組み込むと inference-time 利用を超える効果が出るか？ → [paper](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md)

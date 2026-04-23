@@ -4,10 +4,14 @@ aliases: ["Kimi K2.5"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [multimodal, agent, technical-report, Kimi]
+peer_review: n/a
+venue: ""
 sources: [src-kimi-k25]
 ---
 
 # Kimi K2.5: Visual Agentic Intelligence
+
+> **査読**: — n/a（テクニカルレポート）
 
 Kimi Team (2026) — arXiv 2602.02276
 

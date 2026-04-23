@@ -1,13 +1,17 @@
 ---
-title: "Does RLVR Truly Unlock New Reasoning Capabilities?"
-aliases: ["Yue et al. RLVR filtering"]
+title: "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?"
+aliases: ["Yue et al. RLVR filtering", "Does RLVR Truly Unlock New Reasoning Capabilities?"]
 created: 2026-04-08
 updated: 2026-04-08
 tags: [RLVR, pass-at-k, reasoning, filtering, sharpening]
+peer_review: accepted
+venue: "NeurIPS 2025"
 sources: [src-rlvr-does-not-teach-new-reasoning]
 ---
 
 # Does RLVR Truly Unlock New Reasoning Capabilities?
+
+> **査読**: ✅ accepted — NeurIPS 2025 (Oral, Best Paper Runner-up)
 
 ## ソースからの事実
 - Pass@1は向上するがpass@k（大きいk）ではbase modelが上回ることがある [source](../../../sources/RL/rlvr-does-not-teach-new-reasoning.md)
