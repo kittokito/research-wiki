@@ -46,6 +46,8 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Technical_Report
 - [Kimi K2.5](papers/Technical_Report/kimi-k25.md) — オープンソースマルチモーダルエージェントモデル (Kimi Team, 2026) `— tech report`
+- [MiniMax-M1](papers/Technical_Report/minimax-m1.md) — 世界初のオープンウェイト大規模ハイブリッドアテンション推論モデル、456B MoE / 45.9B active + lightning attention、ネイティブ1M context（DeepSeek R1の8倍）、新規RLアルゴリズム CISPO（IS重みクリップ）、512 H800 × 3週間 / $534,700 でフルRL訓練、DeepSeek-R1/Qwen3-235Bに匹敵（特にSWE・tool use・long context）(MiniMax Team, 2025) `— tech report`
+- [Qwen3.5-Omni](papers/Technical_Report/qwen35-omni.md) — 数百億パラメータのHybrid Attention MoE omni-modalモデル、256k context、1億時間audio-visual学習、215 audio/audio-visual benchmarkでSOTA・主要audioでGemini-3.1 Pro超え、10時間audio/400秒720P動画、ARIA（text-speech tokenizer ミスマッチを動的整列）による安定ストリーミングTTS、10言語感情表現音声、Audio-Visual Vibe Coding創発 (Qwen Team, 2026) `— tech report`
 
 ### Reasoning
 - [Mind the Gap](papers/Reasoning/mind-the-gap-self-improvement.md) — 生成よりも検証の方が容易であることを示した自己改善研究 (Song et al., 2024) `✅ ICLR 2025`
@@ -62,6 +64,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ### RL
 - [The Debate on RLVR Reasoning Capability Boundary](papers/RL/rlvr-capability-boundary-debate.md) — shrinkage vs expansionを二段階動態で統一的に再解釈 (arXiv 2510.04028, 2025) `🔄 under-review`
 - [Does RLVR Truly Unlock New Reasoning?](papers/RL/rlvr-does-not-teach-new-reasoning.md) — Pass@k分析によりRLVRはfiltering/sharpening主体と主張 (Yue et al., 2025) `✅ NeurIPS 2025 (Oral, Best Paper Runner-up)`
+- [Dr. GRPO: Understanding R1-Zero-Like Training](papers/RL/dr-grpo.md) — R1-Zeroの "Aha moment" の一部はDeepSeek-V3-Base時点で既出現、Qwen2.5 base はテンプレなし推論が可能 → 事前学習バイアス説。GRPOには不正解出力の応答長を人為的に増やす最適化バイアスがあることを同定、**Dr. GRPO**（unbiased GRPO）を提案。minimalist recipeで7B base × AIME 2024 43.3%（当時SOTA）(Liu et al., 2025 / Sea AI Lab × NUS) `✅ COLM 2025`
 - [ProRL](papers/RL/prorl.md) — 長期RL訓練で推論境界を真に拡張、Yue et al.への反論 (Liu et al., 2025 / NVIDIA) `✅ NeurIPS 2025`
 - [DeepSeek-R1](papers/RL/deepseek-r1.md) — SFTなしpure RLでself-verification・reflection出現 (DeepSeek-AI, 2025) `✅ Nature 2025`
 - [MRPO](papers/RL/mrpo.md) — Manifold-Reshaping Policy Optimization、SOE+rank正則化で4Bが32Bを上回る (Wang et al., 2026) `📝 preprint`
@@ -104,6 +107,8 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Graph_Network
 - [From Louvain to Leiden](papers/Graph_Network/louvain-to-leiden.md) — 精製ステップとキュー管理で連結コミュニティを保証するグラフ分割アルゴリズム (Traag et al., 2019) `✅ Scientific Reports 2019`
+- [GVE-Leiden: Fast Leiden in Shared Memory](papers/Graph_Network/gve-leiden.md) — ライデン法の共有メモリ並列SOTA実装、32コアCPUでオリジナル比436×・igraph 104×・NetworKit 8.2×・cuGraph (A100) 3.0×、403M edges/s @ 3.8B edges、スレッド倍化で1.6×スケール (Sahu, Kothapalli, Banerjee, 2024 / IIIT Hyderabad) `📋 ICPP 2024 Workshops`
+- [Memory-Efficient Community Detection via Weighted Sketches](papers/Graph_Network/memory-efficient-cd-sketches.md) — Louvain/Leiden/LPAのper-thread hashtable（100M頂点×64スレッドで51.2-102.4GB）をweighted Misra-Gries sketchで~0.5KB/sketchに置換、グラフサイズ非依存。modularity劣化Louvain≤1%/Leiden 0.8%/LPAほぼゼロ、ランタイム1.48-3.15×。GVE-Leidenと同著者によるメモリ側SOTA (Sahu, 2024 / IIIT Hyderabad) `📝 preprint`
 
 ### Symbolic_Computation
 - [All elementary functions from a single binary operator](papers/Symbolic_Computation/eml-single-operator.md) — eml(x,y)=exp(x)−ln(y)と定数1で全初等関数を生成、連続版NANDゲート (Odrzywołek, 2026) `📝 preprint`

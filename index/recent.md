@@ -4,8 +4,16 @@
 
 ---
 
+## 2026-04-27
+
+- [Memory-Efficient Community Detection on Large Graphs Using Weighted Sketches](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md) を追加 — 共有メモリ並列の Louvain / Leiden / LPA で支配的になる **per-thread hashtable**（100M頂点×64スレッドで **51.2-102.4 GB**）を **weighted Misra-Gries sketch**（~0.5KB/sketch、グラフサイズ非依存）で置換。modularity 劣化は Louvain **≤1%** / Leiden **0.8%** / LPA ほぼゼロ、ランタイムオーバーヘッドは MG8 Louvain **1.48×**（web平均 2.07×）/ MG64 Leiden **3.15×** / MG8 LPA **2.11×**（web/social平均 2.78×）。SuiteSparse 13グラフ（最大3.8Bエッジ）/ dual 16-core Xeon Gold 6226R + 376GB RAM / 64スレッド。著者は [GVE-Leiden](../wiki/papers/Graph_Network/gve-leiden.md) と同一の Subhajit Sahu（IIIT Hyderabad）— 速度SOTA の GVE-Leiden に対し、本論文はメモリ側のSOTAとして相補、コア数×頂点数のスケーリング軸でメモリを切り離す (Sahu, 2024 / IIIT Hyderabad)
+
 ## 2026-04-23
 
+- [Dr. GRPO: Understanding R1-Zero-Like Training](../wiki/papers/RL/dr-grpo.md) を追加 — DeepSeek-R1-Zeroの「pure RLで推論創発」を base model / RL に分解して批判的検証。DeepSeek-V3-Base は RL 前から "Aha moment" を示し、Qwen2.5 base もテンプレなしで強い推論能力を示す → **事前学習バイアス説**。さらに **GRPO には不正解出力の応答長を人為的に増やす最適化バイアス** があることを同定し、**Dr. GRPO**（unbiased GRPO）を提案。minimalist R1-Zero recipeで 7B base × **AIME 2024 43.3%**（当時SOTA）。RLVR 能力境界論争に「事前学習バイアス」という第三の軸を追加、ScaleRL の CISPO 採用や各種 GRPO 改良（RS-GRPO, MRPO）の理論的基盤を補強 (Liu, Chen, Li, Qi, Pang, Du, Lee, Lin, 2025 / Sea AI Lab × sail-sg × NUS, COLM 2025)
+- [Qwen3.5-Omni Technical Report](../wiki/papers/Technical_Report/qwen35-omni.md) を追加 — 数百億パラメータ Hybrid Attention MoE omni-modal モデル、256k context、1億時間超の audio-visual 学習。Thinker / Talker 双方に hybrid attention MoE、10時間 audio / 400秒 720P動画（1 FPS）、**215 audio/audio-visual benchmark で SOTA**、主要 audio タスクで **Gemini-3.1 Pro を上回り** audio-visual総合で同等。**ARIA**（text-speech tokenizer 符号化ミスマッチを動的整列）で安定ストリーミングTTS、10言語感情表現音声、script-level 構造化キャプション。**Audio-Visual Vibe Coding**（音声・映像指示→直接コード生成）の創発能力を観測 (Qwen Team, 2026 / Alibaba)
+- [MiniMax-M1: Scaling Test-Time Compute with Lightning Attention](../wiki/papers/Technical_Report/minimax-m1.md) を追加 — 世界初のオープンウェイト大規模ハイブリッドアテンション推論モデル。456B total / 45.9B active MoE + lightning attention、ネイティブ1M context（DeepSeek R1の8倍）、新規RLアルゴリズム **CISPO**（token updatesではなくimportance sampling weightsをクリップ）、hybrid attention + CISPO で 512 H800 × 3週間 / $534,700 のフルRL訓練を実現。thinking budget 40K/80K を2モデル公開、DeepSeek-R1/Qwen3-235Bに匹敵し特に complex SWE・tool use・long context で強み。CISPO は Flash-RL/TIS と同系統の IS-weight クリッピング系 (MiniMax Team, 2025)
+- [GVE-Leiden: Fast Leiden in Shared Memory](../wiki/papers/Graph_Network/gve-leiden.md) を追加 — ライデン法の共有メモリ並列実装SOTA、dual 16-core Xeon（32コア）で オリジナル比436× / igraph 104× / NetworKit 8.2× / **cuGraph (A100 GPU) 3.0×** の高速化を達成、3.8Bエッジで403M edges/s、スレッド倍化ごと1.6×スケール。CPU実装が最新GPU実装を上回る稀な事例 (Sahu, Kothapalli, Banerjee, 2024 / IIIT Hyderabad, ICPP 2024 Workshops)
 - [LeWorldModel (LeWM): Stable End-to-End JEPA from Pixels](../wiki/papers/Physical_AI/leworldmodel.md) を追加 — raw pixelsからend-to-end安定学習する最初のJEPA、next-embedding prediction + Gaussian正則化の2損失項・1ハイパラ（既存end-to-end代替の6→1）、~15Mパラメータ・単GPU・数時間で学習、foundation-model-based world model比 最大48倍高速な計画を2D/3D制御で実現、潜在空間に物理量がprobingで保持・surprise評価で物理的非現実事象を検出。JEPA系world modelの普及閾値を大きく下げた (Maes, Le Lidec, Scieur, LeCun, Balestriero, 2026 / Meta FAIR)
 
 ## 2026-04-22

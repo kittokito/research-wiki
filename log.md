@@ -249,6 +249,59 @@
 
 ## 2026-04-23
 
+- **論文追加**: Understanding R1-Zero-Like Training: A Critical Perspective / Dr. GRPO (Liu, Chen, Li, Qi, Pang, Du, Lee, Lin, 2025 / Sea AI Lab × sail-sg × NUS)
+  - `sources/RL/dr-grpo.md` 作成
+  - `evidence/RL/dr-grpo.md` 作成
+  - `wiki/papers/RL/dr-grpo.md` 作成
+  - 内容: DeepSeek-R1-Zero の「pure RL で推論創発」を **base model 要因 + RL要因** に分解して批判的検証。発見: (1) **DeepSeek-V3-Base は RL 前から "Aha moment" を示す** → 事前学習バイアス説、(2) **Qwen2.5 base はプロンプトテンプレなしで強い推論能力** → pretraining biases、(3) **GRPO には不正解出力の応答長を人為的に増やす最適化バイアス** が存在、(4) バイアス除去の **Dr. GRPO**（"done right" GRPO）を提案し token 効率を改善しつつ推論性能維持、(5) minimalist R1-Zero recipe で **7B base × AIME 2024 43.3%**（当時SOTA）。RLVR 能力境界論争に「事前学習バイアス」という第三の軸を追加し、ScaleRL の CISPO 採用や各種 GRPO 改良（RS-GRPO, MRPO）の理論的基盤を補強。Scaling Behaviors of LLM RL Post-Training (Qwen2.5 scaling則) の一般性の再検討材料にもなる
+  - 査読: ✅ accepted — COLM 2025 (OpenReview 5PAF7PAY2Y, decision: Accepted, published 2025-07-08)
+  - GitHub: sail-sg/understand-r1-zero / arXiv 2503.20783 / v1: 2025-03-26, v2: 2025-10-06
+  - `wiki/index.md` 配置: rlvr-does-not-teach-new-reasoning（Yue et al., filtering派）の直後 — RLVR 能力境界論争クラスタを「filtering vs expansion + 事前学習バイアス」の3軸で整理
+  - `index/topics.md` に新トピック `GRPO variants / analysis`（Dr. GRPO, RS-GRPO, MRPO, ScaleRL, MiniMax-M1 の5件）。既存 `RLVR capability boundary` にも追加（10→11）
+  - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
+- **論文追加**: Qwen3.5-Omni Technical Report (Qwen Team, 2026 / Alibaba)
+  - `sources/Technical_Report/qwen35-omni.md` 作成
+  - `evidence/Technical_Report/qwen35-omni.md` 作成
+  - `wiki/papers/Technical_Report/qwen35-omni.md` 作成
+  - 内容: 数百億パラメータ規模・256kコンテキストのomni-modal（text + vision + audio + video）モデル。**Thinker / Talker 双方に Hybrid Attention MoE** を採用、効率的な長系列推論を実現。1億時間超のaudio-visual学習、10時間超audio / 400秒720P動画（1 FPS）。**Qwen3.5-Omni-plus** が 215 audio/audio-visual benchmark で SOTA、主要audioで Gemini-3.1 Pro を上回り、audio-visual総合で同等。**ARIA**（text/speech tokenizer 符号化効率ミスマッチを動的整列）で安定ストリーミングTTS、10言語感情表現音声、script-level 構造化キャプション + temporal synchronization。**Audio-Visual Vibe Coding**（音声・映像指示→直接コード生成）という新規創発能力を観測。MiniMax-M1 と同系統の hybrid attention MoE 設計で、音声・映像軸への拡張事例として位置付けられる
+  - 査読: — n/a（テクニカルレポート、arXiv 2604.15804 / v1: 2026-04-17, v2: 2026-04-21）
+  - `wiki/index.md` 配置: MiniMax-M1 の直後（hybrid attention MoE 系譜 / オープンウェイト tech report 群）
+  - `index/topics.md` に新トピック追加: `hybrid attention / linear attention`（MiniMax-M1, Qwen3.5-Omni, Attention Residuals, Attention to Mamba Distillation の4件）、`audio / speech`（Qwen3.5-Omni）。既存の `multimodal` / `long context` / `open-weight models` にも追加
+  - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
+- **論文追加**: MiniMax-M1: Scaling Test-Time Compute Efficiently with Lightning Attention (MiniMax Team, 2025)
+  - `sources/Technical_Report/minimax-m1.md` 作成
+  - `evidence/Technical_Report/minimax-m1.md` 作成
+  - `wiki/papers/Technical_Report/minimax-m1.md` 作成
+  - 内容: 世界初のオープンウェイト大規模ハイブリッドアテンション推論モデル。hybrid MoE + lightning attention、456B total / 45.9B active per token、ネイティブ 1M context（DeepSeek R1 の8倍）。新規RLアルゴリズム **CISPO**（token updates ではなく importance sampling weights をクリップ）、他の競合RL派生を上回る効率。hybrid attention + CISPO で 512 H800 GPU × 3週間 / $534,700 でフルRL訓練完了。thinking budget 40K / 80K を2モデル公開、DeepSeek-R1 / Qwen3-235B に匹敵・上回る（特に complex SWE・tool use・long-context）。GitHub: MiniMax-AI/MiniMax-M1。CISPO は Flash-RL/TIS の Truncated Importance Sampling と同系統の IS-weight クリッピング系で、ScaleRL の「効率を動かす設計選択」に分類可能
+  - 査読: — n/a（テクニカルレポート、arXiv 2506.13585, 2025-06-16）
+  - `wiki/index.md` 配置: Kimi K2.5 の直後（オープンウェイト技術レポート系譜）
+  - `index/topics.md` に新トピック3件追加: `open-weight models`（Kimi K2.5, MiniMax-M1, DeepSeek-R1）、`test-time compute`（MiniMax-M1, Reasoning with Sampling, LLM-as-a-Verifier）、既存の `long context`・`off-policy RL / importance sampling` に追加
+  - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
+- **SCHEMA更新**: 「インデックスの並び順」節を追加
+  - `wiki/index.md`: カテゴリ内は話題クラスタ順 + 同一クラスタ内は追加順（機械的ソートは避ける）
+  - `index/recent.md`: 日付降順、`index/peer-review.md`: 採択年昇順、`index/topics.md`: 運用で管理
+  - カテゴリ20件超で `wiki/topics/{Category}/` サブ分割、Lint項目に追加
+- **論文追加**: GVE-Leiden: Fast Leiden Algorithm for Community Detection in Shared Memory Setting (Sahu, Kothapalli, Banerjee, 2024 / IIIT Hyderabad)
+  - `sources/Graph_Network/gve-leiden.md` 作成
+  - `evidence/Graph_Network/gve-leiden.md` 作成
+  - `wiki/papers/Graph_Network/gve-leiden.md` 作成
+  - 内容: ライデン法の共有メモリ並列実装SOTA。dual 16-core Intel Xeon Gold 6226R（32コア）で オリジナル Leiden 比 436×、igraph Leiden 比 104×、NetworKit Leiden 比 8.2×、**cuGraph Leiden (A100 GPU) 比 3.0×**。3.8Bエッジで 403M edges/s、スレッド倍化ごと平均1.6× のスケーリング。CPU実装がGPU実装を上回る稀な事例で、ライデン法のGPU最適化がまだ十分でないことを示唆。[louvain-to-leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md)（Traag et al., 2019）の直接的な実装フォロー
+  - 査読: 📋 workshop — ICPP 2024 Workshops (DOI 10.1145/3673038.3673146)
+  - `wiki/index.md` 配置: SCHEMA新規則に従い、louvain-to-leiden の直後（原論文→並列実装の系譜順）
+  - `index/topics.md` に `parallel / HPC` トピック新設（GVE-Leiden, Flash-KMeans の2件）
+  - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
+
+## 2026-04-27
+
+- **論文追加**: Memory-Efficient Community Detection on Large Graphs Using Weighted Sketches (Sahu, 2024 / IIIT Hyderabad)
+  - `sources/Graph_Network/memory-efficient-cd-sketches.md` 作成
+  - `evidence/Graph_Network/memory-efficient-cd-sketches.md` 作成
+  - `wiki/papers/Graph_Network/memory-efficient-cd-sketches.md` 作成
+  - 内容: 共有メモリ並列の Louvain / Leiden / LPA で支配的になる **per-thread hashtable**（100M頂点 × 64スレッドで **51.2-102.4 GB**）を **weighted Misra-Gries sketch**（~0.5KB/sketch、グラフサイズ非依存）で置換するメモリ効率化。modularity 劣化は Louvain **≤1%** / Leiden **0.8%** / LPA ほぼゼロ、ランタイムオーバーヘッドは MG8 Louvain **1.48×**（web平均 2.07×）/ MG64 Leiden **3.15×** / MG8 LPA **2.11×**（web/social平均 2.78×）。SuiteSparse 13グラフ（最大3.8Bエッジ）/ dual 16-core Xeon Gold 6226R + 376GB RAM / 64スレッドで評価。Misra-Gries の k=8（Louvain/LPA）/ k=64（Leiden）。著者は GVE-Leiden と同一の Subhajit Sahu — 速度SOTA の GVE-Leiden に対し、本論文はメモリ側のSOTAとして相補、コア数×頂点数のスケーリング軸でメモリを物理メモリではなく計算予算で律速できる位置付け
+  - 査読: 📝 preprint（arXiv 2411.02268 / v1: 2024-11-04, v2: 2024-11-06, v3: 2025-01-30、venue採択未確認）
+  - `wiki/index.md` 配置: gve-leiden の直後（同著者・Graph_Network カテゴリ内、速度→メモリの系譜順）
+  - `index/topics.md` に `sketch / streaming algorithms` トピック新設、既存の `community detection` / `parallel / HPC` を更新
+  - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
 - **論文追加**: LeWorldModel (LeWM): Stable End-to-End Joint-Embedding Predictive Architecture from Pixels (Maes, Le Lidec, Scieur, LeCun, Balestriero, 2026 / Meta FAIR)
   - `sources/Physical_AI/leworldmodel.md` 作成
   - `evidence/Physical_AI/leworldmodel.md` 作成

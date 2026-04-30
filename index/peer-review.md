@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-04-23 (追加: LeWorldModel)
+> 最終更新: 2026-04-27 (追加: Memory-Efficient Community Detection via Weighted Sketches)
 
-## ✅ accepted（査読済み・採択）— 20件
+## ✅ accepted（査読済み・採択）— 21件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -18,6 +18,7 @@
 | [Scalable Training Data Extraction](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md) | ICLR 2025 | 2023 |
 | [DeepCrossAttention](../wiki/papers/Architecture/deep-cross-attention.md) | ICML 2025 | 2025 |
 | [DeepSeek-R1](../wiki/papers/RL/deepseek-r1.md) | Nature 2025 | 2025 |
+| [Dr. GRPO: Understanding R1-Zero-Like Training](../wiki/papers/RL/dr-grpo.md) | COLM 2025 | 2025 |
 | [Does RLVR Truly Unlock New Reasoning](../wiki/papers/RL/rlvr-does-not-teach-new-reasoning.md) | NeurIPS 2025 (Oral, Best Paper Runner-up) | 2025 |
 | [ProRL](../wiki/papers/RL/prorl.md) | NeurIPS 2025 | 2025 |
 | [LLM Reasoning Failures](../wiki/papers/Surveys_Overview/llm-reasoning-failures.md) | TMLR 2026 | 2026 |
@@ -27,12 +28,13 @@
 | [ScaleRL](../wiki/papers/RL/scale-rl.md) | ICLR 2026 (Oral) | 2025 |
 | [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) | ACL 2026 (Main) | 2025 |
 
-## 📋 workshop（ワークショップ採択）— 2件
+## 📋 workshop（ワークショップ採択）— 3件
 
 | 論文 | 採択先 |
 |---|---|
 | [AutoHarness](../wiki/papers/Agent_ToolUse/autoharness.md) | ICLR 2026 Workshop on Recursive Self-Improvement |
 | [DreamZero: World Action Models](../wiki/papers/Physical_AI/dreamzero-world-action-models.md) | ICLR 2026 Workshop on World Models |
+| [GVE-Leiden: Fast Leiden in Shared Memory](../wiki/papers/Graph_Network/gve-leiden.md) | ICPP 2024 Workshops |
 
 ## 🔄 under-review（査読中）— 5件
 
@@ -44,7 +46,7 @@
 | [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) | ICLR 2026（投稿中） |
 | [Self-Organizing LLM Agents](../wiki/papers/Agent_ToolUse/self-organizing-llm-agents.md) | IEEE Access（投稿中） |
 
-## 📝 preprint（プレプリント）— 21件
+## 📝 preprint（プレプリント）— 22件
 
 | 論文 | カテゴリ |
 |---|---|
@@ -69,13 +71,16 @@
 | [All elementary functions from a single operator](../wiki/papers/Symbolic_Computation/eml-single-operator.md) | Symbolic_Computation |
 | [Video models are zero-shot learners and reasoners](../wiki/papers/Multimodal/video-models-zero-shot-learners.md) | Multimodal（ICLR 2026 Rejected） |
 | [Attention to Mamba: Cross-Architecture Distillation](../wiki/papers/Architecture/attention-to-mamba-distillation.md) | Architecture |
+| [Memory-Efficient Community Detection via Weighted Sketches](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md) | Graph_Network |
 
-## — n/a（査読対象外）— 10件
+## — n/a（査読対象外）— 12件
 
 | 論文/記事 | 種別 |
 |---|---|
 | [Attention Residuals](../wiki/papers/Architecture/attention-residuals.md) | テクニカルレポート（Kimi Team） |
 | [Kimi K2.5](../wiki/papers/Technical_Report/kimi-k25.md) | テクニカルレポート（Kimi Team） |
+| [MiniMax-M1](../wiki/papers/Technical_Report/minimax-m1.md) | テクニカルレポート（MiniMax） |
+| [Qwen3.5-Omni](../wiki/papers/Technical_Report/qwen35-omni.md) | テクニカルレポート（Qwen Team / Alibaba） |
 | [Scaling Laws of Motion Forecasting](../wiki/papers/Physical_AI/scaling-laws-motion-forecasting-planning.md) | テクニカルレポート（Waymo） |
 | [Kimi/Cursor/Chroma Agentic RL](../wiki/papers/Agent_ToolUse/kimi-cursor-chroma-agentic-rl.md) | ブログ記事 |
 | [Namazu Alpha](../wiki/papers/Post_Training/namazu-alpha.md) | ブログ記事（Sakana AI） |

@@ -72,6 +72,21 @@
 - [ ] 精製ステップで孤立ノード（どのサブコミュニティにも属さない）が発生した場合の挙動の詳細は？ → [paper](../wiki/papers/Graph_Network/louvain-to-leiden.md)
 - [ ] 解像度パラメータの選択指針（resolution limit問題への対処）はどの程度確立されているか？ → [paper](../wiki/papers/Graph_Network/louvain-to-leiden.md)
 
+### GVE-Leiden より
+- [ ] cuGraph Leiden (A100) との3.0×差は実装最適化で縮むか、それともアルゴリズム構造上GPUに不利なのか？ → [paper](../wiki/papers/Graph_Network/gve-leiden.md)
+- [ ] 1.6×/倍化 のスケーリングは 64/128/256コアでも維持されるか？ボトルネック位置は？ → [paper](../wiki/papers/Graph_Network/gve-leiden.md)
+- [ ] 分散メモリ（複数ノードMPI）に拡張した場合、3.8Bエッジ超の規模で同じ原理が効くか？ → [paper](../wiki/papers/Graph_Network/gve-leiden.md)
+- [ ] 同じ高速化アプローチは Louvain / Label Propagation / InfoMap 等の他アルゴリズムに移植可能か？ → [paper](../wiki/papers/Graph_Network/gve-leiden.md)
+
+### Memory-Efficient Community Detection (Sahu, 2024) より
+- [ ] ランタイム 1.5〜3.2× の劣化はアルゴリズム的最適化（ベクトル化、局所性改善）や sketch 構造の最適化でどこまで縮められるか？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] 64スレッドを超える領域（128/256スレッド、NUMAをまたぐ環境）で、メモリ削減とランタイムの両者は同じ傾きを保つか？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] 同じ sketch 化アプローチは GVE-Leiden の高速実装に直接組み込んで「速度SOTA かつメモリ非依存」を達成可能か？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] weighted Misra-Gries の誤差バウンド（ε vs k）は modularity 損失とどう対応するか？理論保証と実測 1% の関係は？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] bipartite graph・citation network・通信ネットワーク等の異なる構造でも同じ品質劣化幅で済むか？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] Leiden が k=64 必要な理由は精製ステップの構造に内在するか、実装上のチューニングで k を下げられるか？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+- [ ] 分散メモリ（複数ノード、MPI）に拡張した場合、ノード間通信での sketch のマージ操作はどの程度効率化可能か？ → [paper](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md)
+
 ### The Lottery Ticket Hypothesis より
 - [ ] LLM規模でのLTHの成立条件は？大規模Transformerでのwinning ticketの性質はCNN時代と異なるか？ → [paper](../wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md)
 
@@ -116,6 +131,28 @@
 - [ ] 「公開 → 学習データ混入 → 汚染」のラグは実測でどの程度短縮しているか（モデルリリース頻度との関係）？ → [paper](../wiki/papers/Evaluation/livebench.md)
 - [ ] 自由記述・創造的タスクを LiveBench 流の客観採点に落とし込む設計原則は可能か？ → [paper](../wiki/papers/Evaluation/livebench.md)
 - [ ] トップモデル < 70% の制約は月次の困難化でどの程度維持されているか（寿命シミュレーション）？ → [paper](../wiki/papers/Evaluation/livebench.md)
+
+### Dr. GRPO / Understanding R1-Zero-Like Training より
+- [ ] DeepSeek-V3-Base で観察される "Aha moment" の本質: 訓練データにCoT類似パターンが潜在していたのか、真の emergence か？ → [paper](../wiki/papers/RL/dr-grpo.md)
+- [ ] Dr. GRPO のバイアス除去は ScaleRL 分類で「漸近性能」を改善するのか、「効率のみ」を改善するのか？ → [paper](../wiki/papers/RL/dr-grpo.md)
+- [ ] Qwen2.5 以外のベース（LLaMA 3, Gemma 2, DeepSeek-V3-Base）で同じ事前学習バイアスが観察されるか？ → [paper](../wiki/papers/RL/dr-grpo.md)
+- [ ] 「不正解出力の応答長バイアス」は最新のGRPO派生（CISPO, RS-GRPO, MRPO）でどこまで除去されているか？ → [paper](../wiki/papers/RL/dr-grpo.md)
+- [ ] Dr. GRPO + CISPO は相加的に効くか重複するか？ → [paper](../wiki/papers/RL/dr-grpo.md)
+- [ ] 事前学習バイアスの有無を定量化する統一的指標はあるか？ → [paper](../wiki/papers/RL/dr-grpo.md)
+
+### Qwen3.5-Omni より
+- [ ] Hybrid Attention MoE における softmax / linear の層混在比率は？ MiniMax-M1 との具体的差分は？ → [paper](../wiki/papers/Technical_Report/qwen35-omni.md)
+- [ ] ARIA の tokenizer ミスマッチ動的整列は他のTTS/omni-modal（Kimi/Gemini）に移植可能か？ → [paper](../wiki/papers/Technical_Report/qwen35-omni.md)
+- [ ] Audio-Visual Vibe Coding の定量評価（成功率・タスク範囲・コード品質）はどこまで報告されているか？ → [paper](../wiki/papers/Technical_Report/qwen35-omni.md)
+- [ ] 10時間 audio / 400秒 video という長系列での実効理解性能は、needle-in-haystack 的評価でどこまで堅牢か？ → [paper](../wiki/papers/Technical_Report/qwen35-omni.md)
+- [ ] Qwen3.5-Omni-plus のオープンウェイト公開方針は？ → [paper](../wiki/papers/Technical_Report/qwen35-omni.md)
+
+### MiniMax-M1 より
+- [ ] CISPO の利点は MiniMax-M1 の hybrid attention と密結合か、標準 Transformer + GRPO でも同等効果が出るか？ → [paper](../wiki/papers/Technical_Report/minimax-m1.md)
+- [ ] 1M context の needle-in-haystack / long-range dependency の実効性能は、lightning attention でどこまで保たれるか？ → [paper](../wiki/papers/Technical_Report/minimax-m1.md)
+- [ ] thinking budget 40K → 80K で得られる追加性能の内訳（タスク別の伸び/頭打ち）は？ → [paper](../wiki/papers/Technical_Report/minimax-m1.md)
+- [ ] CISPO はなぜ token-level clipping ではなく IS-weight clipping が優位か（理論的根拠）？ → [paper](../wiki/papers/Technical_Report/minimax-m1.md)
+- [ ] hybrid attention における lightning / softmax の比率（何層ごと）と、その比率が推論能力・long context にどう効くか？ → [paper](../wiki/papers/Technical_Report/minimax-m1.md)
 
 ### Scaling Behaviors of LLM RL Post-Training (Tan et al., 2025) より
 - [ ] k(N) saturation の K_max, N_0 はタスク / RLアルゴリズム / 報酬形状でどう変化するか？普遍定数は存在するか？ → [paper](../wiki/papers/RL/rl-scaling-math-qwen25.md)
