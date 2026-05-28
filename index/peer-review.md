@@ -1,13 +1,16 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-04-27 (追加: Memory-Efficient Community Detection via Weighted Sketches)
+> 最終更新: 2026-05-28 (追加: BlueprintSymVL)
 
-## ✅ accepted（査読済み・採択）— 21件
+## ✅ accepted（査読済み・採択）— 27件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
 | [The Lottery Ticket Hypothesis](../wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md) | ICLR 2019 (Best Paper) | 2018 |
 | [From Louvain to Leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md) | Scientific Reports 2019 | 2019 |
+| [Linear Transformers: Transformers are RNNs](../wiki/papers/Architecture/linear-transformers.md) | ICML 2020 (PMLR v119, pp.5156-5165) | 2020 |
+| [CLIP: Learning Transferable Visual Models From Natural Language Supervision](../wiki/papers/Multimodal/clip.md) | ICML 2021 (PMLR v139, pp.8748-8763) | 2021 |
+| [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
 | [Automated Control Logic Test Case Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) | IEEE ETFA 2024 | 2024 |
 | [SECURE: Cybersecurity Benchmark](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) | ACSAC 2024 | 2024 |
@@ -19,14 +22,17 @@
 | [DeepCrossAttention](../wiki/papers/Architecture/deep-cross-attention.md) | ICML 2025 | 2025 |
 | [DeepSeek-R1](../wiki/papers/RL/deepseek-r1.md) | Nature 2025 | 2025 |
 | [Dr. GRPO: Understanding R1-Zero-Like Training](../wiki/papers/RL/dr-grpo.md) | COLM 2025 | 2025 |
+| [SFT Memorizes, RL Generalizes](../wiki/papers/RL/sft-memorizes-rl-generalizes.md) | ICML 2025 (PMLR 267) | 2025 |
 | [Does RLVR Truly Unlock New Reasoning](../wiki/papers/RL/rlvr-does-not-teach-new-reasoning.md) | NeurIPS 2025 (Oral, Best Paper Runner-up) | 2025 |
 | [ProRL](../wiki/papers/RL/prorl.md) | NeurIPS 2025 | 2025 |
+| [Gated DeltaNet](../wiki/papers/Architecture/gated-deltanet.md) | ICLR 2025 | 2024 |
 | [LLM Reasoning Failures](../wiki/papers/Surveys_Overview/llm-reasoning-failures.md) | TMLR 2026 | 2026 |
 | [Rewriting Pre-Training Data](../wiki/papers/Pretraining/rewriting-pretraining-data.md) | ICLR 2026 | 2025 |
 | [TurboQuant](../wiki/papers/Efficiency_Optimization/turboquant.md) | ICLR 2026 (Poster) | 2026 |
 | [ATLAS: Multilingual Scaling Laws](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md) | ICLR 2026 | 2025 |
 | [ScaleRL](../wiki/papers/RL/scale-rl.md) | ICLR 2026 (Oral) | 2025 |
 | [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) | ACL 2026 (Main) | 2025 |
+| [BlueprintSymVL: VLM Symbol Recognition in Engineering Blueprints](../wiki/papers/Evaluation/blueprintsymvl.md) | Results in Engineering 28 (Elsevier, CC BY 4.0) | 2025 |
 
 ## 📋 workshop（ワークショップ採択）— 3件
 
@@ -46,7 +52,7 @@
 | [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) | ICLR 2026（投稿中） |
 | [Self-Organizing LLM Agents](../wiki/papers/Agent_ToolUse/self-organizing-llm-agents.md) | IEEE Access（投稿中） |
 
-## 📝 preprint（プレプリント）— 22件
+## 📝 preprint（プレプリント）— 23件
 
 | 論文 | カテゴリ |
 |---|---|
@@ -72,15 +78,20 @@
 | [Video models are zero-shot learners and reasoners](../wiki/papers/Multimodal/video-models-zero-shot-learners.md) | Multimodal（ICLR 2026 Rejected） |
 | [Attention to Mamba: Cross-Architecture Distillation](../wiki/papers/Architecture/attention-to-mamba-distillation.md) | Architecture |
 | [Memory-Efficient Community Detection via Weighted Sketches](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md) | Graph_Network |
+| [Learning, Fast and Slow: FST](../wiki/papers/RL/learning-fast-and-slow.md) | RL |
 
-## — n/a（査読対象外）— 12件
+## — n/a（査読対象外）— 18件
 
 | 論文/記事 | 種別 |
 |---|---|
 | [Attention Residuals](../wiki/papers/Architecture/attention-residuals.md) | テクニカルレポート（Kimi Team） |
 | [Kimi K2.5](../wiki/papers/Technical_Report/kimi-k25.md) | テクニカルレポート（Kimi Team） |
 | [MiniMax-M1](../wiki/papers/Technical_Report/minimax-m1.md) | テクニカルレポート（MiniMax） |
+| [Qwen3](../wiki/papers/Technical_Report/qwen3.md) | テクニカルレポート（Qwen Team / Alibaba, Apache 2.0） |
 | [Qwen3.5-Omni](../wiki/papers/Technical_Report/qwen35-omni.md) | テクニカルレポート（Qwen Team / Alibaba） |
+| [DeepSeek-V4](../wiki/papers/Technical_Report/deepseek-v4.md) | テクニカルレポート（DeepSeek-AI, HuggingFace preview） |
+| [Lightning Attention-2](../wiki/papers/Architecture/lightning-attention-2.md) | テクニカルレポート（OpenNLPLab × Shanghai AI Lab） |
+| [On SFT, RL, and on-policy distillation](../wiki/papers/RL/willccbb-sft-rl-opd.md) | ブログ／X 投稿エッセイ（Will Brown × Claude Opus 4.7） |
 | [Scaling Laws of Motion Forecasting](../wiki/papers/Physical_AI/scaling-laws-motion-forecasting-planning.md) | テクニカルレポート（Waymo） |
 | [Kimi/Cursor/Chroma Agentic RL](../wiki/papers/Agent_ToolUse/kimi-cursor-chroma-agentic-rl.md) | ブログ記事 |
 | [Namazu Alpha](../wiki/papers/Post_Training/namazu-alpha.md) | ブログ記事（Sakana AI） |
@@ -89,3 +100,5 @@
 | [LLM-as-a-Verifier](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md) | Notion公開プロジェクトページ（Stanford × UC Berkeley × NVIDIA） |
 | [Karpathy's Wiki Workflow](../wiki/papers/Press_Releases/karpathy-tweet.md) | ツイート |
 | [NRI ITロードマップ2026](../wiki/papers/Press_Releases/nri-report-59421.md) | 業界レポート（NRI） |
+| [Your Evals Will Break and You Won't See It Coming](../wiki/papers/Evaluation/your-evals-will-break.md) | ブログ／ポジションエッセイ（Lun Wang, Google DeepMind → NVIDIA） |
+| [Vector DBを外したら、RAGではなくAgent Runtimeが残った](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md) | Zenn ブログ記事（mofuteq, 2026-05-21） |

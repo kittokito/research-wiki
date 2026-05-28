@@ -320,3 +320,323 @@
   - 内容: Qwen2.5 dense 全系列（0.5B–72B）× GRPO × 数学推論RLポストトレーニングの体系的スケーリング則研究。log L(N, X) = −k(N)·log X + E(N) の power-law と学習効率飽和 k(N) = K_max/(1 + N_0/N) を定式化。4つのkey findings: (1) 大モデルほど計算・データ効率が高い、(2) test loss はbase/instructで頑健な power-law、(3) 学習効率 k(N) は飽和する、(4) データ制約下では最適化ステップ総数がサンプルユニーク数より支配的（高品質データ再利用が有効）。ScaleRL の sigmoid フィットと相補的な分析枠組みを提供し、「大モデルの効率優位性にも天井がある」という追加の定量的制約を RLVR 能力境界論争に持ち込む
   - 査読: ✅ accepted — ACL 2026 Main Conference (arXiv 2509.25300 v4 Comments に明記)
   - 各インデックス（wiki/index.md, index/topics.md, index/recent.md, index/peer-review.md, index/open-questions.md）を更新
+
+## 2026-04-30
+
+- **SCHEMA更新**: 図表挿入の運用規約を SCHEMA.md に追加
+  - ディレクトリ構成ツリーに `figures/{Category}/{slug}/` を追加（sources/evidence/wiki/papers と同じカテゴリ分割と揃える）
+  - ファイル命名規則に図表ファイル規則（`fig-1.png` 等、論文の Figure 番号と対応推奨、PNG/JPG/SVG）を追加
+  - Wikiページ粒度ガイドラインに「`wiki/papers/` には可能であれば論文の主要な図表を **1-3点** 挿入する」を追加
+  - Wikiページ形式テンプレートに「主要な図表」セクションと埋め込み例を追加
+  - リンク規約に `wiki/papers/` および `wiki/topics/` からの図表参照パスを追加
+  - 取り込み手順（Ingest）に「図表を `figures/{Category}/{slug}/` に保存」ステップを step 3 として挿入
+- **論文追加**: Learning Transferable Visual Models From Natural Language Supervision / CLIP (Radford, Kim, Hallacy, Ramesh, Goh, Agarwal, Sastry, Askell, Mishkin, Clark, Krueger, Sutskever, 2021 / OpenAI)
+  - `sources/Multimodal/clip.md` 作成
+  - `evidence/Multimodal/clip.md` 作成
+  - `figures/Multimodal/clip/clip-overview.png` 配置（OpenAI公式リポジトリ https://github.com/openai/CLIP の概要図、論文 Figure 1 相当の contrastive 事前学習＋zero-shot 分類アーキテクチャ）— **SCHEMA 更新後の最初の図表配置事例**
+  - `wiki/papers/Multimodal/clip.md` 作成（図表埋め込み付き）
+  - 内容: 4億 (image, text) ペアの contrastive 事前学習で **zero-shot ImageNet 76.2% top-1 (ViT-L/14@336px)** = fully supervised ResNet-50 同等。30+ 視覚タスクでゼロショット転移、distribution shift（ImageNet-V2/-R/-A/-Sketch/ObjectNet）に対して fully supervised モデルより頑健、effective robustness gap が半分以下に縮小。Captioning（生成）目的より contrastive (InfoNCE) の方が zero-shot 効率4倍。**ViT が ResNet より計算効率優位**、prompt engineering / ensemble で zero-shot 精度 ~1.3pt 改善。コードと事前学習重み（ViT-B/32, ViT-B/16, ViT-L/14, RN50x4/16/64）を https://github.com/openai/CLIP で公開。後続の DALL-E 2 / Stable Diffusion / LLaVA / BLIP-2 / Flamingo / SigLIP / OpenCLIP の事実上標準 vision tower / text encoder の源流。Multimodal カテゴリで video-models-zero-shot-learners と並ぶ基盤論文として位置付け（CLIP=画像-テキスト基礎、Veo 3=ビデオ汎用）。**多くのCLIP弱点**（細粒度分類、抽象タスク、OOD、typographic attack 脆弱性）も明記
+  - 査読: ✅ accepted — ICML 2021 (PMLR v139, pp.8748-8763, Radford et al. 2021)
+  - `wiki/index.md` 配置: Multimodal カテゴリの先頭（時系列・分野基礎の順、CLIP → Veo 3）
+  - `index/peer-review.md` の accepted 件数 21 → 22、ICML 2021 (PMLR v139) として登録
+  - `index/topics.md` に新トピック3件追加: `vision-language pretraining`, `zero-shot transfer`, `contrastive learning`、既存 `multimodal` を 3→4 件に更新
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+- **論文追加**: Grounding Language Models to Images for Multimodal Inputs and Outputs / FROMAGe (Koh, Salakhutdinov, Fried, 2023 / Carnegie Mellon University)
+  - `sources/Multimodal/fromage.md` 作成
+  - `evidence/Multimodal/fromage.md` 作成
+  - `figures/Multimodal/fromage/` に3点配置: `architecture.png`（凍結CLIP image encoder + 線形射影 + 凍結 OPT LLM + `[RET]` token + 線形射影 + 画像検索のアーキテクチャ全体図）/ `dialogue-example.png`（多ターン対話と画像検索の例）/ `world-knowledge.png`（凍結 LLM の世界知識を使った抽象クエリ retrieval 例）。すべてプロジェクトページ https://jykoh.com/fromage から取得
+  - `wiki/papers/Multimodal/fromage.md` 作成（3図表すべてを埋め込み）
+  - 内容: **凍結 OPT-6.7B + 凍結 CLIP ViT-L/14** を線形射影層と `[RET]` special token のみで結合（trainable は全体の0.1%未満）、**Conceptual Captions (CC3M) のみ** で訓練して interleaved image-text 入出力を実現。VIST 5-caption 文脈付き retrieval **R@1 = 20.8 vs CLIP ViT-L/14 zero-shot 5.9**、文脈長を増やすほど CLIP との差が拡大。VisDial 10ターン対話 zero-shot retrieval でも文脈なし CLIP より大幅向上。**LLM の世界知識・compositionality がそのまま使える**：抽象クエリ・属性合成・想像物に対し CLIP 単独より優位。出力側に `[RET]` token を追加し、その隠れ状態を画像検索 query として使う「LLM が画像を取り出す」インターフェース。「凍結バックボーン + 軽量 projection」設計原理の祖型として、後の **LLaVA の MLP projector / BLIP-2 の Q-Former / Idefics3 の perceiver resampler** の参照点。同著者の後続 GILL は Stable Diffusion で **生成** 画像に拡張、retrieval-only 路線は Emu / GILL / Anole に置き換えられたが、設計原理は残存。CLIP（入力側 grounding 源流）との対として、FROMAGe は出力側 multimodal generation（retrieval版）の祖
+  - 査読: ✅ accepted — ICML 2023 (PMLR v202, arXiv Comments に明記 / arXiv 2301.13823 v4 / 2023-06-13)
+  - `wiki/index.md` 配置: Multimodal カテゴリ内 CLIP の直後（時系列・分野基礎の順、CLIP → FROMAGe → Veo 3）
+  - `index/peer-review.md` の accepted 件数 22 → 23、ICML 2023 (PMLR v202) として登録
+  - `index/topics.md`: 既存の `multimodal` 4→5、`vision-language pretraining` 1→2、`zero-shot transfer` 2→3、新トピック2件追加: `frozen backbone / lightweight projection`、`image retrieval / dialogue`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-01
+
+- **論文追加**: Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention / Linear Transformers (Katharopoulos, Vyas, Pappas, Fleuret, 2020 / Idiap Research Institute × EPFL × University of Washington)
+  - `sources/Architecture/linear-transformers.md` 作成
+  - `evidence/Architecture/linear-transformers.md` 作成
+  - `figures/Architecture/linear-transformers/` に5枚 ar5iv から取得（fig-1.png 〜 fig-5.png）、wiki/papers ページには主要3点（fig-1: 訓練時間 vs 系列長、fig-2: GPU メモリ vs 系列長、fig-4: CIFAR-10 自己回帰生成 test bpd）を埋め込み
+  - `wiki/papers/Architecture/linear-transformers.md` 作成（3図表埋め込み付き）
+  - 内容: softmax(QKᵀ) を **kernel feature map 内積 φ(Q)φ(K)ᵀ**（φ(x)=elu(x)+1）で近似し、行列積結合性で計算量を **O(N²d) → O(Nd²)** に削減。重要な独自洞察: causal mask 付き自己回帰生成は隠れ状態 S_i=Σ_{j≤i}φ(K_j)V_jᵀ ∈ R^{d×d} を持つ **RNN として等価表現** でき、各推論ステップが O(d²) で済む → 「Transformer は softmax がなければ RNN である」というタイトルの主張。**自己回帰推論で softmax 比 ~4000×高速**、長系列でメモリ消費も O(N) で最小。copy task / image generation (MNIST/CIFAR-10) / WSJ 音声認識の3領域で softmax と同等性能を維持しつつ、訓練速度・メモリ・推論速度すべてで優位。re-ordering trick (φ(Q)·(φ(K)ᵀV)) と causal RNN 等価性の **2つの貢献** が、後続の Performer / Linformer / RWKV / RetNet / Mamba / Mamba-2 / Lightning Attention / Kimi Linear など linear attention 系全般の数学的基礎を提供。本リポジトリでは **Attention to Mamba Distillation / Attention Residuals (Kimi Linear) / MiniMax-M1 lightning attention / Qwen3.5-Omni hybrid attention MoE の共通祖先** として位置付け
+  - 査読: ✅ accepted — ICML 2020 (PMLR v119, pp.5156-5165)
+  - `wiki/index.md` 配置: Architecture カテゴリの先頭（時系列・分野基礎の順、Linear Transformers → Attention to Mamba Distillation → ...）
+  - `index/peer-review.md` の accepted 件数 23 → 24、ICML 2020 (PMLR v119) として登録
+  - `index/topics.md`: 既存 `hybrid attention / linear attention` を 4→5件に更新、新トピック2件追加: `efficient attention / kernel methods`, `RNN / recurrent`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+- **論文追加**: Lightning Attention-2: A Free Lunch for Handling Unlimited Sequence Lengths in Large Language Models (Qin, Sun, Li, Shen, Sun, Zhong, 2024 / OpenNLPLab × Shanghai AI Lab)
+  - `sources/Architecture/lightning-attention-2.md` 作成
+  - `evidence/Architecture/lightning-attention-2.md` 作成
+  - `figures/Architecture/lightning-attention-2/` に4枚（fig-1〜fig-4）を ar5iv から取得、wiki/papers ページには主要3点（fig-2: アーキテクチャ / fig-1: 系列長 vs TGS / fig-4: training loss）を埋め込み
+  - `wiki/papers/Architecture/lightning-attention-2.md` 作成（3図表埋め込み付き）
+  - 内容: causal linear attention の **cumsum ボトルネック**（cumsum が逐次計算で並列化できず、softmax/FlashAttention に実測で勝てない問題）を **block tiling** で解決。intra-block は left-product 形式（softmax-like、並列化可能）、inter-block は right-product 形式（linear KV state を recurrent 累積）に分離計算。**Triton による I/O-aware 実装** で SRAM 内に計算駐留、HBM 通信最小化。TransNormerLLM 1B/3B、30B トークン訓練で **シーケンス長 1K→128K で TGS が flat**（LLaMA+FlashAttention-2 は急減、131K で OOM）、training loss は LLaMA+FA2 / HGRN / TNN と同水準を維持し性能劣化なし。**Linear Transformers (Katharopoulos 2020) の理論 O(N) を LLM 規模 GPU 実装で初めて実速度で実現** した後継、MiniMax-M1 (2025) の lightning attention の直接の元論文。Linear Transformers (2020) → Lightning Attention-2 (2024) → MiniMax-M1 (2025) の系譜の中央
+  - 査読: — n/a（arXiv Comments に "Technical Report" と明記、ICML 2024 等の査読採択は本検索では未確認のため保守的に n/a 扱い）/ arXiv 2401.04658 / v1: 2024-01-09, v2: 2024-01-15
+  - `wiki/index.md` 配置: Architecture カテゴリ内 Linear Transformers の直後（理論→GPU実装の系譜順）
+  - `index/peer-review.md` の n/a 件数 12 → 13、テクニカルレポート群に追加
+  - `index/topics.md`: 既存 `hybrid attention / linear attention` 5→6件、`efficient attention / kernel methods` 1→2件、`RNN / recurrent` 1→2件、新トピック `GPU kernel / IO-aware`（Lightning Attention-2, Flash-KMeans）を新設
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-07
+
+- **エッセイ追加**: On SFT, RL, and on-policy distillation: Why the standard pipeline is what it is, where on-policy distillation fits, and how self-distillation goes wrong (Will Brown & Claude Opus 4.7, 2026 / X 投稿)
+  - `sources/RL/willccbb-sft-rl-opd.md` 作成
+  - `evidence/RL/willccbb-sft-rl-opd.md` 作成
+  - `wiki/papers/RL/willccbb-sft-rl-opd.md` 作成（Figure 1-6 は本文中で言及されるが画像はリンク先 HTML 版のみで本リポジトリ未取り込み、ファクト整理は文字情報のみ）
+  - 内容: SFT/RL/OPD/SDFT/OPSD を **単一の token-level policy gradient**（`α`: on-policy 度、`λ`: teacher KL vs outcome reward 比、`π_T`: teacher 政策、の3ダイアル）で統一表現する post-training メタ分析エッセイ。3つの主要論点: (1) **compounding argument** — SFT 天井 ≈ teacher 性能、RL 天井 = verifier 能力、tipping point 後は RL に移すべきという SFT-then-RL 順序の実体的根拠、(2) **gradient geometry の3軸**（密度・バイアス・集中度）で分類: RL=疎・非バイアス・拡散（destructive interference）、SFT=密・data 方向・拡散、OPD same-family=密・teacher 方向・拡散、OPSD=密・self+hint 方向・**pivot token に集中**（学生 0.01・teacher 0.6 で KL ≈ 4.1、typical token の 100倍寄与、KL clipping なしで ~100 step で performance collapse）、(3) **Pareto curve** で `max E[ΔR] − β·D_KL(π_T ‖ π_θ)` Lagrangian の各点として整理。最適 teacher 探索（per-task prompt optimization with GEPA / hint rewriter / self-prompt online RL / DeepSeek V4 系 Expert RL+OPD）を未開拓の future work として提示。本リポジトリの GRPO variants / RLVR capability boundary / off-policy RL クラスタの **メタ整理** として機能、Dr. GRPO の応答長バイアス・Flash-RL/TIS の暗黙 off-policy・ScaleRL の asymptote vs efficiency 切り分け・RL Scaling Laws (Qwen2.5) と直接連関。**Will Brown × Claude Opus 4.7 共著** という AI 共著形式自体が技術メタ分析の publication norm の事例として注目され、本リポジトリの [Claude Mythos Preview](../wiki/models/claude-mythos-preview.md) の「実行環境つきRL」議論とも連関
+  - 参照論文（出典）: Lu (Thinking Machines, 2025) OPD / Shenfeld et al. (2026) SDFT / Zhao et al. (2026) OPSD / Agarwal et al. (2023) On-Policy KD / Mukherjee et al. (2025) RL fine-tunes small subnetworks / Qwen3 Technical Report (2025) / Ross et al. (2010) DAGGER — 一部は本リポジトリ未取り込み、**Lu OPD / Shenfeld SDFT / Zhao OPSD / Mukherjee subnetwork** は次回取り込み候補
+  - 査読: — n/a（X 投稿に紐づく長文エッセイ、ブログ扱い）/ X URL: https://x.com/willccbb/status/2050038277454143918 / 2026-04-30 公開
+  - `wiki/index.md` 配置: RL カテゴリ末尾（既存の RL Scaling Laws の直後、メタ分析として末尾に置くと topic group が読みやすい）
+  - `index/peer-review.md` の n/a 件数 13 → 14、ブログ／X 投稿エッセイ群に追加
+  - `index/topics.md`: 既存 `RLVR capability boundary` 11→12件、`GRPO variants / analysis` 5→6件、`off-policy RL / importance sampling` 2→3件、新トピック3件追加: `on-policy distillation / SFT-RL ordering`, `post-training meta-analysis`, `AI co-authored research`（Will Brown × Claude Opus 4.7 共著の運用例）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-11
+
+- **論文追加**: DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence (DeepSeek-AI, 2026 / HuggingFace preview)
+  - `sources/Technical_Report/deepseek-v4.md` 作成
+  - `evidence/Technical_Report/deepseek-v4.md` 作成
+  - `wiki/papers/Technical_Report/deepseek-v4.md` 作成（CSA / HCA / mHC の3点解説に重点、図3点埋め込み）
+  - `figures/Technical_Report/deepseek-v4/` に3点配置: `fig-3-csa.png`（CSA アーキテクチャ）/ `fig-4-hca.png`（HCA アーキテクチャ）/ `fig-1-efficiency.png`（V3.2 vs V4-Pro/Flash の 1M-context FLOPs と KV cache 比較） — `pdftoppm -x -y -W -H` でPDFの該当領域を切り出して取得
+  - 内容: **DeepSeek-V4-Pro（1.6T total / 49B active、61層、hidden 7168、1+384 experts、6 active）** と **DeepSeek-V4-Flash（284B/13B、43層、hidden 4096、1+256 experts、6 active）**、共にネイティブ 1M トークン context をサポートする MoE LM。3つの主要アーキテクチャ革新:
+    - **(1) Hybrid Attention** — 最初の2層は pure sliding window、残りは **CSA と HCA を interleave**。**CSA**（Compressed Sparse Attention, compression m=4）は KV cache を m トークンごとに 1 エントリ圧縮した上で DeepSeek-V3.2 の DSA top-k で sparse selection を適用する2段戦略。Lightning Indexer で compressed indexer keys から index score を算出し top-k 選択。**HCA**（Heavily Compressed Attention, m'=128）は CSA より 32× 強い圧縮率を取る代わりに sparse selection を行わず dense attention を維持。両者ともShared Key-Value MQA + grouped output projection、partial RoPE (last 64 dims)、attention sink、sliding window supplementary branch (n_win=128) を併用
+    - **(2) mHC**（Manifold-Constrained Hyper-Connections, n_hc=4）— Hyper-Connections の residual mapping B_l を **Birkhoff polytope（doubly stochastic matrices manifold）** に Sinkhorn-Knopp 反復（t_max=20）で射影し ‖B_l‖₂ ≤ 1 で non-expansive 化、A_l/C_l は Sigmoid で非負・有界に制約。本リポジトリ既存の [mHC: Manifold-Constrained Hyper-Connections (Xie et al., 2025)](../wiki/papers/Architecture/manifold-constrained-hyper-connections.md) の理論を **1.6T-scale MoE で初の Production scale 実装**
+    - **(3) Muon Optimizer** — Embedding/output head/RMSNorm/mHC modules/static biases/gating factors **以外** に Muon、それら以外は AdamW。Hybrid Newton-Schulz iterations（10 step、最初8 step (3.4445,-4.775,2.0315) で収束 → 最後2 step (2,-1.5,0.5) で安定化）、Nesterov + RMS rescale + weight decay、QK-Clip は attention query/KV entry の RMSNorm 直接適用で不要
+  - 効率（vs DeepSeek-V3.2、1M context、Figure 1 right）: **single-token inference FLOPs V4-Pro 27% / V4-Flash 10%**、**KV cache size V4-Pro 10% / V4-Flash 7%**。BF16 GQA8 head-dim 128 baseline 比、1M-context で **KV cache 約 2%** に圧縮。FP4 expert weights + FP4 indexer QK + FP8 attention KV + BF16 RoPE の hybrid precision
+  - Pre-training: Flash **32T tokens** / Pro **33T tokens**、4K→16K→64K→**1M** に段階的拡張。**Anticipatory Routing**（routing indices を θ_{t-Δt} で計算し loss spike 抑制、~20% wall-clock overhead）と **SwiGLU clamping [-10,10]**（linear 成分）で訓練安定化
+  - Post-training: **Specialist Training**（各ドメインで SFT + GRPO で specialist 群を訓練）→ **On-Policy Distillation (OPD)** で unified model に統合（reverse KL loss）— **V3.2 の mixed RL stage を OPD で完全置換**。**3 reasoning effort modes**: Non-think / Think High / Think Max（最後は system prompt 注入で「shortcuts なし」「全 edge case 検証」を強制）。**Generative Reward Model (GRM)**: actor network 自体を GRM として共同最適化、ルーブリック誘導 RL。Tool-call schema を独自 XML-based `<|DSML|>` 形式に刷新。**FP4 quantization-aware training** for MoE experts + indexer QK
+  - Infrastructure: Fine-Grained EP wave scheduling（**1.92× 理論 speedup**、Comet 比 1.42×）、**TileLang DSL**、batch-invariant deterministic kernels（訓練・推論 bitwise reproducibility）、Hybrid ZeRO for Muon、cost-effective mHC via recomputation+fused kernels、two-stage contextual parallelism、heterogeneous KV cache + on-disk KV cache storage
+  - ベンチマーク (Base, Table 1): V4-Pro-Base が MMLU-Pro **73.5**（V3.2 65.5、V4-Flash 68.3）、FACTS Parametric **62.6**（V3.2 27.1）、LongBench-V2 **51.5**（V3.2 40.2）、HumanEval **76.8**（V3.2 62.8）等で決定的飛躍。V4-Flash-Base が V3.2-Base を大半で上回るパラメータ効率の劇的改善（13B active vs 37B active）
+  - ベンチマーク (Post-training, Figure 1): **DeepSeek-V4-Pro-Max** は Codeforces **3206**（Claude Opus 4.6: 3168）、Apex Shortlist **90.2%**（Claude: 85.9）、SWE Verified **80.6%**（Claude: 80.8）、Terminal Bench 2.0 **67.9%** で open SOTA 更新。reasoning では GPT-5.4 / Gemini-3.1-Pro に "approximately 3 to 6 months" 遅れと自認、SimpleQA Verified 57.9% vs Gemini-3.1-Pro 75.6% で世界知識ベンチに劣後あり
+  - 査読: — n/a（テクニカルレポート、preview 版、HuggingFace 公開、MIT License、4.48 MB PDF）
+  - 関連既存ページとの連関:
+    - [mHC (Xie et al., 2025)](../wiki/papers/Architecture/manifold-constrained-hyper-connections.md) の理論を 1.6T scale で初実装した事例
+    - [willccbb & Claude Opus 4.7 OPD メタ分析](../wiki/papers/RL/willccbb-sft-rl-opd.md) が future work で予告した "DeepSeek V4 系 Expert RL + OPD" 構成を実プロダクション化、Specialist Training → OPD のレシピが文字通り出現
+    - [MiniMax-M1](../wiki/papers/Technical_Report/minimax-m1.md) / [Qwen3.5-Omni](../wiki/papers/Technical_Report/qwen35-omni.md) / [Kimi K2.5](../wiki/papers/Technical_Report/kimi-k25.md) のオープンウェイト hybrid attention 系譜の中で最大規模点
+    - [DeepSeek-R1](../wiki/papers/RL/deepseek-r1.md) / [Dr. GRPO](../wiki/papers/RL/dr-grpo.md) と同 DeepSeek 系列、本リポジトリの "DeepSeek series" クラスタを構築
+    - [Memory Sparse Attention](../wiki/papers/Architecture/memory-sparse-attention.md) / [Mixture-of-Depths Attention](../wiki/papers/Architecture/mixture-of-depths-attention.md) と並ぶ sparse attention 系譜の最新点、CSA は compression を sparsity の前段に置く設計が独自
+    - [TurboQuant](../wiki/papers/Efficiency_Optimization/turboquant.md) の KV cache 量子化と相補的（CSA+HCA は architectural compression、TurboQuant は quantization）
+  - `wiki/index.md` 配置: Technical_Report カテゴリ内 Qwen3.5-Omni の直後（オープンウェイト hybrid attention 系譜の最新・最大規模点）
+  - `index/peer-review.md` の n/a 件数 14 → 15、DeepSeek-AI を tech report 群に追加
+  - `index/topics.md`: 既存 `long context` 3→4件、`open-weight models` 4→5件、`hybrid attention / linear attention` 6→7件、`KV cache` 2→3件、`MoE / sparsity` 1→2件、`on-policy distillation / SFT-RL ordering` 1→2件、`residual connection` 4→5件、新トピック4件追加: `sparse attention / compression`、`DeepSeek series`、`Muon optimizer / orthogonalization`、`million-token context`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加**: Qwen3 Technical Report (Qwen Team, 2025 / Alibaba, Apache 2.0)
+  - `sources/Technical_Report/qwen3.md` 作成
+  - `evidence/Technical_Report/qwen3.md` 作成
+  - `wiki/papers/Technical_Report/qwen3.md` 作成（アーキテクチャ・データ戦略・Thinking mode unification・Strong-to-Weak Distillation の4軸で整理）
+  - `figures/Technical_Report/qwen3/fig-1-post-training-pipeline.png` 配置（Figure 1: フラッグシップ 4 stage + ライトウェイト Strong-to-Weak Distillation の post-training pipeline 図）
+  - 内容: **dense 6（0.6B/1.7B/4B/8B/14B/32B）+ MoE 2（30B-A3B / 235B-A22B）の8モデルフルレンジ Apache 2.0 公開**。フラッグシップ Qwen3-235B-A22B は 235B/22B active、94 layers、128 experts (8 active)、context **128K**。
+  - **アーキテクチャ**: Qwen2.5 路線（GQA + SwiGLU + RoPE + pre-RMSNorm）を踏襲しつつ **QKV-bias 除去 + QK-Norm 導入**（attention の QK に softmax 前 RMSNorm）で訓練安定化。MoE は **Qwen2.5-MoE と異なり shared expert を廃止**、**global-batch load balancing loss** で expert specialization を促進。BBPE tokenizer (vocab 151,669)
+  - **データ戦略**: pre-training **36T tokens / 119 言語**（Qwen2.5 比でトークン 2×・言語 4×）。**自社既存モデルで次世代データを作る flywheel**: (1) Qwen2.5-VL で PDF 様文書から text recognition、(2) Qwen2.5 で抽出データを refine、(3) Qwen2.5-Math / Qwen2.5-Coder で domain-specific 合成データ生成（textbook / Q&A / instructions / code、数十ドメイン）。30T+ tokens に educational value / fields / domains / safety の多次元ラベル付与、**instance-level data mixture optimization**（従来のソース／ドメインレベルではなく individual sample レベルで mix を最適化、small proxy model + fine-grained label による広範な ablation）
+  - **3-stage pre-training**: (S1) General 30T+ tokens @ seq 4,096（119 言語の一般知識基盤）→ (S2) Reasoning 5T 高品質 tokens @ seq 4,096（STEM/coding/reasoning/synthetic の比率を上げ、learning rate decay を加速）→ (S3) Long-Context @ seq 32,768（75% が 16K-32K、25% が 4K-16K、**RoPE base frequency 10K → 1M (ABF) + YARN + Dual Chunk Attention で推論時 4× sequence length 拡張 → 実効 128K**）
+  - **Post-training は 2つの設計目標**: (1) Thinking Control（thinking + non-thinking を単一モデルに統合 + thinking budget で計算量制御）、(2) Strong-to-Weak Distillation（軽量モデル訓練を効率化）
+  - **フラッグシップ 4 stage**: (Stage 1) Long-CoT Cold Start（math/code/logic/STEM の検証可能 reference answer 付き dataset、Qwen2.5-72B-Instruct で2段階フィルタリング + QwQ-32B で N candidates 生成 + human annotator 評価、foundational reasoning pattern を植え付けつつ訓練サンプル数を最小化）→ (Stage 2) Reasoning RL（3,995 query-verifier pairs、**GRPO**、大 batch + 高 rollout 数 + off-policy training、entropy 制御で exploration-exploitation バランス、**170 RL step で Qwen3-235B-A22B AIME'24 70.1→85.1**、ハイパラ manual intervention なし）→ (Stage 3) Thinking Mode Fusion（continual SFT で chat template に **/think /no_think フラグ**を統合、non-thinking 時も `<think></think>` を空挿入し format consistency、multi-turn では最後のフラグに従う）→ (Stage 4) General RL（**20+ distinct task の reward system**、Instruction Following / Format Following / Preference Alignment / Agent Ability / Specialized Scenarios の5コア能力、**3種 reward**: rule-based / model-based with reference answer / model-based without reference）
+  - **Thinking Budget**: thinking length が user 指定 threshold に達すると `"Considering the limited time by the user, I have to give the solution based on the thinking directly now.\n</think>.\n\n"` を強制挿入、累積推論で最終回答生成。**明示訓練ではなく Thinking Mode Fusion の自然発現**
+  - **Strong-to-Weak Distillation**（5 dense + 1 MoE = 0.6B/1.7B/4B/8B/14B/30B-A3B）: (1) Off-policy Distillation（teacher の /think + /no_think 両出力で basic reasoning + mode-switching の基礎付与）→ (2) On-policy Distillation（学生が on-policy sequence 生成、**teacher logit との KL divergence 最小化**）。**4 stage 訓練比で GPU 時間 1/10**、higher Pass@1 + improved Pass@64（exploration 改善）
+  - **ベンチマーク**: Base: Qwen3-235B-A22B-Base が DeepSeek-V3-Base を **15/14 ベンチで上回り**（total 1/3、activated 2/3 params）、MMLU-Pro **68.2** / MATH **71.8** / EvalPlus **77.6**。Thinking: Qwen3-235B-A22B が DeepSeek-R1 を **23/17 ベンチで上回り**（activated 60%、total 35%）、AIME'24 **85.7** / AIME'25 **81.5** / LiveCodeBench v5 **70.7** / CodeForces **2056** / BFCL v3 **70.8**、OpenAI-o1 / Gemini2.5-Pro と互角。Non-thinking: GPT-4o-2024-11-20 を 18/23 ベンチで上回り、Arena-Hard **96.1**。Qwen3-32B (Thinking) も QwQ-32B を 23/17 で上回り 32B SOTA
+  - **MoE スケーリング観察**: 同 pre-training data で activated params 1/5 で Qwen3 dense と同等性能 / 1/2 未満で Qwen2.5 MoE 超え / 1/10 で Qwen2.5 dense と comparable
+  - **多言語対応**: 119 言語・方言（Qwen2.5 の 29 言語から大幅拡張）、Multi-IF (8) / INCLUDE (44) / MMMLU (14) / MT-AIME2024 (55) / PolyMath (18) / MLogiQA (10) で評価
+  - 査読: — n/a（テクニカルレポート、arXiv 2505.09388 v1: 2025-05-14、Apache 2.0、GitHub: QwenLM/Qwen3）
+  - 関連既存ページとの連関:
+    - [DeepSeek-V4 (2026)](../wiki/papers/Technical_Report/deepseek-v4.md) より早い 2025-05 時点で **OPD を軽量モデル訓練に大規模採用** した最初の主要事例、後の Qwen3 → DeepSeek-V4 で OPD use case が「軽量化」から「specialist 統合」に拡張される流れの起点
+    - [willccbb & Claude Opus 4.7 OPD メタ分析](../wiki/papers/RL/willccbb-sft-rl-opd.md) の OPD ダイアル整理の主要参照点（Strong-to-Weak Distillation の off-policy → on-policy 2段構成）
+    - Thinking mode 統合は DeepSeek-V4 の 3 reasoning effort modes (Non-think / Think High / Think Max) の **オープンウェイト先行事例**
+    - [Qwen3.5-Omni](../wiki/papers/Technical_Report/qwen35-omni.md) の前世代テキスト基盤（Qwen3.5-Omni は Hybrid Attention MoE 化、Qwen3 は標準 MoE）
+    - データ戦略は [Rewriting Pre-Training Data (SwallowCode/SwallowMath)](../wiki/papers/Pretraining/rewriting-pretraining-data.md) と並ぶ「LLM-as-data-curator」事例
+    - 119 言語対応は [ATLAS Multilingual Scaling Laws](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md) の 400+ 言語スケーリング則の実装側カウンターパート
+    - [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) の Qwen2.5 系列 scaling 則の **base 側参照**
+    - [DeepSeekMoE Dai et al. 2024](https://arxiv.org/abs/2401.06066) の fine-grained expert と DeepSeek-V4 の shared expert 設計の対照軸（Qwen3 は shared expert 廃止）
+  - `wiki/index.md` 配置: Technical_Report カテゴリ内 DeepSeek-V4 の直後（オープンウェイト frontier model 系譜、2025-05 → 2026 の時系列順）
+  - `index/peer-review.md` の n/a 件数 15 → 16、Apache 2.0 を tech report 群に追加
+  - `index/topics.md`: 既存 `data quality / rewriting` 2→3件、`open-weight models` 5→6件、`MoE / sparsity` 2→3件、`on-policy distillation / SFT-RL ordering` 2→3件、`multilingual / transfer` 1→2件、新トピック3件追加: `Qwen series`（4件: qwen35-omni, qwen3, rl-scaling-math-qwen25, dr-grpo）、`synthetic data / self-curation`（2件: qwen3, rewriting-pretraining-data）、`thinking mode / reasoning effort control`（2件: qwen3, deepseek-v4）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加**: Gated Delta Networks: Improving Mamba2 with Delta Rule (Yang, Kautz, Hatamizadeh, 2025 / MIT CSAIL × NVIDIA, ICLR 2025)
+  - `sources/Architecture/gated-deltanet.md` 作成
+  - `evidence/Architecture/gated-deltanet.md` 作成
+  - `wiki/papers/Architecture/gated-deltanet.md` 作成（gated delta rule の Eq. 10 を「① 古い情報を消去・整理 / ② 新しい情報を追加」アノテーション付きで明示）
+  - `figures/Architecture/gated-deltanet/fig-1-block-design.png` 配置（Figure 1: GatedDeltaNet-H1/H2 アーキテクチャ + token mixer block design）
+  - 内容: linear Transformer 系の retrieval / long-context 性能不足を **Mamba2 の gating（適応的メモリ制御）+ DeltaNet の delta rule（精密なメモリ修正）の2機構統合** で解決する **gated delta rule** を提案。
+  - **コア定式化（Eq. 10）**: `S_t = S_{t-1} (α_t (I − β_t k_t k_t^T)) + β_t v_t k_t^T`（第1項=① 古い情報を消去・整理 / 第2項=② 新しい情報を追加）。**α_t ∈ (0,1)** は data-dependent gating（Mamba2 由来、α_t→0 で memory 全消去 / α_t→1 で純粋な delta rule）、**β_t ∈ (0,1)** は writing strength（DeltaNet 由来）、**(I − β_t k_t k_t^T)** は generalized Householder transition matrix で key 方向の古い情報のみを selectively 抑制
+  - **Online learning / test-time SGD 解釈**: gated delta rule の online objective は `‖S_t − α_t S_{t-1}‖²_F − 2⟨S_t k_t, β_t (v_t − α_t S_{t-1} k_t)⟩`、SGD update として `S_{t+1} = S_t − β_t ∇L(S_t)` = **adaptive weight decay (α_t) つき test-time SGD**（fast weight programming 視点）。Titans (Behrouz et al. 2024) と独立に同結論に到達
+  - **Hardware-efficient chunkwise training**: Yang et al. 2024b の DeltaNet 並列化を WY representation + UT transform で gating 項に拡張、tensor core matmul で訓練 throughput を DeltaNet とほぼ同等に維持（Mamba2 比 marginal 2-3K tokens/sec overhead）
+  - **Gated DeltaNet アーキテクチャ**: Llama macro + self-attention を gated delta rule token mixer に置換。Token mixer block は q/k/v に linear proj + shortconv + SiLU、q/k に L2 norm、α/β は linear proj のみ、出力は norm + gate
+  - **Hybrid 派生**: **GatedDeltaNet-H1** (GDN + SWA) と **GatedDeltaNet-H2** (Mamba2 + GDN + SWA)。SWA 2K window
+  - **S-NIAH ケーススタディ**（Table 2、1.3B）で「decay hurts retention / gating facilitates filtering / delta rule helps memorization」を分離実証 — DeltaNet は S-NIAH-1 (passkey) で near-perfect だが S-NIAH-2/3 (real-world essay) で filtering 不足、Mamba2 は decay が早すぎて retention 不足、Gated DeltaNet が両取り
+  - **ベンチマーク**（1.3B / FineWeb-Edu 100B tokens）:
+    - Language modeling + common-sense (Table 3): Gated DeltaNet が recurrent 系で Wiki ppl **16.42** / LMB acc **46.65** / Avg **55.32**、Mamba2 (54.89) / DeltaNet (52.14) を上回り。Hybrid H2 が Wiki ppl **15.91** / Avg **56.18** で Samba (54.00) / Transformer++ (52.25) も上回り
+    - In-context retrieval (Table 4): Gated DeltaNet Avg **30.6**、H2 Avg **40.1**（Transformer++ 37.0、Samba 36.5）
+    - Length extrapolation (Fig. 2, 4K-20K): 6 long-context bench で RNN 系最低 perplexity
+    - LongBench: single-doc QA / few-shot ICL / Code tasks で recurrent 系 SOTA
+  - 査読: ✅ accepted — ICLR 2025 (arXiv 2412.06464, v1: 2024-12-09 / v3: 2025-03-06, GitHub: NVlabs/GatedDeltaNet)
+  - 関連既存ページとの連関:
+    - 前作: [Linear Transformers (Katharopoulos 2020)](../wiki/papers/Architecture/linear-transformers.md) → DeltaNet (Schlag 2021, Yang 2024b) / Mamba2 (Dao & Gu 2024) / Longhorn (Liu 2024)
+    - 後続: [Lightning Attention-2](../wiki/papers/Architecture/lightning-attention-2.md) (GPU 実装側) / [MiniMax-M1 lightning attention](../wiki/papers/Technical_Report/minimax-m1.md) / [Attention to Mamba 蒸留](../wiki/papers/Architecture/attention-to-mamba-distillation.md) / [Qwen3.5-Omni Hybrid Attention MoE](../wiki/papers/Technical_Report/qwen35-omni.md) / [DeepSeek-V4 CSA+HCA](../wiki/papers/Technical_Report/deepseek-v4.md) の「2軸を独立に制御する hybrid 設計」の理論的祖
+    - **「gating（全体decay）× delta rule（targeted update）」の独立2軸制御** が後続 hybrid attention 系の抽象パターンの祖型
+  - `wiki/index.md` 配置: Architecture カテゴリ内 Lightning Attention-2 の直後（efficient attention 系譜 Linear Transformers → Lightning Attention-2 → Gated DeltaNet の流れ）
+  - `index/peer-review.md` の accepted 件数 24 → 25、ICLR 2025 として登録
+  - `index/topics.md`: 既存 `hybrid attention / linear attention` 7→8件、`SSM / Mamba` 1→2件、`efficient attention / kernel methods` 2→3件、`RNN / recurrent` 2→3件、新トピック2件追加: `delta rule / fast weight programming`、`in-context retrieval / needle-in-haystack`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-19
+
+- **ブログ記事追加**: Your Evals Will Break and You Won't See It Coming (Lun Wang, 2026 / Google DeepMind → NVIDIA Principal Research Scientist、AI Safety / PhD UMD)
+  - `sources/Evaluation/your-evals-will-break.md` 作成
+  - `evidence/Evaluation/your-evals-will-break.md` 作成
+  - `wiki/papers/Evaluation/your-evals-will-break.md` 作成
+  - 出典: [wanglun1996.github.io/blog/your-evals-will-break.html](https://wanglun1996.github.io/blog/your-evals-will-break.html)、2026-05-17 公開
+  - 内容: 既存LLM評価インフラは「次世代モデル = 現行モデルの強化版」を暗黙前提に置くため、能力レジーム遷移（emergence / grokking）に直面すると**予測不可能に破綻する**というポジションエッセイ
+  - **核心提案2点**: (1) 物理学の **秩序パラメータ（order parameter）**——相転移の臨界点付近で値またはスケーリング挙動を変えるマクロ量——を LLM 能力空間に持ち込む（Shan, Li, Sompolinsky 2026 が継続学習で導出した先例）、(2) スコア分布変化・評価間相関構造変動・スムーズトレンドの破綻などメタシグナルを継続監視する **自己進化型評価（self-evolving evaluation）** の構築
+  - **構造的主張**: 「評価は訓練目標の上流にある」「accuracy ベンチマークでは原理的に検出不可能な能力クラス」（例: 戦略的情報隠匿 strategic information withholding）
+  - 引用: Wei et al. 2022 (emergent abilities) / Power et al. 2022 + Liu et al. 2022 (grokking) / Schaeffer et al. 2023 (emergence はメトリックのアーティファクト) / Nanda et al. 2023 (grokking のメカニスティック予測) / Shan et al. 2026 (秩序パラメータ)
+  - 言及される既存ベンチマーク: GPQA / SWE-bench / ARC-AGI / Humanity's Last Exam ——いずれも「accuracy 軸での難易度向上」パラダイム内に留まり能力クラス転移には対応できない
+  - 査読: — n/a（個人ブログ／ポジションエッセイ、画像・図表なし）
+  - 関連既存ページとの連関:
+    - 上位レイヤ: 個別ベンチマーク欠陥（[LiveBench](../wiki/papers/Evaluation/livebench.md) / [P-hacking with one prompt](../wiki/papers/Evaluation/p-hacking-with-one-prompt.md) / [GSM-Symbolic](../wiki/papers/Reasoning/gsm-symbolic.md) / [LLM Reasoning Failures](../wiki/papers/Surveys_Overview/llm-reasoning-failures.md)）に対する「観測装置の構造的不在」という抽象化
+    - セーフティ実例: [Sycophantic Delusional Spiraling](../wiki/papers/Safety_Alignment/sycophantic-delusional-spiraling.md) / [Scalable Training Data Extraction](../wiki/papers/Safety_Alignment/scalable-training-data-extraction.md) は「accuracy が高くとも顕在化する新失敗モード」であり能力レジーム遷移時の評価盲点の実例
+    - 自己進化型評価の道具立て候補: [ScaleRL](../wiki/papers/RL/scale-rl.md) の sigmoid 計算-性能曲線・[Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) の power-law フィットを「評価側の構造変動検出器」として再利用する余地
+    - [LiveBench](../wiki/papers/Evaluation/livebench.md)（汚染耐性 + 月次更新）が「自己進化型評価」に最も近い既存実装例
+  - `wiki/index.md` 配置: Evaluation カテゴリ内 LiveBench の直後（個別ベンチマーク群 → 評価メタ論の流れ）
+  - `index/peer-review.md` の n/a 件数 16 → 17、Lun Wang ブログを追加、最終更新日を 2026-05-19 に
+  - `index/topics.md`: 既存 `benchmark design / contamination` 2→3件、新トピック2件追加: `evaluation meta / phase transition`、`emergent capabilities / grokking`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加**: SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training (Chu, Zhai, Yang, Tong, Xie, Schuurmans, Le, Levine, Ma, 2025 / UC Berkeley × HKU × Google DeepMind × University of Alberta, ICML 2025)
+  - `sources/RL/sft-memorizes-rl-generalizes.md` 作成
+  - `evidence/RL/sft-memorizes-rl-generalizes.md` 作成
+  - `wiki/papers/RL/sft-memorizes-rl-generalizes.md` 作成
+  - 出典: [arXiv 2501.17161](https://arxiv.org/abs/2501.17161) v1: 2025-01-28 / v2: 2025-05-26、PMLR 267 (ICML 2025, Vancouver)、プロジェクト: [tianzhechu.com/SFTvsRL](https://tianzhechu.com/SFTvsRL/)、実装: [LeslieTrue/SFTvsRL](https://github.com/LeslieTrue/SFTvsRL)
+  - 内容: **SFT vs RL の汎化能力の根本対比**を、算術カードゲーム **GeneralPoints**（GP-L 言語のみ / GP-VL 視覚言語）と実世界ナビゲーション **V-IRL**（同 L/VL）の rule-based textual variant + visual variant の OOD 評価で実証
+  - **ベースモデル**: Llama-3.2-Vision-11B（Dubey et al., 2024）。**RL アルゴリズム**: PPO（Schulman et al., 2017）+ **outcome-based reward**（GP: 正解 +5 / 全カード使用したが不正解 −1 / 不正な数値 −2 / 違法な式 −3 / 認識失敗 −1.5）
+  - **主要結果**:
+    - GP-L Rule OOD: RL +3.5pt (11.5→15.0%) vs SFT −8.1pt (11.5→3.4%)
+    - GP-VL Rule OOD: RL +3.0pt vs SFT −5.6pt
+    - GP-VL Visual OOD: RL +17.6pt (23.6→41.2%) vs SFT −9.9pt
+    - V-IRL-L Rule OOD: **RL +11.0pt (80.8→91.8%) vs SFT −79.5pt (80.8→1.3%)** ← 極端な暗記の証拠
+    - V-IRL-VL Rule OOD: RL +9.3pt (35.7→45.0%) vs SFT −33.2pt
+    - **V-IRL-VL Visual OOD: RL +61.1pt (16.7→77.8%)、+33.8pt の SOTA 更新**、SFT −5.6pt
+  - **SFT は RL の前段として必要**（限定条件付き）: 指示追従できない backbone への直接 RL は全試行失敗（出力フォーマットが安定せず報酬信号を見つけられない）。**DeepSeek-R1 の "pure RL で SFT 不要" 主張との不一致は別 backbone 知識差に起因**と注釈
+  - **SFT は recognition token を犠牲に reasoning token に局所過適合**: SFT の計算量増加で視覚認識精度が**低下**（RL は逆に向上）、reasoning token 出現頻度の高さが原因と仮説
+  - **Test-time compute scaling**: 検証反復数 {1, 3, 5, 10} で OOD 改善 {+0.48, +2.15, +2.99, +5.99}pt
+  - **Compute scaling**: RL のみ ID/OOD 両方で単調増加、SFT は ID 増加でも OOD 逆効果
+  - 査読: ✅ accepted — ICML 2025（PMLR 267, Vancouver）
+  - 関連既存ページとの連関:
+    - [On SFT, RL, and on-policy distillation (Brown & Claude Opus 4.7)](../wiki/papers/RL/willccbb-sft-rl-opd.md) の **compounding argument**（SFT は分布固定で天井 ≈ teacher、RL はロールアウトで compounding し天井 = verifier 能力）の**経験的先行事例**
+    - [DeepSeek-R1](../wiki/papers/RL/deepseek-r1.md) / [Dr. GRPO](../wiki/papers/RL/dr-grpo.md) の "事前学習バイアス説" と接続（backbone 事前知識量に応じて SFT 必要性が変動）
+    - [ProRL](../wiki/papers/RL/prorl.md) の "RL は真に新しい推論を獲得" 主張と整合、[Does RLVR Truly Unlock New Reasoning?](../wiki/papers/RL/rlvr-does-not-teach-new-reasoning.md) の "filtering" 主張と論争中
+    - [ScaleRL](../wiki/papers/RL/scale-rl.md) の sigmoid scaling 則と [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) の power-law フィットによる本論文の compute scaling 観察の精緻化
+    - 検証反復数 scaling は [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) や [MiniMax-M1 thinking budget](../wiki/papers/Technical_Report/minimax-m1.md) の inference-time compute scaling の早期実証
+    - [Your Evals Will Break](../wiki/papers/Evaluation/your-evals-will-break.md) が指摘する OOD shift 評価軸の好例
+  - `wiki/index.md` 配置: RL カテゴリ先頭（SFT vs RL の根本対比として系譜全体の前置き的位置）
+  - `index/peer-review.md` の accepted 件数 25 → 26、ICML 2025 として登録
+  - `index/topics.md`: 既存 `RLVR capability boundary` 12→13件、`test-time compute` 3→4件、新トピック2件追加: `SFT vs RL generalization`（4件）、`OOD / generalization evaluation`（3件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加**: Learning, Fast and Slow: Towards LLMs That Adapt Continually (Tiwari, Sareen, Agrawal, Gonzalez, Zaharia, Keutzer, Dhillon, Agarwal, Khatri, 2026 / UC Berkeley × Mila × UT Austin)
+  - `sources/RL/learning-fast-and-slow.md` 作成
+  - `evidence/RL/learning-fast-and-slow.md` 作成
+  - `wiki/papers/RL/learning-fast-and-slow.md` 作成
+  - 出典: [arXiv 2605.12484](https://arxiv.org/abs/2605.12484) v1: 2026-05-12 / v2: 2026-05-14、29ページ・14図、preprint（採択先未記載）、公式ブログ: [gepa-ai.github.io/gepa/blog/2026/05/11/learning-fast-and-slow/](https://gepa-ai.github.io/gepa/blog/2026/05/11/learning-fast-and-slow/)、コード: [rishabhtiwari.ai/projects/fst/code/](https://rishabhtiwari.ai/projects/fst/code/)
+  - **提案手法 Fast-Slow Training (FST)**: parameter θ を **slow weights**（GRPO + **CISPO loss** = [MiniMax-M1](../wiki/papers/Technical_Report/minimax-m1.md) 由来の importance sampling weight clipping、group size G=8 rollouts/problem）、discrete textual prompt Φ を **fast weights**（**GEPA = Reflective Prompt Evolution**、reflection LM = **GPT-5.2 frozen**、per-instance Pareto frontier として population 保持）として interleave 最適化
+  - **Two-loop 構造**: T=6 RL ステップごとに GEPA が K={4,8} 候補プロンプトを生成し Pareto frontier を更新、次の T RL 更新をその frontier で conditioning
+  - **主要結果**:
+    - サンプル効率: CodeIO 3.0× (RL 43.0% → FST **47.4%**) / HoVer-hard 3.0× (17.3% → **25.0%**) / Math (Polaris) 1.4× (46.4% → **49.2%**)
+    - **KL(π_train ∥ π_base) を最大70%削減**（matched reward で）——drift 抑制で catastrophic forgetting 回避
+    - **継続学習** (600ステップ × 3 sequential tasks: HoVer → CodeIO → Physics 各200ステップ): RL は CodeIO に **stall 20.7%**、FST は **near-peak 37.7%** に到達、後続 Physics でも RL は partial recovery のみだが FST は near-peak
+    - Star-graph synthetic zero-reward exploration task でも hybrid 探索性能を分離評価
+  - **Drift 定義**: `KL(π_train ∥ π_base)` を held-out validation prompts の token-level divergence で測定
+  - **著者の系譜**:
+    - Lakshya A Agrawal は **前作 GEPA の主要著者**、本論文は GEPA を「frozen checkpoint への post-hoc 適用」から「RL ループ内に embed する hybrid optimization」へ拡張
+    - Devvrit Khatri は [ScaleRL](../wiki/papers/RL/scale-rl.md) の主要著者（Khatri, Madaan, Tiwari et al., 2025）、scaling 軸での RL 効率研究の系譜
+    - Rishabh Agarwal は Google DeepMind → Meta → Mila の RL/post-training 系研究者
+  - 査読: 📝 preprint（採択先未記載、29ページ・14図、blog reference あり）
+  - 関連既存ページとの連関:
+    - [On SFT, RL, and on-policy distillation (Brown & Claude Opus 4.7)](../wiki/papers/RL/willccbb-sft-rl-opd.md) の future work で予告された **「学習可能 hint writer / self-prompt online RL / hint-writing RL」系の具体実装**、SFT/RL/OPD/SDFT/OPSD の Pareto curve に **FST = (Φ optimization, θ RL)** という新軸を追加
+    - CISPO loss を slow side に採用した点は [MiniMax-M1 CISPO](../wiki/papers/Technical_Report/minimax-m1.md) から [Flash-RL / TIS](../wiki/papers/RL/flash-rl-tis.md) の IS-weight clipping 系譜の **hybrid 設計への展開**を示す最初の主要事例
+    - drift 抑制（−70% KL）→ plasticity 保持の観察は [SFT Memorizes, RL Generalizes](../wiki/papers/RL/sft-memorizes-rl-generalizes.md) の「RL は OOD 汎化、SFT は memorize」結果と接続し、「parameter update を必要最小限に抑え、prompt 側で task-specific 情報を運ぶ」分業原理を提示
+    - 継続学習で RL が CodeIO に stall する観察は長期 RL の plasticity loss を端的に示し、[ScaleRL](../wiki/papers/RL/scale-rl.md) の sigmoid asymptote 曲線が単一タスク内では予測可能でも task switch では崩れることを補完的に示唆
+    - [Dr. GRPO](../wiki/papers/RL/dr-grpo.md) の事前学習バイアス説（base に既存する能力を引き出すのに最小限の parameter 更新で十分）と整合的
+  - `wiki/index.md` 配置: RL カテゴリ先頭（fast/slow hybrid paradigm の代表として、SFT Memorizes RL Generalizes より前置）
+  - `index/peer-review.md` の preprint 件数 22 → 23、RL カテゴリに追加
+  - `index/topics.md`: 既存 `RLVR capability boundary` 13→14件、`SFT vs RL generalization` 4→5件、`off-policy RL / importance sampling` 3→4件、新トピック4件追加: `continual learning / plasticity`、`prompt optimization / GEPA`、`fast/slow weights / hybrid optimization`、`KL divergence / drift control`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+  - **次回 ingest 候補**: GEPA 自体（Agrawal et al.、Reflective Prompt Evolution）——本論文の登場で理論的重要性が高まったため
+
+## 2026-05-27
+
+- **記事追加**: Vector DBを外したら、RAGではなくAgent Runtimeが残った (mofuteq, 2026 / Zenn)
+  - `sources/Agent_ToolUse/vector-db-to-agent-runtime.md` 作成
+  - `evidence/Agent_ToolUse/vector-db-to-agent-runtime.md` 作成
+  - `wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md` 作成
+  - 出典: [zenn.dev/mofuteq/articles/8a2193df98ac05](https://zenn.dev/mofuteq/articles/8a2193df98ac05)、2026-05-21 公開、コード: [github.com/mofuteq/trend-to-rule](https://github.com/mofuteq/trend-to-rule)
+  - **中核主張**: 当初 RAG として構築していたシステムから Vector DB を除去した結果、残ったのは「検索 + 生成」ではなく **Agent Runtime** だった、という経験報告を **RAR (Retrieval Augmented Reasoning)** として整理。RAG の目的が "retrieve more context to generate better answers" であるのに対し、RAR は "externalize reasoning structure so the runtime can make reasoning visible, controllable, recoverable, and inspectable"
+  - **3つの設計要素**:
+    - **Retrieval Lane の二分化**: canonical_query（長期信号）と emerging_query（現在のノイズ）を分離し、検索を推論意図に従属化
+    - **Typed Artifacts**: WebSource / Claim / StructuredDraft をスキーマ化、Claim には Observation / Interpretation / Signal / Norm を属性付与、LLM を「自律的推論者」から「スキーマを埋める変換コンポーネント」へ再配置
+    - **Conflicts / Gaps の明示保持**: StructuredDraft の必須フィールドとして対立と欠損を残し、推論の境界を runtime に可視化
+  - **実装スタック**: Streamlit UI → FastAPI → LangGraph 状態機械 → SQLite checkpoint → typed artifacts → SSE Workflow State。Resume / Checkpoint / Persisted Artifact / SSE Status を操作対象として中断・障害・復旧を runtime の語彙に組み込む。UI も「Thinking...」→「Retrieving evidence... / Extracting claims...」へ
+  - **責務境界**: Agent に最終判断を委譲せず「解釈の枠組み」を返すことで、人間/専門家の最終判断との境界を構造化（Disclaimer の増加では代替できない）
+  - **適用ドメイン**: ファッション/スタイリングのトレンド分析（trend-to-rule、Vector DB の急速陳腐化「昨日の信号 = 今日のノイズ」が露見した契機）、契約レビュー（contract-question-agent、専門家レビュー前の検証質問返却）
+  - **キーフレーズ**: "Agent design is not inside the model. It is the structure around the model"
+  - **教訓**: Happy path の限界 / 軽量モデル制約下の設計が堅牢性を高める / Disclaimer ≠ 責務境界 / FISI（「小さく通す → 困る → 構造追加」の反復）
+  - 査読: — n/a（Zenn ブログ記事、ベンチマーク・定量評価なし、特定ドメインでの経験報告）
+  - 関連既存ページとの連関:
+    - [LLM-as-a-Verifier](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md) の "small verifier + large generator pool" と [On SFT, RL, and on-policy distillation](../wiki/papers/RL/willccbb-sft-rl-opd.md) の "teacher π_T を制御ダイアルとして扱う" と同じ「能力をモデル内に閉じ込めず外部構造に分配する」設計哲学を **inference 時側で実現**
+    - [AI Agent Traps](../wiki/papers/Safety_Alignment/ssrn-6372438.md) の Agent 最終権限委譲リスクへの **構造的応答**（Disclaimer ではなく structural boundary）
+    - [The Geometry of Forgetting](../wiki/papers/Reasoning/geometry-of-forgetting.md) の vector averaging fallacy / dimensionality illusion ~16 の **実務側カウンターパート**（意味的近接性 ≠ 判断有用性、Vector DB の陳腐化の理論的基盤）
+    - [Learning, Fast and Slow (FST)](../wiki/papers/RL/learning-fast-and-slow.md) の slow weights θ / fast weights Φ の二層化と概念的にパラレル（canonical_query vs emerging_query の分離）、推論時側の対応
+    - [Karpathy Wiki Workflow](../wiki/papers/Press_Releases/karpathy-tweet.md) の LLM で source 文書を構造化 wiki にコンパイルする並列的アイデア
+  - `wiki/index.md` 配置: Agent_ToolUse カテゴリ末尾（LLM-as-a-Verifier の直後、設計パラダイム提示記事として）
+  - `index/peer-review.md` の n/a 件数 17 → 18、Agent_ToolUse Zenn ブログ記事として追加
+  - `index/topics.md`: 既存 `agent / multi-agent` 4→5件、新トピック3件追加: `agent runtime / state machine`、`RAG / retrieval`、`typed artifacts / schema-driven design`
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-28
+
+- **論文追加**: BlueprintSymVL: A discriminative benchmark for VLM symbol recognition in engineering blueprints (Shteriyanov, Dzhusupova, Bosch, Holmström Olsson, 2025 / McDermott × Eindhoven UoT × Chalmers UoT × Malmö University)
+  - `sources/Evaluation/blueprintsymvl.md` 作成
+  - `evidence/Evaluation/blueprintsymvl.md` 作成
+  - `wiki/papers/Evaluation/blueprintsymvl.md` 作成
+  - 出典: **Results in Engineering 28 (2025) 108171** (Elsevier, CC BY 4.0)、[DOI 10.1016/j.rineng.2025.108171](https://doi.org/10.1016/j.rineng.2025.108171)、Received 2025-07-29 / Accepted 2025-11-09 / Online 2025-11-13、Chalmers PDF: research.chalmers.se/publication/549362、データセット [Zenodo 10.5281/zenodo.17250377](https://doi.org/10.5281/zenodo.17250377)
+  - **位置付け**: エンジニアリング・ブループリント（特に P&ID = Piping and Instrumentation Diagram）の **VLM シンボル認識を評価する最初のドメイン特化ベンチマーク**。既存 VLM ベンチマーク（VQA/GQA/MMBench/SEED-Bench/MMMU/DesignQA/MathVista/POPE/ChartQA/AI2D/Image2Struct）は symbol density / occlusion / visual similarity の3課題を体系的に扱っていないという空白を埋める
+  - **核心パラダイム: One-shot visual in-context querying**
+    - query 時に **red-circle ハイライト**付き visual exemplar を提示
+    - 事前学習知識・標準化シンボル体系への依存を排除
+    - project-specific 訓練不要の柔軟検出を可能にするか評価
+  - **Strict performance criterion**: シンボルカウント + 各インスタンスの text label（"4″" や alphanumeric tag "GH-29744" 等）の両方の正解性を要求、**fuzzy string matching 85% threshold** で OCR 的軽微誤差は許容
+  - **ベンチマーク構成**:
+    - 5 symbol classes（gate valve / butterfly valve / check valve / reducer / spacer）
+    - 4 scenarios（**Baseline / Dense Region（10+ symbols in 860×860px）/ Similar Symbols（distractor 含む）/ Negative Case（target 不在）**）
+    - 5 regions per (class × scenario) = **100 unique regions + revision-cloud 風合成 occluded 100 = 200 regions**
+    - 著者らの previous study で occlusion が symbol detector 性能の主要劣化因子と実証されたことが occlusion 拡張の動機
+  - **4 SOTA VLMs ベースライン**:
+    - **Gemini 2.5 Pro**: EMR **50.5%** / R 74.48% / P 53.16% — **総合トップ**
+    - **Qwen 2.5 VL 72B**: EMR 40.5% / R 71.35% / P 43.49% — 2位
+    - **GPT-4o**: EMR 30% / R 63.02% / P 37.58% — 3位
+    - **InternVL 2.5 78B**: EMR **4.5%** / R 26.69% / P 15.32% — 大幅劣後（ドメイン未最適）
+    - 性能差 50.5% vs 4.5% でベンチマークが **highly discriminative** と実証
+  - **主要発見**:
+    - **シナリオ難化で性能崩壊** — Baseline 86% (Gemini/Qwen) → Dense **10-38%** / Similar **0-38%**、Qwen Dense **10%** が最大の脆弱性
+    - **全モデルで Recall ≫ Precision** — false positive 量産が共通弱点
+    - **Negative Case の False Positives**: InternVL **91 FP** / GPT-4o 64 / Gemini 48 / **Qwen 38（最良の保守性）**
+    - **Per-symbol 分散**: Gemini check valve 67.5% / reducer 65% / **gate valve 全モデルで 30-37.5% と困難**、InternVL は reducer / spacer で **0% EMR**
+    - **Occlusion 影響**: Gemini -25pt（**top performer ほど脆弱**）/ GPT-4o -12pt / Qwen **-5pt（相対的に robust）** / InternVL -3pt
+    - **Ablation**: original (2+ annotated instances) **EMR 50.5%** = alternate (1 instance) 50.5%（annotated 数は無関係）、**Symbol Crop（decontextualized）EMR 36.5%（-14pt）** — **context-rich highlighted region が visual prompt として必須**
+  - **結論**: 現状 VLM は industrial-grade reliability には遠く、**autonomous deployment には不適、human-in-the-loop ワークフローでの統合が適切**
+  - **方法論**: Action Research methodology — McDermott の AI チームと engineering domain experts の直接協働でシナリオ選定の産業代表性を確保
+  - 査読: ✅ accepted — Results in Engineering 28 (Elsevier, CC BY 4.0, 2025)
+  - 関連既存ページとの連関:
+    - [SECURE: Cybersecurity Benchmark](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) と並ぶ **domain-specialized reliability benchmark** 系譜（SECURE は ICS で OOD 性能差 87.9% vs 8.4% を露出、BlueprintSymVL は VLM 間で 50.5% vs 4.5% の discriminative power）
+    - [LiveBench](../wiki/papers/Evaluation/livebench.md) の知識依存排除動機を visual in-context paradigm で実装した代替経路
+    - [Your Evals Will Break](../wiki/papers/Evaluation/your-evals-will-break.md) の盲点（「accuracy 高でも産業 unreliable」）の定量化、Recall ≫ Precision が order parameter 候補として機能
+    - [GSM-Symbolic](../wiki/papers/Reasoning/gsm-symbolic.md) の数値摂動と平行する **controlled distractor injection** を視覚に移植（Dense / Similar / Negative の各シナリオ）
+    - [CLIP](../wiki/papers/Multimodal/clip.md) / [FROMAGe](../wiki/papers/Multimodal/fromage.md) の **context-bound 物体認識**の経験的傍証（symbol crop で -14pt = context が認識に不可欠）
+    - [Video models are zero-shot learners](../wiki/papers/Multimodal/video-models-zero-shot-learners.md) と同様の「emergent capability と systematic fragility が同居」のパターン（Gemini が top performer ながら occlusion で最大 drop）
+    - [Vector DBを外したら、RAGではなくAgent Runtimeが残った](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md) の "Disclaimer ≠ 責務境界" 設計と整合する結論（VLM を autonomous な判断者ではなく変換コンポーネントとして配置）
+    - [Automated PLC Test Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) の産業オートメーション領域での LLM 適用の隣接事例
+  - `wiki/index.md` 配置: Evaluation カテゴリ末尾（Your Evals Will Break の直後、最新ドメイン特化ベンチマークとして）
+  - `index/peer-review.md` の accepted 件数 26 → 27、Results in Engineering 2025 として登録
+  - `index/topics.md`: 既存 `benchmark design / contamination` 3→4件、新トピック6件追加: `domain-specialized benchmark`（3件: SECURE/BlueprintSymVL/SWE-CI）、`VLM evaluation / visual benchmark`（3件）、`visual in-context learning`（2件）、`industrial AI / blueprint analysis`（2件）、`occlusion / robustness`（1件）、`hallucination / false positives`（2件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
