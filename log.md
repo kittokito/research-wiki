@@ -640,3 +640,35 @@
   - `index/peer-review.md` の accepted 件数 26 → 27、Results in Engineering 2025 として登録
   - `index/topics.md`: 既存 `benchmark design / contamination` 3→4件、新トピック6件追加: `domain-specialized benchmark`（3件: SECURE/BlueprintSymVL/SWE-CI）、`VLM evaluation / visual benchmark`（3件）、`visual in-context learning`（2件）、`industrial AI / blueprint analysis`（2件）、`occlusion / robustness`（1件）、`hallucination / false positives`（2件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-05-29
+
+- **記事追加**: RAGとAgentic Searchの戦争を終わらせに来た!!! (Hirosato Gamo / Microsoft, 2026)
+  - `sources/Agent_ToolUse/rag-vs-agentic-search.md` 作成
+  - `evidence/Agent_ToolUse/rag-vs-agentic-search.md` 作成
+  - `wiki/papers/Agent_ToolUse/rag-vs-agentic-search.md` 作成
+  - **位置付け**: Microsoft の Hirosato Gamo（AI Cloud Solution Architect / Evangelist）による Zenn 記事（Microsoft publication、公開 2026-04-08 / 更新 2026-04-13）。「RAG は終わった」という SNS 言説を **用語の背景コンテキスト省略に起因する疑似論争** として整理するオピニオン記事
+  - **RAG の定義拡張**: 初期の「ベクトル検索前提」から「外部データを参照して生成を強化する」広義へ。**Microsoft / AWS / NVIDIA も広義解釈を採用**
+  - **Agentic Search の本質**: ファイルシステム探索と同義ではなく「**推論を用いて複数回の検索を反復するアプローチ**」。検索手段（ベクトル検索 / grep・glob）は限定されない
+  - **論争の発端（固有名）**:
+    - **Anthropic @bcherny 氏**: 「Claude Code 初期は RAG + ローカル Vector DB だったが、agentic search の方が一般的にうまく機能すると判明」
+    - **Karpathy 氏**: LLM Wiki がベクトル検索 RAG より手軽で機能しやすいことを示唆
+    - **大規模コンテキスト論**: 「全テキストを LLM に渡せば RAG 不要では」という CAG 推進論
+  - **ベクトル検索 RAG は死んでいない**: 「必要な場面は多い。ただし最盛期のように何でもかんでもベクトル検索という間違った状況からは抜け出した」
+  - **Agentic 検索の3留意点**: ①検索の長時間化 ②コンテキスト消費増 ③検索履歴のノイズ化による後続フェーズ精度低下（対策: 検索のエンジン側寄せ / 軽量モデル / 良結果のみ返送）
+  - **取得手段の比較**:
+    - **ベクトル検索 RAG**: 曖昧な意味検索に強いがインデックス構築コスト
+    - **ファイルシステム探索 RAG**: 事前準備不要・高速・クエリが一般的なら高精度（コードベース向き）だが「探索空間が狭くないと破綻」
+    - **CAG（Context-Augmented Generation）**: 大コンテキスト＋キャッシュ方式。フラッグシップ＋数ファイル＋単純質問で有効、小型モデル / 多タスクエージェント / 大型ドキュメントで破綻
+  - **Karpathy の LLM Wiki**: LLM でナレッジを Wiki 化し Obsidian 等で関連を磨く手法。**Graph RAG に近い概念をファイルシステムで完結**させ、Graph RAG の大規模コスト・判定困難を小規模可視化で克服。本 wiki 運用自体のメタ言及でもある
+  - **結論**: 「対象データの性質・規模・タスクで使い分けることが大事」。発信者は技術評価の前提コンテキストを明示し、受け手はそれを注視すべき
+  - 査読: — n/a（査読対象外のオピニオン記事、定量評価・ベンチマークなし）
+  - 関連既存ページとの連関:
+    - [Vector DBを外したら、RAGではなくAgent Runtimeが残った](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md) — 同一論点クラスタ。実装経験から「手段ではなく構造/戦略が本質」へ到達する別経路（RAG → RAR）
+    - [Karpathy Wiki Workflow](../wiki/papers/Press_Releases/karpathy-tweet.md) — 本記事が「ファイルシステム探索 RAG 活用の 1 アイディア」として引く LLM Wiki の元ネタ
+    - [Agentic RL Training (Kimi/Cursor/Chroma)](../wiki/papers/Agent_ToolUse/kimi-cursor-chroma-agentic-rl.md) — agentic search を訓練側から扱う系統との対比
+  - 図表: なし（オピニオン記事のため挿入なし）
+  - `wiki/index.md` 配置: Agent_ToolUse カテゴリ、vector-db-to-agent-runtime の直後（RAG/retrieval 論点クラスタ）
+  - `index/peer-review.md` の n/a 件数 18 → 19、Zenn ブログ記事（Hirosato Gamo / Microsoft, 2026-04-08）として登録
+  - `index/topics.md`: 既存 `RAG / retrieval` 1→2件、新トピック2件追加: `agentic search`（1件）、`CAG / long-context retrieval`（1件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
