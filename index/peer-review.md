@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-05-28 (追加: BlueprintSymVL)
+> 最終更新: 2026-05-29 (追加: Transformers are Inherently Succinct)
 
-## ✅ accepted（査読済み・採択）— 27件
+## ✅ accepted（査読済み・採択）— 28件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -31,6 +31,7 @@
 | [TurboQuant](../wiki/papers/Efficiency_Optimization/turboquant.md) | ICLR 2026 (Poster) | 2026 |
 | [ATLAS: Multilingual Scaling Laws](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md) | ICLR 2026 | 2025 |
 | [ScaleRL](../wiki/papers/RL/scale-rl.md) | ICLR 2026 (Oral) | 2025 |
+| [Transformers are Inherently Succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md) | ICLR 2026 (Oral, Outstanding Paper) | 2025 |
 | [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) | ACL 2026 (Main) | 2025 |
 | [BlueprintSymVL: VLM Symbol Recognition in Engineering Blueprints](../wiki/papers/Evaluation/blueprintsymvl.md) | Results in Engineering 28 (Elsevier, CC BY 4.0) | 2025 |
 

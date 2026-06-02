@@ -10,6 +10,8 @@
 | RAG / retrieval | [papers/vector-db-to-agent-runtime](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md), [papers/rag-vs-agentic-search](../wiki/papers/Agent_ToolUse/rag-vs-agentic-search.md) | 2 | 2026-05-29 |
 | agentic search | [papers/rag-vs-agentic-search](../wiki/papers/Agent_ToolUse/rag-vs-agentic-search.md) | 1 | 2026-05-29 |
 | CAG / long-context retrieval | [papers/rag-vs-agentic-search](../wiki/papers/Agent_ToolUse/rag-vs-agentic-search.md) | 1 | 2026-05-29 |
+| transformer expressivity / succinctness | [papers/transformers-are-inherently-succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md) | 1 | 2026-05-29 |
+| formal language theory / automata | [papers/transformers-are-inherently-succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md) | 1 | 2026-05-29 |
 | typed artifacts / schema-driven design | [papers/vector-db-to-agent-runtime](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md) | 1 | 2026-05-27 |
 | verifier / reward model | [papers/llm-as-a-verifier](../wiki/papers/Agent_ToolUse/llm-as-a-verifier.md), [papers/mind-the-gap](../wiki/papers/Reasoning/mind-the-gap-self-improvement.md) | 2 | 2026-04-21 |
 | agentic RL | [papers/kimi-cursor-chroma-agentic-rl](../wiki/papers/Agent_ToolUse/kimi-cursor-chroma-agentic-rl.md), [papers/openclaw-rl](../wiki/papers/RL/openclaw-rl.md), [models/claude-mythos-preview](../wiki/models/claude-mythos-preview.md) | 3 | 2026-04-08 |

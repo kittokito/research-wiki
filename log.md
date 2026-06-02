@@ -672,3 +672,30 @@
   - `index/peer-review.md` の n/a 件数 18 → 19、Zenn ブログ記事（Hirosato Gamo / Microsoft, 2026-04-08）として登録
   - `index/topics.md`: 既存 `RAG / retrieval` 1→2件、新トピック2件追加: `agentic search`（1件）、`CAG / long-context retrieval`（1件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+- **論文追加**: Transformers are Inherently Succinct (Bergsträßer, Cotterell, Lin, 2025)
+  - `sources/Architecture/transformers-are-inherently-succinct.md` 作成
+  - `evidence/Architecture/transformers-are-inherently-succinct.md` 作成
+  - `wiki/papers/Architecture/transformers-are-inherently-succinct.md` 作成
+  - **位置付け**: arXiv 2510.19315（v1 2025-10-22 / v3 2026-05-15）。著者 Pascal Bergsträßer × Anthony W. Lin（RPTU Kaiserslautern-Landau / MPI-SWS）× Ryan Cotterell（ETH Zürich）。**ICLR 2026 採択（Oral, Outstanding Paper）**、OpenReview id=Yxz92UuPLQ。Transformer の表現力を **succinctness（簡潔性）** という形式言語理論的尺度で分析した理論論文
+  - **succinctness 階層（構成的証明）**: `Transformer > LTL > RNN > 有限オートマトン`
+    - **対 LTL: 指数関数的に簡潔**（Theorem 14）。逆 LTL→UHAT は多項式変換でブローアップなし（Proposition 15）
+    - **対 有限オートマトン: 二重指数関数的に簡潔**（Theorem 16）
+    - **対 固定精度 RNN: 指数関数的に簡潔**（Corollary 17、固定精度 RNN は有限オートマトンに帰着 / Proposition 3）
+  - **検証問題の計算量**:
+    - **Theorem 5**: UHAT / B-RASP の **非空性（emptiness）= EXPSPACE-complete**（下界 Prop 6/8、上界は Prop 12 の UHAT→LTL 指数時間変換 + LTL 非空性の PSPACE）
+    - **Theorem 18**: UHAT の **等価性判定 = EXPSPACE-complete**
+    - **Corollary 13**: 厳密未来マスク + 左端 tie-breaking の制限版非空性 = **NEXP**
+    - **Proposition 12**: 先行研究 Yang et al. 2024 の UHAT→LTL **二重指数変換を指数時間に改善**（EXPSPACE 上界の鍵）
+  - **対象モデル**: 固定精度 **UHAT（Masked Unique Hard-Attention Transformer）**。emb: Σ→ℚ^d、スコア S(v_i,v_j)=⟨A(v_i),B(v_j)⟩、マスク（厳密未来/過去/なし）、tie-breaking（最小=左端/最大=右端）、ReLU 層。softmax / 浮動小数点の実務挙動は対象外
+  - **限界**: unique hard-attention 前提（softmax は離散化近似）、recognition タスクの結果で生成・翻訳への含意は不明、表現可能性 ≠ 学習可能性（訓練ダイナミクスは扱わない）
+  - 関連既存ページとの連関:
+    - [Linear Transformers](../wiki/papers/Architecture/linear-transformers.md) — 「Transformer ⇄ RNN 等価」を示した論文と対をなす。効率化のための線形化が本論文の示す簡潔性優位の一部を手放す可能性
+    - [The Geometry of Forgetting](../wiki/papers/Reasoning/geometry-of-forgetting.md) — 表現可能性 vs 実利用可能性のギャップ
+    - [AI Agent Traps](../wiki/papers/Safety_Alignment/ssrn-6372438.md) — 検証 EXPSPACE-complete は Agent 振る舞い保証への理論的悲観材料（簡潔さと検証可能性のトレードオフ）
+    - [All elementary functions from a single operator](../wiki/papers/Symbolic_Computation/eml-single-operator.md) — ML を記号・形式の言葉で捉え直す系譜
+  - 図表: なし（理論論文、主要結果は定理ベースのため挿入なし）
+  - **カテゴリ判断**: Symbolic_Computation（形式的手法）とも近接するが、主題が Transformer アーキテクチャの表現力であり discoverability を優先して **Architecture** に配置（linear-transformers 隣接の表現力理論クラスタ）
+  - `wiki/index.md` 配置: Architecture カテゴリ、Linear Transformers の直後
+  - `index/peer-review.md` の accepted 件数 27 → 28、ICLR 2026 (Oral, Outstanding Paper) / 年 2025 として登録
+  - `index/topics.md`: 新トピック2件追加 `transformer expressivity / succinctness`（1件）、`formal language theory / automata`（1件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
