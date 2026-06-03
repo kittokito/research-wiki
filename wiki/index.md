@@ -38,6 +38,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [ATLAS: Multilingual Scaling Laws](papers/Pretraining/atlas-multilingual-scaling-laws.md) — 過去最大規模の多言語スケーリング則（774実験/400+言語）、ATLASが+0.3 R²で既存則を上回り、1444言語ペアの転移行列とscratch vs finetuneのクロスオーバー点を同定 (Longpre, Kudugunta, Muennighoff et al., 2025) `✅ ICLR 2026`
 
 ### Post_Training
+- [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](papers/Post_Training/sft-data-composition.md) — SFTで数学・コード・一般能力はスケーリング特性が異なる（math/codeは単調向上、一般は**~1000サンプルで頭打ち**）。逐次学習は **catastrophic forgetting**、同時学習は能力 conflict。**DMT**（専門データ→一般データに専門を比率kで少量混合する2段階）で両方を緩和 (Dong et al., 2023 / Alibaba・Qwen) `✅ ACL 2024 Main`
 - [Neural Thickets](papers/Post_Training/neural-thickets.md) — 事前学習重み近傍の多様なエキスパートをランダム摂動で発見 (Gan & Isola, 2026) `📝 preprint`
 - [Simple Self-Distillation](papers/Post_Training/simple-self-distillation-code.md) — 自身の出力のみでコード生成を改善するSSD (Zhang et al., 2026) `📝 preprint`
 - [Namazu Alpha](papers/Post_Training/namazu-alpha.md) — オープン基盤モデルの日本仕様適応 (Sakana AI, 2026) `— blog`

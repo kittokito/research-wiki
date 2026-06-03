@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-05-29 (追加: Transformers are Inherently Succinct)
+> 最終更新: 2026-06-03 (追加: SFT Data Composition / DMT)
 
-## ✅ accepted（査読済み・採択）— 28件
+## ✅ accepted（査読済み・採択）— 29件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -12,6 +12,7 @@
 | [CLIP: Learning Transferable Visual Models From Natural Language Supervision](../wiki/papers/Multimodal/clip.md) | ICML 2021 (PMLR v139, pp.8748-8763) | 2021 |
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
+| [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
 | [Automated Control Logic Test Case Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) | IEEE ETFA 2024 | 2024 |
 | [SECURE: Cybersecurity Benchmark](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) | ACSAC 2024 | 2024 |
 | [FineData / FineWeb Datasets](../wiki/papers/Pretraining/huggingface-finedata.md) | NeurIPS 2024 | 2025 |

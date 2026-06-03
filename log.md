@@ -699,3 +699,30 @@
   - `index/peer-review.md` の accepted 件数 27 → 28、ICLR 2026 (Oral, Outstanding Paper) / 年 2025 として登録
   - `index/topics.md`: 新トピック2件追加 `transformer expressivity / succinctness`（1件）、`formal language theory / automata`（1件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+## 2026-06-03
+
+- **論文追加**: How Abilities in Large Language Models are Affected by Supervised Fine-tuning Data Composition (Dong et al., 2023)
+  - `sources/Post_Training/sft-data-composition.md` 作成
+  - `evidence/Post_Training/sft-data-composition.md` 作成
+  - `wiki/papers/Post_Training/sft-data-composition.md` 作成
+  - **位置付け**: arXiv 2310.05492（v1 2023-10-09 / v4 2024-06-07）、**ACL 2024 Main Conference 採択**。著者は Alibaba（Qwen チーム: Keming Lu, Dayiheng Liu, Chang Zhou, Jingren Zhou ら）。SFT 時に数学推論・コード生成・一般能力の3能力がデータ量・混合比・モデルサイズ・SFT戦略にどう影響されるかを体系調査
+  - **評価設定**: GSM8K（数学）/ HumanEval（コード）/ MT-Bench（一般）、ベースモデル LLaMA 7B/13B/33B
+  - **主要発見**:
+    - 3能力で **スケーリング特性が異なる** — math/code はデータ量とともに単調向上、**一般能力は約1,000サンプルで頭打ち**
+    - 混合効果が **低リソースでは底上げ・高リソースでは能力間 conflict** と反転
+    - **逐次学習で catastrophic forgetting**、同時学習で conflict というジレンマ
+    - モデルが大きいほど低リソース設定での gain が大きい
+  - **提案手法 DMT（Dual-stage Mixed Fine-tuning）**: Stage1 で専門データ（math/code）を学習 → Stage2 で一般データに専門データを **比率 k で少量混合**して学習。conflict と forgetting の両方を緩和し専門/一般能力を両立
+  - **限界**: SFT 段階のみ（RLHF/DPO はスコープ外）、能力は math/code/general の3軸に限定、k の最適値はデータ量・モデルサイズ依存
+  - 査読: ✅ accepted — ACL 2024 (Main)
+  - 関連既存ページとの連関:
+    - [On SFT, RL, and on-policy distillation](../wiki/papers/RL/willccbb-sft-rl-opd.md) — 学習順序（SFT-then-RL）の compounding argument の SFT 内版
+    - [Learning, Fast and Slow (FST)](../wiki/papers/RL/learning-fast-and-slow.md) — catastrophic forgetting / 継続学習への別アプローチ（fast/slow weights vs 学習段階+混合比）
+    - [SFT Memorizes, RL Generalizes](../wiki/papers/RL/sft-memorizes-rl-generalizes.md) — SFT の過適合特性、能力別データ効率の補完的視点
+    - [Qwen3](../wiki/papers/Technical_Report/qwen3.md) — 同チーム系の多段 post-training の源流の一つ
+  - 図表: なし（スケーリング曲線が主だが本文図の挿入は省略）
+  - `wiki/index.md` 配置: Post_Training カテゴリ先頭（multi-skill SFT のデータ配合の基準点として）
+  - `index/peer-review.md` の accepted 件数 28 → 29、ACL 2024 (Main) / 年 2023 として登録
+  - `index/topics.md`: 新トピック2件追加 `SFT / data composition`（1件）、`catastrophic forgetting / continual learning`（2件: sft-data-composition / learning-fast-and-slow）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
