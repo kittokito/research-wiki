@@ -807,3 +807,16 @@
   - `index/peer-review.md`: accepted 35→37（BERT=ACL 2019/年2019、Does BERT=COLING 2022/年2022）
   - `index/topics.md`: 新トピック `probing / interpretability (linguistic structure)`（3件: bert 両論文 + language-structure-acquisition）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加**: When Scaling Meets LLM Finetuning: The Effect of Data, Model and Finetuning Method (Zhang, Liu, Cherry, Firat, 2024 / Google DeepMind)
+  - `sources/Post_Training/scaling-llm-finetuning.md` / `evidence/Post_Training/scaling-llm-finetuning.md` / `wiki/papers/Post_Training/scaling-llm-finetuning.md` 作成
+  - arXiv 2402.17193、**ICLR 2024 採択**。LLM ファインチューニング性能を 4因子（LLMモデルサイズ・事前学習データ・finetuneパラメータ数・finetuneデータ）で分析し、**finetuneデータ量×各因子の power-based 乗法的結合スケーリング則**を発見
+  - **主要発見**: (a) finetune は事前学習データより **LLMモデルサイズ**のスケーリングから恩恵、(b) **PET（prompt tuning/LoRA）のパラメータscalingは効きにくい**、(c) 最適手法はタスク・データ量依存（低データはPET有利）。FMT vs PET を 1B〜16B・bilingual MT/多言語要約・データ制限レジームで比較
+  - 限界: タスクが機械翻訳・要約に限定、規模16Bまで、PET は prompt/LoRA のみ
+  - 査読: ✅ accepted — ICLR 2024
+  - **カテゴリ判断**: finetuning 手法・データのスケーリングが主題のため **Post_Training**。[SFT Data Composition / DMT](../wiki/papers/Post_Training/sft-data-composition.md)（定性版）の定量スケーリング、[Curriculum Instruction Tuning](../wiki/topics/Post_Training/curriculum-instruction-tuning.md)（順序・配合）への「量」軸追加、スケーリング則ファミリー（[ATLAS](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)/[Scaling Behaviors of LLM RL](../wiki/papers/RL/rl-scaling-math-qwen25.md)/[言語構造の獲得理論](../wiki/papers/Pretraining/language-structure-acquisition.md)）の finetune ピースとして接続
+  - 図表: なし（スケーリング曲線が主だが本文図の挿入は省略）
+  - `wiki/index.md` 配置: Post_Training カテゴリ、DMT の直後
+  - `index/peer-review.md`: accepted 37→38（ICLR 2024 / 年2024）
+  - `index/topics.md`: `scaling law` 5→7件（+scaling-llm-finetuning, +language-structure-acquisition）、新トピック `finetuning / PEFT (LoRA, prompt tuning)`（3件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新

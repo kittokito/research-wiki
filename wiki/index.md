@@ -48,6 +48,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Post_Training
 - [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](papers/Post_Training/sft-data-composition.md) — SFTで数学・コード・一般能力はスケーリング特性が異なる（math/codeは単調向上、一般は**~1000サンプルで頭打ち**）。逐次学習は **catastrophic forgetting**、同時学習は能力 conflict。**DMT**（専門データ→一般データに専門を比率kで少量混合する2段階）で両方を緩和 (Dong et al., 2023 / Alibaba・Qwen) `✅ ACL 2024 Main`
+- [When Scaling Meets LLM Finetuning](papers/Post_Training/scaling-llm-finetuning.md) — ファインチューニング性能を **LLMモデルサイズ・事前学習データ・finetuneパラメータ数・finetuneデータ** の4因子で分析し、finetuneデータ量と各因子の間に **power-based の乗法的結合スケーリング則**を発見。**(a) LLMモデルサイズのスケーリングが事前学習データより finetune に効く、(b) PET（prompt tuning/LoRA）のパラメータscalingは概して効きにくい、(c) 最適手法はタスク・データ量依存**（低データはPET有利）。FMT vs PET 比較、1B〜16B・機械翻訳/要約 (Zhang, Liu, Cherry, Firat, 2024 / Google DeepMind) `✅ ICLR 2024`
 - [Neural Thickets](papers/Post_Training/neural-thickets.md) — 事前学習重み近傍の多様なエキスパートをランダム摂動で発見 (Gan & Isola, 2026 / MIT) `✅ ICML 2026 (Spotlight)`
 - [Simple Self-Distillation](papers/Post_Training/simple-self-distillation-code.md) — 自身の出力のみでコード生成を改善するSSD (Zhang et al., 2026) `📝 preprint`
 - [Namazu Alpha](papers/Post_Training/namazu-alpha.md) — オープン基盤モデルの日本仕様適応 (Sakana AI, 2026) `— blog`

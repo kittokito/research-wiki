@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-06-03 (追加: BERT pipeline 論争2件)
+> 最終更新: 2026-06-03 (追加: When Scaling Meets LLM Finetuning)
 
-## ✅ accepted（査読済み・採択）— 37件
+## ✅ accepted（査読済み・採択）— 38件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -15,6 +15,7 @@
 | [Does BERT Rediscover a Classical NLP Pipeline?](../wiki/papers/Pretraining/does-bert-rediscover-nlp-pipeline.md) | COLING 2022 | 2022 |
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
+| [When Scaling Meets LLM Finetuning](../wiki/papers/Post_Training/scaling-llm-finetuning.md) | ICLR 2024 | 2024 |
 | [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
 | [Random Hierarchy Model (RHM)](../wiki/papers/Pretraining/random-hierarchy-model.md) | Physical Review X 14, 031001 | 2023 |
 | [Automated Control Logic Test Case Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) | IEEE ETFA 2024 | 2024 |
