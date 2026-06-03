@@ -4,14 +4,14 @@ aliases: ["RS-GRPO", "Risk-Sensitive GRPO"]
 created: 2026-04-17
 updated: 2026-04-17
 tags: [RLVR, GRPO, pass-at-k, exploration-exploitation, risk-sensitive-RL, CVaR, Tsinghua, ByteDance-Seed]
-peer_review: under-review
-venue: "ICLR 2026（投稿中）"
+peer_review: accepted
+venue: "ICLR 2026 (Poster)"
 sources: [src-rs-grpo]
 ---
 
 # Risk-Sensitive RL for Alleviating Exploration Dilemmas in LLMs
 
-> **査読**: 🔄 under-review — ICLR 2026 Conference Submission（OpenReview [7kC8ORye4l](https://openreview.net/forum?id=7kC8ORye4l)）/ arXiv 2509.24261
+> **査読**: ✅ accepted — ICLR 2026（Poster）（OpenReview [7kC8ORye4l](https://openreview.net/forum?id=7kC8ORye4l)）/ arXiv 2509.24261
 
 Jiang, Huang, Yuan, Mao, Yue, Zhao, Yan (2025) — 清華大学 × ByteDance Seed
 

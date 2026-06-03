@@ -5,8 +5,8 @@ authors: ["Yuhua Jiang", "Jiawei Huang", "Yufeng Yuan", "Xin Mao", "Yu Yue", "Qi
 year: 2025
 url: "https://arxiv.org/abs/2509.24261"
 type: paper
-peer_review: under-review
-venue: "ICLR 2026（投稿中）"
+peer_review: accepted
+venue: "ICLR 2026 (Poster)"
 tags: [RLVR, GRPO, pass-at-k, exploration-exploitation, risk-sensitive-RL, CVaR, Tsinghua, ByteDance-Seed]
 date_added: 2026-04-17
 status: processed

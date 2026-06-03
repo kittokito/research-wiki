@@ -24,6 +24,9 @@ research-wiki/
 ├── evidence/           # 抽出されたクレーム・引用・数値
 │   └── {Category}/     # カテゴリ別サブフォルダ
 │       └── {slug}.md   # 1ソースにつき1ファイル
+├── figures/            # 論文の主要な図表（画像ファイル）
+│   └── {Category}/     # カテゴリ別サブフォルダ
+│       └── {slug}/     # 1論文1フォルダ。fig-1.png, fig-2.png ...
 ├── decisions/          # 採用・棄却・未決の判断ログ
 │   └── {slug}.md       # 1判断1ファイル
 └── index/              # 各種インデックス
@@ -67,6 +70,7 @@ research-wiki/
 - スラッグは kebab-case: `attention-is-all-you-need.md`
 - 日本語タイトルはfrontmatter内に記載、ファイル名は英語スラッグ
 - ファイルパス例: `sources/Architecture/attention-is-all-you-need.md`
+- 図表は `figures/{Category}/{slug}/` 配下に配置し、ファイル名は `fig-1.png`, `fig-2.png` のように連番。論文内の図番号と対応させると参照しやすい（例: 論文の Figure 3 → `fig-3.png`）。形式は PNG / JPG / SVG いずれも可
 
 ## ソースファイル形式 (`sources/`)
 
@@ -128,6 +132,7 @@ date_extracted: 2026-04-07
 - `wiki/` ページは**要約と解釈**に徹する。詳細な主張リスト・ベンチマーク・緩和策は `evidence/` に置く
 - `wiki/` からは `→ 詳細: [evidence](../evidence/{slug}.md)` でリンクし、必要なときだけ掘れる構造にする
 - これにより論文数が増えてもwikiページの肥大化を防ぎ、evidence（抽出）とwiki（合成）の役割分離を維持する
+- `wiki/papers/` のページには、可能であれば論文の主要な図表を **1-3点** 挿入する。アーキテクチャ図・主要結果のグラフ・手法の概念図など、本文の理解を助けるものを優先する。図表は `figures/{Category}/{slug}/` に配置し、必ず出典（論文の Figure 番号など）をキャプションに記載する
 
 ## Wikiページ形式 (`wiki/**`)
 
@@ -145,6 +150,12 @@ sources: [src-id1, src-id2]
 
 ## ソースからの事実
 - 事実1 [source](../sources/{slug}.md)
+
+## 主要な図表
+（`wiki/papers/` の場合は可能であれば1-3点挿入。出典の Figure 番号を明記する）
+
+![Figure 1: 説明](../../../figures/{Category}/{slug}/fig-1.png)
+*出典: 論文 Figure 1*
 
 ## 現時点の解釈
 （合成・分析・判断）
@@ -212,11 +223,12 @@ related_sources: [src-id1]
 ### 取り込み（Ingest）
 1. `sources/` にソースメタデータファイルを作成（不変）
 2. `evidence/` にクレーム・数値を抽出
-3. `wiki/` の既存ページを更新（新規作成より更新優先）
-4. 既存の結論が変わる場合は `decisions/` を更新
-5. 未解決の問いがあれば `index/open-questions.md` に追加
-6. `log.md` に変更を記録
-7. `wiki/index.md` と `index/` 配下を更新
+3. 可能であれば論文の主要な図表（1-3点）を `figures/{Category}/{slug}/` に保存
+4. `wiki/` の既存ページを更新（新規作成より更新優先）。`wiki/papers/` には保存した図表を埋め込む
+5. 既存の結論が変わる場合は `decisions/` を更新
+6. 未解決の問いがあれば `index/open-questions.md` に追加
+7. `log.md` に変更を記録
+8. `wiki/index.md` と `index/` 配下を更新
 
 ### 記述スタイル
 - 簡潔な技術日本語
@@ -231,6 +243,8 @@ related_sources: [src-id1]
 - ソース参照（wiki/papersから）: `[source](../../../sources/{Category}/{slug}.md)`
 - ソース参照（セクション指定）: `[source: §3.1](../../sources/{Category}/{slug}.md)` — 主張の根拠となる論文内セクションを明示する
 - evidence参照（wiki/papersから）: `[evidence](../../../evidence/{Category}/{slug}.md)`
+- 図表参照（wiki/papersから）: `![説明](../../../figures/{Category}/{slug}/fig-1.png)`
+- 図表参照（wiki/topicsから）: `![説明](../../../figures/{Category}/{slug}/fig-1.png)`
 - 外部URL: `[表示名](https://...)`
 
 ### インデックスの並び順

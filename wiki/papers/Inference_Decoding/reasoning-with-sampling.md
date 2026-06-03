@@ -4,14 +4,14 @@ aliases: ["Reasoning with Sampling", "MCMC Reasoning"]
 created: 2026-04-16
 updated: 2026-04-16
 tags: [MCMC, inference-time-compute, power-distribution, base-model, sampling, training-free, reasoning]
-peer_review: under-review
-venue: "ICLR 2026（投稿中）"
+peer_review: accepted
+venue: "ICLR 2026 (Oral)"
 sources: [src-reasoning-with-sampling]
 ---
 
 # Reasoning with Sampling: Your Base Model is Smarter Than You Think
 
-> **査読**: 🔄 under-review — ICLR 2026 Conference Submission（OpenReview [Vsgq2ldr4K](https://openreview.net/forum?id=Vsgq2ldr4K)）
+> **査読**: ✅ accepted — ICLR 2026（Oral）（OpenReview [Vsgq2ldr4K](https://openreview.net/forum?id=Vsgq2ldr4K)）
 
 Karan & Du (2025) — arXiv 2510.14901 / Harvard
 

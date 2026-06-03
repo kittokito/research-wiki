@@ -5,8 +5,8 @@ authors: ["Zelin Tan", "Hejia Geng", "Xiaohang Yu", "Mulei Zhang", "Guancheng Wa
 year: 2025
 url: "https://arxiv.org/abs/2509.25300"
 type: paper
-peer_review: accepted
-venue: "ACL 2026 (Main Conference)"
+peer_review: preprint
+venue: ""
 tags: [scaling-law, rl, rlvr, post-training, mathematical-reasoning, qwen25, grpo, data-efficiency, power-law]
 date_added: 2026-04-22
 status: processed

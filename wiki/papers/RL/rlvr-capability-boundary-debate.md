@@ -4,14 +4,14 @@ aliases: ["RLVR Boundary Debate", "RLVR二段階動態"]
 created: 2026-04-08
 updated: 2026-04-08
 tags: [RLVR, reasoning, capability-boundary, GRPO, exploration, exploitation, probability-mass]
-peer_review: under-review
+peer_review: preprint
 venue: ""
 sources: [src-rlvr-capability-boundary-debate]
 ---
 
 # The Debate on RLVR Reasoning Capability Boundary
 
-> **査読**: 🔄 under-review
+> **査読**: 📝 preprint（ICLR 2026 に投稿 → **Rejected**, OpenReview [sx48LQhCqF](https://openreview.net/forum?id=sx48LQhCqF)）
 
 ## ソースからの事実
 - RLVRのcapability boundaryをめぐるshrinkage派とexpansion派はどちらも部分的に正しいと整理 [source](../../../sources/RL/rlvr-capability-boundary-debate.md)
