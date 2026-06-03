@@ -790,3 +790,20 @@
   - `index/peer-review.md`: accepted 33→35（RHM=PRX 2024/年2023、language=NeurIPS 2024/年2024）
   - `index/topics.md`: `sample complexity / compositional data (PCFG)` 1→3件、新トピック `deep learning theory / feature learning`（3件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加（2件・BERTパイプライン論争）**: 主張↔再検証のペア
+  - **BERT Rediscovers the Classical NLP Pipeline** (Tenney, Das, Pavlick, 2019 / Google × Brown)
+    - `sources/Pretraining/bert-rediscovers-nlp-pipeline.md` / `evidence/...` / `wiki/papers/...` 作成
+    - arXiv 1905.05950、**ACL 2019 採択**（P19-1452）。edge probing で BERT 各層を解析し、古典 NLP パイプライン（POS → 構文 → NER → SRL → 照応）が期待順に層へ局在＝下位層=統語・上位層=意味を実証。center-of-gravity と cumulative scoring の2指標、動的パイプライン挙動も観測
+    - 査読: ✅ accepted — ACL 2019
+  - **Does BERT Rediscover a Classical NLP Pipeline?** (Niu, Lu, Penn, 2022 / University of Toronto)
+    - `sources/Pretraining/does-bert-rediscover-nlp-pipeline.md` / `evidence/...` / `wiki/papers/...` 作成
+    - COLING 2022（ACL Anthology 2022.coling-1.278）。Tenney et al. 2019 / Jawahar et al. 2019 の層分離仮説を批判的再検証。パイプライン的層分離には決定的支持が乏しく probe 方法論・指標に敏感、BERT 構造は言語的に根拠づけられるが層深さは最良の説明軸でないと主張。新プローブ GridLoc（位置・訓練ラウンド・シードを考慮）を提案
+    - 査読: ✅ accepted — COLING 2022
+  - **カテゴリ判断**: 解釈可能性/probing 論文だが「深層ネットのどこに言語構造が宿るか」という主題で既収録の [言語構造の獲得理論](../wiki/papers/Pretraining/language-structure-acquisition.md) / [RHM](../wiki/papers/Pretraining/random-hierarchy-model.md) と同クラスタのため **Pretraining** に配置。Interpretability カテゴリは未設置のため Pretraining 内の「言語構造の所在」クラスタに集約
+  - 「主張↔再検証」の論争ペア（[RLVR論争](../wiki/topics/RL/rlvr-capability-boundary.md) / [Dr. GRPO](../wiki/papers/RL/dr-grpo.md) と同型）として相互リンク。理論（深さ↔文法深さ）と経験（層分離は脆い）の緊張点を明示
+  - 図表: なし（probing 解析、層×タスクの図が主だが本文図の挿入は省略）
+  - `wiki/index.md` 配置: Pretraining カテゴリの言語構造クラスタ末尾に2件
+  - `index/peer-review.md`: accepted 35→37（BERT=ACL 2019/年2019、Does BERT=COLING 2022/年2022）
+  - `index/topics.md`: 新トピック `probing / interpretability (linguistic structure)`（3件: bert 両論文 + language-structure-acquisition）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新

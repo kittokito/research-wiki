@@ -1,16 +1,18 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-06-03 (追加: Random Hierarchy Model / 言語構造の獲得理論)
+> 最終更新: 2026-06-03 (追加: BERT pipeline 論争2件)
 
-## ✅ accepted（査読済み・採択）— 35件
+## ✅ accepted（査読済み・採択）— 37件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
 | [The Lottery Ticket Hypothesis](../wiki/papers/Efficiency_Optimization/lottery-ticket-hypothesis.md) | ICLR 2019 (Best Paper) | 2018 |
 | [From Louvain to Leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md) | Scientific Reports 2019 | 2019 |
+| [BERT Rediscovers the Classical NLP Pipeline](../wiki/papers/Pretraining/bert-rediscovers-nlp-pipeline.md) | ACL 2019 | 2019 |
 | [Linear Transformers: Transformers are RNNs](../wiki/papers/Architecture/linear-transformers.md) | ICML 2020 (PMLR v119, pp.5156-5165) | 2020 |
 | [CLIP: Learning Transferable Visual Models From Natural Language Supervision](../wiki/papers/Multimodal/clip.md) | ICML 2021 (PMLR v139, pp.8748-8763) | 2021 |
 | [data2vec: A General Framework for Self-supervised Learning](../wiki/papers/Pretraining/data2vec.md) | ICML 2022 (Oral, PMLR v162) | 2022 |
+| [Does BERT Rediscover a Classical NLP Pipeline?](../wiki/papers/Pretraining/does-bert-rediscover-nlp-pipeline.md) | COLING 2022 | 2022 |
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
 | [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
