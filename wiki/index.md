@@ -36,6 +36,8 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Rewriting Pre-Training Data](papers/Pretraining/rewriting-pretraining-data.md) — SwallowCode/SwallowMathでデータリライティングにより性能向上 (Fujii et al., 2025) `✅ ICLR 2026`
 - [FineData (HuggingFaceFW)](papers/Pretraining/huggingface-finedata.md) — 大規模オープン事前学習データセット群 (Hugging Face, 2025) `✅ NeurIPS 2024`
 - [ATLAS: Multilingual Scaling Laws](papers/Pretraining/atlas-multilingual-scaling-laws.md) — 過去最大規模の多言語スケーリング則（774実験/400+言語）、ATLASが+0.3 R²で既存則を上回り、1444言語ペアの転移行列とscratch vs finetuneのクロスオーバー点を同定 (Longpre, Kudugunta, Muennighoff et al., 2025) `✅ ICLR 2026`
+- [data2vec](papers/Pretraining/data2vec.md) — 音声・画像・言語に**同一の自己教師ありレシピ**を適用する統一フレームワーク。離散トークンでなく **EMA teacher（self-distillation）が出す文脈化潜在表現（上位K層平均）をマスク入力から回帰予測**。3モダリティで competitive〜SOTA（ImageNet/LibriSpeech/GLUE）。「token を捨てて自己の latent を予測する」JEPA 系設計の起点 (Baevski et al., 2022 / Meta AI) `✅ ICML 2022 (Oral)`
+- [Learn from your own latents（サンプル複雑度理論）](papers/Pretraining/latent-sample-complexity.md) — なぜ latent 予測 SSL が token 予測よりデータ効率が良いかを理論証明。**PCFG（深さLの隠れ木）**で、token/教師あり学習は木の復元に **Lについて指数的サンプル**を要するが **latent 予測は定数（対数因子まで）**。data2vec の初サンプル複雑度解析を与え「暗黙的に階層的 latent 予測を行う」と示し、**H-JEPA の明示的階層は冗長**と示唆 (Korchinski, Favero, Wyart, 2026) `📝 preprint`
 
 ### Post_Training
 - [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](papers/Post_Training/sft-data-composition.md) — SFTで数学・コード・一般能力はスケーリング特性が異なる（math/codeは単調向上、一般は**~1000サンプルで頭打ち**）。逐次学習は **catastrophic forgetting**、同時学習は能力 conflict。**DMT**（専門データ→一般データに専門を比率kで少量混合する2段階）で両方を緩和 (Dong et al., 2023 / Alibaba・Qwen) `✅ ACL 2024 Main`

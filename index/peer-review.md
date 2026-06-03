@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-06-03 (査読ステータス一斉再検証: ICLR 2026 採否確定を反映、偽陽性1件修正)
+> 最終更新: 2026-06-03 (追加: data2vec / Learn from your own latents)
 
-## ✅ accepted（査読済み・採択）— 32件
+## ✅ accepted（査読済み・採択）— 33件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -10,6 +10,7 @@
 | [From Louvain to Leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md) | Scientific Reports 2019 | 2019 |
 | [Linear Transformers: Transformers are RNNs](../wiki/papers/Architecture/linear-transformers.md) | ICML 2020 (PMLR v119, pp.5156-5165) | 2020 |
 | [CLIP: Learning Transferable Visual Models From Natural Language Supervision](../wiki/papers/Multimodal/clip.md) | ICML 2021 (PMLR v139, pp.8748-8763) | 2021 |
+| [data2vec: A General Framework for Self-supervised Learning](../wiki/papers/Pretraining/data2vec.md) | ICML 2022 (Oral, PMLR v162) | 2022 |
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
 | [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
@@ -52,7 +53,7 @@
 |---|---|
 | [Self-Organizing LLM Agents](../wiki/papers/Agent_ToolUse/self-organizing-llm-agents.md) | IEEE Access（投稿中） |
 
-## 📝 preprint（プレプリント）— 25件
+## 📝 preprint（プレプリント）— 26件
 
 | 論文 | カテゴリ |
 |---|---|
@@ -81,6 +82,7 @@
 | [Attention to Mamba: Cross-Architecture Distillation](../wiki/papers/Architecture/attention-to-mamba-distillation.md) | Architecture（ICLR 2026 Rejected） |
 | [Memory-Efficient Community Detection via Weighted Sketches](../wiki/papers/Graph_Network/memory-efficient-cd-sketches.md) | Graph_Network |
 | [Learning, Fast and Slow: FST](../wiki/papers/RL/learning-fast-and-slow.md) | RL |
+| [Learn from your own latents (sample-complexity theory)](../wiki/papers/Pretraining/latent-sample-complexity.md) | Pretraining |
 
 ## — n/a（査読対象外）— 19件
 

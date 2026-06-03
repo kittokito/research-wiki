@@ -745,3 +745,20 @@
   - **件数変化**: accepted 29→32、workshop 3→2、under-review 5→1、preprint 23→25、n/a 19（不変）。合計 79 で整合
   - **未対応（別件）**: 検証中に arXiv ID の取り違え（simple-self-distillation-code / swe-ci / openclaw-rl の3件で ID がローテーション）の疑いを発見。査読ステータスとは別問題のため今回は未修正、要個別検証
   - 各 sources/・wiki/papers/ の frontmatter（peer_review・venue）と査読行、`wiki/index.md` のタグ、`index/peer-review.md`、`index/recent.md` を更新
+
+- **論文追加（2件・相互関連）**: data2vec とその理論解析論文
+  - **data2vec: A General Framework for Self-supervised Learning in Speech, Vision and Language** (Baevski et al., 2022 / Meta AI)
+    - `sources/Pretraining/data2vec.md` / `evidence/Pretraining/data2vec.md` / `wiki/papers/Pretraining/data2vec.md` 作成
+    - arXiv 2202.03555、**ICML 2022 Oral 採択**（icml.cc/virtual/2022/oral/16644）。音声・画像・言語に同一 SSL レシピ。離散トークンでなく EMA teacher（self-distillation）が出す文脈化潜在表現（上位 K 層平均）をマスク入力から回帰予測。ImageNet/LibriSpeech/GLUE で competitive〜SOTA
+    - ※ data2vec 2.0（"Efficient Self-supervised Learning with Contextualized Target Representations", arXiv 2212.07525, ICML 2023）とは別論文
+    - 査読: ✅ accepted — ICML 2022 (Oral, PMLR v162)
+  - **Learn from your own latents and not from tokens: A sample-complexity theory** (Korchinski, Favero, Wyart, 2026)
+    - `sources/Pretraining/latent-sample-complexity.md` / `evidence/Pretraining/latent-sample-complexity.md` / `wiki/papers/Pretraining/latent-sample-complexity.md` 作成
+    - arXiv 2605.27734（v1 2026-05-26）、preprint。PCFG（深さ L の隠れ木、Random Hierarchy Model 系）上で、token-level/教師あり SSL は木復元に **L について指数的サンプル**、latent prediction は **L について定数（対数因子まで）** という分離を証明。data2vec の初サンプル複雑度解析を与え「暗黙的に階層的 latent 予測を行う」と示し、**H-JEPA の明示的階層は冗長**と示唆。(i) 階層クラスタリング (ii) predictor-clusterer ネット (iii) data2vec 解析 の3実装で検証
+    - 査読: 📝 preprint
+  - **カテゴリ判断**: 両者とも SSL の目的関数（latent vs token 予測）が主題のため **Pretraining** に配置し相互リンク。data2vec ↔ latent-sample-complexity（経験↔理論）、両者 ↔ [V-JEPA 2](../wiki/papers/Physical_AI/v-jepa-2.md)/[LeWM](../wiki/papers/Physical_AI/leworldmodel.md)（JEPA 系 predictive SSL）、latent-sample-complexity ↔ [Transformers are Inherently Succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md)（合成・形式構造で学習を理解する潮流）
+  - 図表: なし（data2vec は概念図中心・理論論文は定理ベースのため挿入省略）
+  - `wiki/index.md` 配置: Pretraining カテゴリ末尾に2件（SSL latent prediction サブクラスタ）
+  - `index/peer-review.md`: accepted 32→33（data2vec を ICML 2022 Oral として登録）、preprint 25→26（latent-sample-complexity）
+  - `index/topics.md`: 新トピック2件 `self-supervised learning / latent prediction`（4件: data2vec/latent-sample-complexity/v-jepa-2/leworldmodel）、`sample complexity / compositional data (PCFG)`（1件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
