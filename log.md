@@ -773,3 +773,20 @@
   - `index/peer-review.md`: n/a 件数 19 → 20（EmergentMind トピック概観として登録）
   - `index/topics.md`: 新トピック `curriculum learning / instruction tuning`（2件: topics/curriculum-instruction-tuning, papers/sft-data-composition）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **論文追加（2件・RHM系譜）**: Random Hierarchy Model とその言語版理論
+  - **How Deep Neural Networks Learn Compositional Data: The Random Hierarchy Model** (Petrini, Cagnetta, Tomasini, Favero, Wyart, 2023 / EPFL)
+    - `sources/Pretraining/random-hierarchy-model.md` / `evidence/Pretraining/random-hierarchy-model.md` / `wiki/papers/Pretraining/random-hierarchy-model.md` 作成
+    - arXiv 2307.02129、**Physical Review X 14, 031001 (2024) 掲載**。合成タスク RHM（言語・画像の階層構造を模した PCFG: 深さ L・branching s・クラス数 n_c・multiplicity m、入力次元 d=s^L）で深層学習のサンプル複雑度を解析。中心結果 **P\* = n_c · m^L**（入力次元に対し多項式＝次元の呪い回避、浅いネットは指数的＝深さが本質）。学習＝同義（synonyms）交換に不変な表現の段階構築、相関がノイズを超える点が閾値
+    - 査読: ✅ accepted — Physical Review X 14, 031001 (2024)
+  - **Towards a theory of how the structure of language is acquired by deep neural networks** (Cagnetta & Wyart, 2024 / EPFL)
+    - `sources/Pretraining/language-structure-acquisition.md` / `evidence/Pretraining/language-structure-acquisition.md` / `wiki/papers/Pretraining/language-structure-acquisition.md` 作成
+    - arXiv 2406.00048、**NeurIPS 2024 採択**。RHM を LM に展開。PCFG 上で token-token 相関を解析的に導出、相関 range が長いほど深い隠れ変数に対応。有限訓練集合は相関解像度を effective range に制限し range はデータ量とともに伸びる → データを増やすほど深い文法表現を獲得。テスト損失スケーリング則の context window 依存を予測、Shakespeare/Wikipedia で検証
+    - 査読: ✅ accepted — NeurIPS 2024
+  - **カテゴリ判断**: 両者とも RHM/PCFG による学習理論で、既収録の [Learn from your own latents](../wiki/papers/Pretraining/latent-sample-complexity.md) と同一系譜（Cagnetta/Wyart/Favero, EPFL）。RHM クラスタを集約するため **Pretraining** に配置し相互リンク（RHM＝起点 → language＝言語版 / latent-sample-complexity＝SSL版）。[data2vec](../wiki/papers/Pretraining/data2vec.md)（latent 予測の背景）、[Transformers are Inherently Succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md)（表現力 vs 学習効率）、スケーリング則（[ATLAS](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md)）とも接続
+  - 既存の latent-sample-complexity.md の関連ページに RHM・language への backlink を追加
+  - 図表: なし（理論論文、定理・スケーリング式ベースのため挿入省略）
+  - `wiki/index.md` 配置: Pretraining カテゴリ末尾の RHM/SSL サブクラスタに2件追加
+  - `index/peer-review.md`: accepted 33→35（RHM=PRX 2024/年2023、language=NeurIPS 2024/年2024）
+  - `index/topics.md`: `sample complexity / compositional data (PCFG)` 1→3件、新トピック `deep learning theory / feature learning`（3件）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新

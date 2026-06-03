@@ -35,6 +35,8 @@ Korchinski, Favero, Wyart (2026) — arXiv 2605.27734 / Random Hierarchy Model (
 留保として、結果は PCFG という理想化モデル上のもので、実データ（自然言語・画像）への定量的転移は未検証。それでも「なぜ latent 予測が効くか」を初めて分離定理として示した意義は大きい。
 
 ## 関連ページ
+- [Random Hierarchy Model (RHM)](random-hierarchy-model.md) — 本論文が依拠する PCFG/階層データ枠組みの原論文（同 EPFL 系譜）
+- [言語構造の獲得理論](language-structure-acquisition.md) — RHM を LM に展開した同系譜の理論
 - [data2vec](data2vec.md) — 本論文が解析対象とする統一 SSL フレームワーク（latent 予測の代表例）
 - [V-JEPA 2](../Physical_AI/v-jepa-2.md) / [LeWorldModel (LeWM)](../Physical_AI/leworldmodel.md) — latent 予測系 SSL、H-JEPA 冗長性の示唆が直結
 - [Transformers are Inherently Succinct](../Architecture/transformers-are-inherently-succinct.md) — 合成・形式構造で学習を理解する潮流（表現力 vs 学習効率の相補）

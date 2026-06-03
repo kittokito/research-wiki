@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-06-03 (追加: data2vec / Learn from your own latents)
+> 最終更新: 2026-06-03 (追加: Random Hierarchy Model / 言語構造の獲得理論)
 
-## ✅ accepted（査読済み・採択）— 33件
+## ✅ accepted（査読済み・採択）— 35件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -14,9 +14,11 @@
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
 | [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
+| [Random Hierarchy Model (RHM)](../wiki/papers/Pretraining/random-hierarchy-model.md) | Physical Review X 14, 031001 | 2023 |
 | [Automated Control Logic Test Case Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) | IEEE ETFA 2024 | 2024 |
 | [SECURE: Cybersecurity Benchmark](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) | ACSAC 2024 | 2024 |
 | [GVE-Leiden: Fast Leiden in Shared Memory](../wiki/papers/Graph_Network/gve-leiden.md) | ICPP 2024（本会議） | 2024 |
+| [言語構造の獲得理論 (Cagnetta & Wyart)](../wiki/papers/Pretraining/language-structure-acquisition.md) | NeurIPS 2024 | 2024 |
 | [FineData / FineWeb Datasets](../wiki/papers/Pretraining/huggingface-finedata.md) | NeurIPS 2024 (Datasets & Benchmarks, Spotlight) | 2025 |
 | [Mind the Gap: Self-Improvement](../wiki/papers/Reasoning/mind-the-gap-self-improvement.md) | ICLR 2025 | 2024 |
 | [GSM-Symbolic](../wiki/papers/Reasoning/gsm-symbolic.md) | ICLR 2025 | 2024 |
