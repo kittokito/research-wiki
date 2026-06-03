@@ -762,3 +762,14 @@
   - `index/peer-review.md`: accepted 32→33（data2vec を ICML 2022 Oral として登録）、preprint 25→26（latent-sample-complexity）
   - `index/topics.md`: 新トピック2件 `self-supervised learning / latent prediction`（4件: data2vec/latent-sample-complexity/v-jepa-2/leworldmodel）、`sample complexity / compositional data (PCFG)`（1件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **トピックページ追加**: Curriculum Instruction Tuning (EmergentMind 概観, 2026)
+  - `sources/Post_Training/curriculum-instruction-tuning.md`（type: reference / n/a）作成 — EmergentMind トピックページを出典として登録、引用される基礎論文 ~11本（TAPIR/CAMPUS/Data-CUBE/CITING/D-MoLE/INSTA/LACT/CLASS-IT 等）の arXiv ID を記録
+  - `evidence/Post_Training/curriculum-instruction-tuning.md` 作成 — 難易度指標・手法・順序づけ戦略・各フレームワークの報告数値を抽出
+  - `wiki/topics/Post_Training/curriculum-instruction-tuning.md` 作成（**papers ではなく topics 配下**: 単一論文でなく ~11論文を統合したトピック概観のため）
+  - **位置付け**: SFT データを難易度（易→難）で順序づけ・適応スケジュールする instruction tuning 手法群の概観。一次情報は基礎論文の arXiv にあり、EmergentMind 自体は AI 統合の二次ソース（査読対象外）であることを明記、各数値は一次論文での確認が望ましい旨を注記
+  - 既存ページとの連関: [SFT Data Composition / DMT](../wiki/papers/Post_Training/sft-data-composition.md)（順序と配合が能力を決める最基礎ケース＝curriculum の2段固定版）の動的・多段一般化、[Learning, Fast and Slow](../wiki/papers/RL/learning-fast-and-slow.md)（静的カリキュラムの硬直性への動的適応）、[On SFT, RL, OPD](../wiki/papers/RL/willccbb-sft-rl-opd.md)（学習順序の正当化）、[Your Evals Will Break](../wiki/papers/Evaluation/your-evals-will-break.md)（人間設計の難易度尺度の限界）
+  - `wiki/index.md`: Topics セクションに新規 `### Post_Training` を追加
+  - `index/peer-review.md`: n/a 件数 19 → 20（EmergentMind トピック概観として登録）
+  - `index/topics.md`: 新トピック `curriculum learning / instruction tuning`（2件: topics/curriculum-instruction-tuning, papers/sft-data-composition）
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新

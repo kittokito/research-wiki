@@ -10,6 +10,9 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ### RL
 - [RLVRの能力境界論争](topics/RL/rlvr-capability-boundary.md) — filteringか真の能力獲得か、界隈の現在の着地点を整理
 
+### Post_Training
+- [Curriculum Instruction Tuning](topics/Post_Training/curriculum-instruction-tuning.md) — SFTデータを難易度（易→難）で順序づけ・適応スケジュールする手法群（CAMPUS/TAPIR/Data-CUBE/D-MoLE/CITING 等）の概観。「データの順序・配合・難易度」を設計変数として体系化し、[DMT](papers/Post_Training/sft-data-composition.md) を動的・多段に一般化した位置づけ。収束加速・一般化強化が一貫報告される一方、負の転移・転移性の限界・難易度指標の主観性が共通の弱点 (EmergentMind 概観 / ~11論文統合) `— reference`
+
 ## Models
 （モデル別ページ）
 

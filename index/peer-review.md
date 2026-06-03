@@ -84,7 +84,7 @@
 | [Learning, Fast and Slow: FST](../wiki/papers/RL/learning-fast-and-slow.md) | RL |
 | [Learn from your own latents (sample-complexity theory)](../wiki/papers/Pretraining/latent-sample-complexity.md) | Pretraining |
 
-## — n/a（査読対象外）— 19件
+## — n/a（査読対象外）— 20件
 
 | 論文/記事 | 種別 |
 |---|---|
@@ -107,3 +107,4 @@
 | [Your Evals Will Break and You Won't See It Coming](../wiki/papers/Evaluation/your-evals-will-break.md) | ブログ／ポジションエッセイ（Lun Wang, Google DeepMind → NVIDIA） |
 | [Vector DBを外したら、RAGではなくAgent Runtimeが残った](../wiki/papers/Agent_ToolUse/vector-db-to-agent-runtime.md) | Zenn ブログ記事（mofuteq, 2026-05-21） |
 | [RAGとAgentic Searchの戦争を終わらせに来た!!!](../wiki/papers/Agent_ToolUse/rag-vs-agentic-search.md) | Zenn ブログ記事（Hirosato Gamo / Microsoft, 2026-04-08） |
+| [Curriculum Instruction Tuning（トピック）](../wiki/topics/Post_Training/curriculum-instruction-tuning.md) | EmergentMind トピック概観（AI 統合の二次ソース, ~11論文） |
