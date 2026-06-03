@@ -5,8 +5,8 @@ authors: ["Subhajit Sahu", "Kishore Kothapalli", "Dip Sankar Banerjee"]
 year: 2024
 url: "https://arxiv.org/abs/2312.13936"
 type: paper
-peer_review: workshop
-venue: "ICPP 2024 Workshops"
+peer_review: accepted
+venue: "ICPP 2024"
 tags: [community-detection, graph-algorithm, Leiden, parallel-computing, shared-memory, HPC, multicore]
 date_added: 2026-04-23
 status: processed

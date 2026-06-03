@@ -4,14 +4,14 @@ aliases: ["GVE-Leiden", "Fast Leiden Shared Memory"]
 created: 2026-04-23
 updated: 2026-04-23
 tags: [community-detection, graph-algorithm, Leiden, parallel-computing, shared-memory, HPC, multicore]
-peer_review: workshop
-venue: "ICPP 2024 Workshops"
+peer_review: accepted
+venue: "ICPP 2024"
 sources: [src-gve-leiden]
 ---
 
 # GVE-Leiden: Fast Leiden Algorithm for Community Detection in Shared Memory Setting
 
-> **査読**: 📋 workshop — ICPP 2024 Workshops
+> **査読**: ✅ accepted — ICPP 2024（本会議 / Proceedings of the 53rd International Conference on Parallel Processing, ACM DOI 10.1145/3673038.3673146）
 
 Sahu, Kothapalli, Banerjee (2024) — IIIT Hyderabad / DOI 10.1145/3673038.3673146 / arXiv 2312.13936
 

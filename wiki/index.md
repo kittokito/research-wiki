@@ -23,10 +23,10 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Transformers are Inherently Succinct](papers/Architecture/transformers-are-inherently-succinct.md) — Transformer の表現力を **succinctness（簡潔性）** で測り、固定精度 UHAT が同じ形式言語を **LTL より指数・有限オートマトンより二重指数・固定精度 RNN より指数** 簡潔に表現できる階層を構成的に証明。さらに非空性・等価性判定は **EXPSPACE-complete**（検証は本質的に困難）。前提は unique hard-attention (Bergsträßer, Cotterell, Lin, 2025 / RPTU Kaiserslautern × ETH Zürich) `✅ ICLR 2026 (Oral, Outstanding Paper)`
 - [Lightning Attention-2](papers/Architecture/lightning-attention-2.md) — causal linear attention の cumsum ボトルネックを **block tiling** で並列化、Triton I/O-aware 実装で **1K→128K でも throughput が flat**（FlashAttention-2 は急減）。Linear Transformers を LLM 規模 GPU 実装に落とし込んだ後継、MiniMax-M1 の元 (Qin et al., 2024 / OpenNLPLab × Shanghai AI Lab) `— tech report`
 - [Gated DeltaNet: Improving Mamba2 with Delta Rule](papers/Architecture/gated-deltanet.md) — Mamba2 の gating（全体decay α）と DeltaNet の delta rule（key方向の targeted update β）を統合した **gated delta rule**、chunkwise parallel で hardware-efficient 訓練。1.3B/100B tokens で Mamba2/DeltaNet を一貫上回り、hybrid 版は Transformer++ も上回り (Yang, Kautz, Hatamizadeh, 2025 / MIT CSAIL × NVIDIA) `✅ ICLR 2025`
-- [Attention to Mamba: Cross-Architecture Distillation](papers/Architecture/attention-to-mamba-distillation.md) — Transformer→Mambaクロスアーキ蒸留の二段階レシピ（kernel trick経由で純Mambaへ、hybrid不要）、Pythia-1Bで teacher perplexity 13.86 → 14.11 (Moudgil, Huang, Dhekane et al., 2026) `📝 preprint`
+- [Attention to Mamba: Cross-Architecture Distillation](papers/Architecture/attention-to-mamba-distillation.md) — Transformer→Mambaクロスアーキ蒸留の二段階レシピ（kernel trick経由で純Mambaへ、hybrid不要）、Pythia-1Bで teacher perplexity 13.86 → 14.11 (Moudgil, Huang, Dhekane et al., 2026) `📝 preprint (ICLR 2026 Rejected)`
 - [Mixture-of-Depths Attention](papers/Architecture/mixture-of-depths-attention.md) — 深度方向KVペアへのアテンションで信号劣化問題に対処 (Zhu et al., 2026) `📝 preprint`
 - [Attention Residuals](papers/Architecture/attention-residuals.md) — softmaxアテンションで残差接続の選択的集約、Kimi Linearに統合 (Chen et al., 2026) `— tech report`
-- [Continuous Autoregressive Language Models](papers/Architecture/continuous-autoregressive-lm.md) — next-vector predictionで生成ステップをK分の1に (Shao et al., 2025) `🔄 ICLR 2026（投稿中）`
+- [Continuous Autoregressive Language Models](papers/Architecture/continuous-autoregressive-lm.md) — next-vector predictionで生成ステップをK分の1に (Shao et al., 2025) `📝 preprint (ICLR 2026 Rejected)`
 - [MSA: Memory Sparse Attention](papers/Architecture/memory-sparse-attention.md) — 100Mトークンまでスケーラブルなメモリモデル (Chen et al., 2026) `📝 preprint`
 - [mHC: Manifold-Constrained Hyper-Connections](papers/Architecture/manifold-constrained-hyper-connections.md) — HCの恒等写像特性を復元しスケーラビリティ向上 (Xie et al., 2025) `📝 preprint`
 - [Conditional Memory via Scalable Lookup](papers/Architecture/conditional-memory-scalable-lookup.md) — Engramモジュールによる条件付きメモリスパース性 (Cheng et al., 2026) `📝 preprint`
@@ -39,7 +39,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Post_Training
 - [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](papers/Post_Training/sft-data-composition.md) — SFTで数学・コード・一般能力はスケーリング特性が異なる（math/codeは単調向上、一般は**~1000サンプルで頭打ち**）。逐次学習は **catastrophic forgetting**、同時学習は能力 conflict。**DMT**（専門データ→一般データに専門を比率kで少量混合する2段階）で両方を緩和 (Dong et al., 2023 / Alibaba・Qwen) `✅ ACL 2024 Main`
-- [Neural Thickets](papers/Post_Training/neural-thickets.md) — 事前学習重み近傍の多様なエキスパートをランダム摂動で発見 (Gan & Isola, 2026) `📝 preprint`
+- [Neural Thickets](papers/Post_Training/neural-thickets.md) — 事前学習重み近傍の多様なエキスパートをランダム摂動で発見 (Gan & Isola, 2026 / MIT) `✅ ICML 2026 (Spotlight)`
 - [Simple Self-Distillation](papers/Post_Training/simple-self-distillation-code.md) — 自身の出力のみでコード生成を改善するSSD (Zhang et al., 2026) `📝 preprint`
 - [Namazu Alpha](papers/Post_Training/namazu-alpha.md) — オープン基盤モデルの日本仕様適応 (Sakana AI, 2026) `— blog`
 
@@ -73,7 +73,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ### RL
 - [Learning, Fast and Slow: Towards LLMs That Adapt Continually](papers/RL/learning-fast-and-slow.md) — **Fast-Slow Training (FST)** = parameter θ を slow weights（GRPO+CISPO）、prompt Φ を fast weights（GEPA = Reflective Prompt Evolution）として interleave 最適化。RL 単独比 **最大3倍のサンプル効率**＋asymptote も上回り、継続学習で RL が stall する設定でも near-peak を維持 (Tiwari et al., 2026 / UC Berkeley × Mila × UT Austin) `📝 preprint`
 - [SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training](papers/RL/sft-memorizes-rl-generalizes.md) — SFT/RL を **memorization vs generalization** 軸で実証対比。GeneralPoints / V-IRL の rule・visual OOD で RL は汎化・SFT は ID 過適合（極端な暗記）、V-IRL Visual OOD で **+33.8pt SOTA**。ただし指示追従できない backbone への直接 RL は失敗し SFT 前段が必要 (Chu et al., 2025 / UC Berkeley × HKU × Google DeepMind × U Alberta) `✅ ICML 2025`
-- [The Debate on RLVR Reasoning Capability Boundary](papers/RL/rlvr-capability-boundary-debate.md) — shrinkage vs expansionを二段階動態で統一的に再解釈 (arXiv 2510.04028, 2025) `🔄 under-review`
+- [The Debate on RLVR Reasoning Capability Boundary](papers/RL/rlvr-capability-boundary-debate.md) — shrinkage vs expansionを二段階動態で統一的に再解釈 (arXiv 2510.04028, 2025) `📝 preprint (ICLR 2026 Rejected)`
 - [Does RLVR Truly Unlock New Reasoning?](papers/RL/rlvr-does-not-teach-new-reasoning.md) — Pass@k分析によりRLVRはfiltering/sharpening主体と主張 (Yue et al., 2025) `✅ NeurIPS 2025 (Oral, Best Paper Runner-up)`
 - [Dr. GRPO: Understanding R1-Zero-Like Training](papers/RL/dr-grpo.md) — R1-Zeroの "Aha moment" の一部はDeepSeek-V3-Base時点で既出現、Qwen2.5 base はテンプレなし推論が可能 → 事前学習バイアス説。GRPOには不正解出力の応答長を人為的に増やす最適化バイアスがあることを同定、**Dr. GRPO**（unbiased GRPO）を提案。minimalist recipeで7B base × AIME 2024 43.3%（当時SOTA）(Liu et al., 2025 / Sea AI Lab × NUS) `✅ COLM 2025`
 - [ProRL](papers/RL/prorl.md) — 長期RL訓練で推論境界を真に拡張、Yue et al.への反論 (Liu et al., 2025 / NVIDIA) `✅ NeurIPS 2025`
@@ -81,10 +81,10 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [MRPO](papers/RL/mrpo.md) — Manifold-Reshaping Policy Optimization、SOE+rank正則化で4Bが32Bを上回る (Wang et al., 2026) `📝 preprint`
 - [CodeScout](papers/RL/codescout.md) — Unix端末のみでRL訓練したコード検索エージェント、1.7Bが18倍大きいモデルを上回る (Sutawika et al., 2026) `📝 preprint`
 - [OpenClaw-RL](papers/RL/openclaw-rl.md) — next-state信号を活用したエージェントRLフレームワーク (Wang et al., 2026) `📝 preprint`
-- [RS-GRPO](papers/RL/rs-grpo.md) — リスク感応的目的関数でexploration dilemmaを緩和、pass@1維持+pass@k向上 (Jiang et al., 2025 / 清華大 × ByteDance Seed) `🔄 ICLR 2026（投稿中）`
+- [RS-GRPO](papers/RL/rs-grpo.md) — リスク感応的目的関数でexploration dilemmaを緩和、pass@1維持+pass@k向上 (Jiang et al., 2025 / 清華大 × ByteDance Seed) `✅ ICLR 2026 (Poster)`
 - [Flash-RL / TIS: Off-Policy Framework Mismatch](papers/RL/flash-rl-tis.md) — vLLM rolloutとFSDP学習の分布乖離で効率的RLが暗黙にoff-policy化、Truncated Importance Samplingで数行修正。VeRL等主要フレームワークに統合済み (Yao, Liu et al., 2025 / UCSD × MSR) `— blog`
 - [ScaleRL: The Art of Scaling RL Compute](papers/RL/scale-rl.md) — 40万GPU時間超の体系実験でLLM向けRLのsigmoid scaling則を定式化、漸近値 vs 計算効率の切り分けで能力境界論争を再定式化、10万GPU時間単一ランで検証損失を事前予測 (Khatri, Madaan, Tiwari et al., 2025 / Meta × UT Austin) `✅ ICLR 2026 Oral`
-- [Scaling Behaviors of LLM RL Post-Training](papers/RL/rl-scaling-math-qwen25.md) — Qwen2.5 0.5B–72B全系列で数学推論RL（GRPO）のスケーリング則を定式化、log L(N,X)=−k(N)·log X+E(N)のpower-law、学習効率k(N)=K_max/(1+N_0/N)の飽和、データ制約下では「最適化ステップ総数」が「ユニークサンプル数」より支配的 (Tan, Geng, Yu et al., 2025 / Shanghai AI Lab × Oxford) `✅ ACL 2026 Main`
+- [Scaling Behaviors of LLM RL Post-Training](papers/RL/rl-scaling-math-qwen25.md) — Qwen2.5 0.5B–72B全系列で数学推論RL（GRPO）のスケーリング則を定式化、log L(N,X)=−k(N)·log X+E(N)のpower-law、学習効率k(N)=K_max/(1+N_0/N)の飽和、データ制約下では「最適化ステップ総数」が「ユニークサンプル数」より支配的 (Tan, Geng, Yu et al., 2025 / Shanghai AI Lab × Oxford) `📝 preprint (ICLR 2026 Withdrawn)`
 - [On SFT, RL, and on-policy distillation (Brown & Claude Opus 4.7)](papers/RL/willccbb-sft-rl-opd.md) — SFT/RL/OPD/SDFT/OPSD を統一 token-level policy gradient（α, λ, π_T の3ダイアル）で整理するメタ分析。**compounding argument** で SFT-then-RL 順序を説明し、各メソッドを Pareto curve 上に配置。AI 共著の技術メタ分析の運用例 (Brown & Claude Opus 4.7, 2026 / X 投稿) `— blog`
 
 ### Agent_ToolUse
@@ -114,7 +114,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Video models are zero-shot learners and reasoners](papers/Multimodal/video-models-zero-shot-learners.md) — Veo 3が明示訓練外のタスク（segmentation/edge detection/editing/物理理解/affordance/道具使用）をゼロショットで解く現象を体系実証、迷路・対称性など初期visual reasoning発現 (Wiedemer, Li, Vicol et al., 2025 / Google DeepMind) `📝 preprint`
 
 ### Inference_Decoding
-- [Reasoning with Sampling](papers/Inference_Decoding/reasoning-with-sampling.md) — MCMCベースの推論時サンプリングでRL訓練なしにreasoning改善 (Karan & Du, 2025 / Harvard) `🔄 ICLR 2026（投稿中）`
+- [Reasoning with Sampling](papers/Inference_Decoding/reasoning-with-sampling.md) — MCMCベースの推論時サンプリングでRL訓練なしにreasoning改善 (Karan & Du, 2025 / Harvard) `✅ ICLR 2026 (Oral)`
 
 ### Efficiency_Optimization
 - [Flash-KMeans](papers/Efficiency_Optimization/flash-kmeans.md) — GPU最適化K-meansで最大17.9倍高速化 (Yang et al., 2026) `📝 preprint`
@@ -123,7 +123,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Graph_Network
 - [From Louvain to Leiden](papers/Graph_Network/louvain-to-leiden.md) — 精製ステップとキュー管理で連結コミュニティを保証するグラフ分割アルゴリズム (Traag et al., 2019) `✅ Scientific Reports 2019`
-- [GVE-Leiden: Fast Leiden in Shared Memory](papers/Graph_Network/gve-leiden.md) — ライデン法の共有メモリ並列SOTA実装、32コアCPUでオリジナル比436×・igraph 104×・NetworKit 8.2×・cuGraph (A100) 3.0×、403M edges/s @ 3.8B edges、スレッド倍化で1.6×スケール (Sahu, Kothapalli, Banerjee, 2024 / IIIT Hyderabad) `📋 ICPP 2024 Workshops`
+- [GVE-Leiden: Fast Leiden in Shared Memory](papers/Graph_Network/gve-leiden.md) — ライデン法の共有メモリ並列SOTA実装、32コアCPUでオリジナル比436×・igraph 104×・NetworKit 8.2×・cuGraph (A100) 3.0×、403M edges/s @ 3.8B edges、スレッド倍化で1.6×スケール (Sahu, Kothapalli, Banerjee, 2024 / IIIT Hyderabad) `✅ ICPP 2024`
 - [Memory-Efficient Community Detection via Weighted Sketches](papers/Graph_Network/memory-efficient-cd-sketches.md) — Louvain/Leiden/LPAのper-thread hashtable（100M頂点×64スレッドで51.2-102.4GB）をweighted Misra-Gries sketchで~0.5KB/sketchに置換、グラフサイズ非依存。modularity劣化Louvain≤1%/Leiden 0.8%/LPAほぼゼロ、ランタイム1.48-3.15×。GVE-Leidenと同著者によるメモリ側SOTA (Sahu, 2024 / IIIT Hyderabad) `📝 preprint`
 
 ### Symbolic_Computation

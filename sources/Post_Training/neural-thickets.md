@@ -5,8 +5,8 @@ authors: ["Yulu Gan", "Phillip Isola"]
 year: 2026
 url: "https://arxiv.org/abs/2603.12228"
 type: paper
-peer_review: preprint
-venue: ""
+peer_review: accepted
+venue: "ICML 2026 (Spotlight)"
 tags: [post-training, pretrained-weights, perturbation, ensemble, PPO, GRPO]
 date_added: 2026-04-07
 status: processed

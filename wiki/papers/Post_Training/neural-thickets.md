@@ -4,16 +4,16 @@ aliases: ["Neural Thickets"]
 created: 2026-04-07
 updated: 2026-04-07
 tags: [post-training, pretrained-weights, ensemble]
-peer_review: preprint
-venue: ""
+peer_review: accepted
+venue: "ICML 2026 (Spotlight)"
 sources: [src-neural-thickets]
 ---
 
 # Neural Thickets: Diverse Task Experts Are Dense Around Pretrained Weights
 
-> **査読**: 📝 preprint
+> **査読**: ✅ accepted — ICML 2026（Spotlight）
 
-Gan, Isola (2026) — arXiv 2603.12228
+Gan, Isola (2026) — arXiv 2603.12228 / MIT
 
 ## ソースからの事実
 - 事前学習重みの近傍に多様なタスク固有エキスパートが密集 [source](../../../sources/Post_Training/neural-thickets.md)

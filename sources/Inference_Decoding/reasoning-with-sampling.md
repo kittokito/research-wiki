@@ -5,8 +5,8 @@ authors: ["Aayush Karan", "Yilun Du"]
 year: 2025
 url: "https://arxiv.org/abs/2510.14901"
 type: paper
-peer_review: under-review
-venue: "ICLR 2026（投稿中）"
+peer_review: accepted
+venue: "ICLR 2026 (Oral)"
 tags: [MCMC, inference-time-compute, power-distribution, base-model, sampling, training-free, reasoning]
 date_added: 2026-04-16
 status: processed

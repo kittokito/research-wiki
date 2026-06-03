@@ -6,6 +6,13 @@
 
 ## 2026-06-03
 
+- **査読ステータス一斉再検証**（全60件の preprint/under-review/accepted/workshop を OpenReview・arXiv Comments・学会採択リストで再確認）— **ステータス変更8件**:
+  - **昇格（→ accepted）**: [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) **ICLR 2026 Oral**、[RS-GRPO](../wiki/papers/RL/rs-grpo.md) **ICLR 2026 Poster**、[Neural Thickets](../wiki/papers/Post_Training/neural-thickets.md) **ICML 2026 Spotlight**
+  - **venue 訂正**: [GVE-Leiden](../wiki/papers/Graph_Network/gve-leiden.md) は「ICPP 2024 Workshops」ではなく **ICPP 2024 本会議**（workshop→accepted）
+  - **降格（reject/withdraw 判明）**: [RLVR Capability Boundary Debate](../wiki/papers/RL/rlvr-capability-boundary-debate.md)・[Continuous Autoregressive LM (CALM)](../wiki/papers/Architecture/continuous-autoregressive-lm.md) は **ICLR 2026 Rejected**（under-review→preprint）、[Attention to Mamba](../wiki/papers/Architecture/attention-to-mamba-distillation.md) も ICLR 2026 Rejected（preprint のまま注記追加）
+  - **⚠️ 偽陽性の修正**: [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) は **「ACL 2026 Main 採択」が誤り**で、実態は ICLR 2026 取り下げ（Withdrawn）→ preprint に訂正
+  - 件数: accepted 29→32、workshop 3→2、under-review 5→1、preprint 23→25。track 精緻化（FineWeb=Spotlight, DeepCrossAttention/ProRL/Rewriting/ATLAS=Poster, LLM Reasoning Failures=Survey Certification）も反映
+
 - [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) を追加 — Guanting Dong ほか（**Alibaba / Qwen team**）、arXiv 2310.05492（v1 2023-10）、**ACL 2024 Main 採択**。SFT時に **数学推論（GSM8K）/ コード生成（HumanEval）/ 一般能力（MT-Bench）** の3能力がデータ量・混合比・モデルサイズ・SFT戦略にどう影響されるかを体系調査。**3能力でスケーリング特性が異なる**（math/code はデータ量とともに単調向上、**一般能力は約1,000サンプルで頭打ち**）。混合効果は **低リソースでは各能力を底上げ・高リソースでは能力間 conflict** と反転、逐次学習では **catastrophic forgetting**。提案手法 **DMT（Dual-stage Mixed Fine-tuning）**= Stage1 で専門データ（math/code）を学習 → Stage2 で一般データに専門データを **比率 k で少量混合**して学習し、conflict と forgetting の両方を緩和して専門/一般能力を両立。モデルが大きいほど低リソース設定での gain 大（LLaMA 7B/13B/33B）。学習順序の正当化という点で [On SFT, RL, and on-policy distillation](../wiki/papers/RL/willccbb-sft-rl-opd.md) の compounding argument の SFT 内版、catastrophic forgetting への対処という点で [Learning, Fast and Slow](../wiki/papers/RL/learning-fast-and-slow.md) の継続学習と同じ問題構造、同チーム系の [Qwen3](../wiki/papers/Technical_Report/qwen3.md) 多段 post-training の源流の一つ。スコープは SFT 段階・3能力に限定 (Dong, Yuan, Lu et al., 2023)
 
 ## 2026-05-29

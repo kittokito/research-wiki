@@ -726,3 +726,22 @@
   - `index/peer-review.md` の accepted 件数 28 → 29、ACL 2024 (Main) / 年 2023 として登録
   - `index/topics.md`: 新トピック2件追加 `SFT / data composition`（1件）、`catastrophic forgetting / continual learning`（2件: sft-data-composition / learning-fast-and-slow）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+- **査読ステータス一斉再検証**: DB 内の preprint / under-review / accepted / workshop 全60件を OpenReview・arXiv Comments・学会公式採択リスト・DBLP で再確認（ICLR 2026 / ICML 2026 / ACL 2026 は採否確定済み）。偽陽性チェックも実施。**ステータス変更8件 + track 精緻化6件**。
+  - **昇格（→ accepted）**:
+    - Reasoning with Sampling: under-review → **ICLR 2026 (Oral)** 採択（OpenReview Vsgq2ldr4K）
+    - RS-GRPO: under-review → **ICLR 2026 (Poster)** 採択（OpenReview 7kC8ORye4l）
+    - Neural Thickets: preprint → **ICML 2026 (Spotlight)** 採択（公式 repo sunrainyg/RandOpt・alphaXiv で確認）
+  - **venue 訂正（workshop → accepted）**:
+    - GVE-Leiden: 「ICPP 2024 Workshops」は誤りで **ICPP 2024 本会議**（Proceedings of the 53rd International Conference on Parallel Processing, ACM DOI 10.1145/3673038.3673146）。peer_review を workshop → accepted に
+  - **降格（reject/withdraw 判明）**:
+    - RLVR Capability Boundary Debate: under-review → **ICLR 2026 Rejected**（OpenReview sx48LQhCqF）→ preprint
+    - Continuous Autoregressive LM (CALM): under-review → **ICLR 2026 Rejected**（OpenReview Ce6Mep9oie）→ preprint
+    - Attention to Mamba: **ICLR 2026 Rejected**（OpenReview EXtPGwYdWe）が判明 → preprint のまま注記追加
+  - **⚠️ 偽陽性の修正**:
+    - Scaling Behaviors of LLM RL Post-Training (rl-scaling-math-qwen25): **「ACL 2026 Main 採択」は誤情報**。実態は ICLR 2026 への投稿後 **Withdrawn**（OpenReview KBut2YCZ4g）。peer_review を accepted → preprint に訂正、wiki 本文の「ACL 2026 Main 採択は…」段落を削除
+  - **track 精緻化（venue 主張は正しいが track を補足）**: FineWeb = NeurIPS 2024 D&B **Spotlight**、DeepCrossAttention = ICML 2025 **Poster**、ProRL = NeurIPS 2025 **Poster**、Rewriting Pre-Training Data = ICLR 2026 **Poster**、ATLAS = ICLR 2026 **Poster**、LLM Reasoning Failures = TMLR 2026 **Survey Certification**、AutoHarness = ICLR 2026 Workshop RSI **Poster**
+  - **偽陽性なしを確認した主要 accepted**: DeepSeek-R1 (Nature 2025)、Dr.GRPO (COLM 2025)、SFT Memorizes RL Generalizes (ICML 2025)、Does RLVR (NeurIPS 2025 Oral, Best Paper Runner-up=公式確認)、ScaleRL (ICLR 2026 Oral)、Transformers are Inherently Succinct (ICLR 2026 Oral, Outstanding=公式確認)、Lottery Ticket (ICLR 2019 Best Paper)、LiveBench (ICLR 2025 Spotlight) 等。古い学会論文14件も全て CONFIRMED
+  - **件数変化**: accepted 29→32、workshop 3→2、under-review 5→1、preprint 23→25、n/a 19（不変）。合計 79 で整合
+  - **未対応（別件）**: 検証中に arXiv ID の取り違え（simple-self-distillation-code / swe-ci / openclaw-rl の3件で ID がローテーション）の疑いを発見。査読ステータスとは別問題のため今回は未修正、要個別検証
+  - 各 sources/・wiki/papers/ の frontmatter（peer_review・venue）と査読行、`wiki/index.md` のタグ、`index/peer-review.md`、`index/recent.md` を更新

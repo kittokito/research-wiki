@@ -11,7 +11,7 @@ sources: [src-attention-to-mamba-distillation]
 
 # Attention to Mamba: A Recipe for Cross-Architecture Distillation
 
-> **査読**: 📝 preprint
+> **査読**: 📝 preprint（ICLR 2026 に投稿 → **Rejected**, OpenReview [EXtPGwYdWe](https://openreview.net/forum?id=EXtPGwYdWe)）
 
 Moudgil, Huang, Dhekane et al. (2026) — arXiv 2604.14191
 

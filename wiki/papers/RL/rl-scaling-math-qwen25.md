@@ -4,14 +4,14 @@ aliases: ["RL Post-Training Scaling", "Qwen2.5 RL Scaling", "k(N) Saturation"]
 created: 2026-04-22
 updated: 2026-04-22
 tags: [scaling-law, rl, rlvr, post-training, mathematical-reasoning, qwen25, grpo, data-efficiency, power-law]
-peer_review: accepted
-venue: "ACL 2026 (Main Conference)"
+peer_review: preprint
+venue: ""
 sources: [src-rl-scaling-math-qwen25]
 ---
 
 # Scaling Behaviors of LLM Reinforcement Learning Post-Training
 
-> **査読**: ✅ accepted — ACL 2026 (Main Conference)
+> **査読**: 📝 preprint（ICLR 2026 に投稿 → **Withdrawn Submission**, OpenReview [KBut2YCZ4g](https://openreview.net/forum?id=KBut2YCZ4g)。以前 "ACL 2026 Main 採択" としていたのは誤情報のため取消）
 
 Tan, Geng, Yu, Zhang, Wan et al. (2025) — arXiv 2509.25300 / v4 (2026-04-17) / Shanghai AI Lab × Oxford ほか
 
@@ -31,8 +31,6 @@ Tan, Geng, Yu, Zhang, Wan et al. (2025) — arXiv 2509.25300 / v4 (2026-04-17) /
 [ScaleRL](./scale-rl.md) が sigmoid（S字）フィットで「漸近値 vs 計算効率」の切り分けを提示したのに対し、本論文は **log-linear power-law + saturated efficiency** を提示しており、両者は関数形を巡って対立するというより、**計算量レンジとタスクに応じた補完的な描像**と解釈するのが妥当。ScaleRLが「全レシピが同じ漸近には行かない」としたのに呼応して、本論文の k(N) saturation は「大モデルの優位性にも上限がある」という、効率側の天井を与える。
 
 発見4（データ再利用）は [ProRL](./prorl.md)（長期RL訓練で境界拡張）と整合的であり、RLVR能力境界論争（`topics/RL/rlvr-capability-boundary.md`）の文脈では「小さく高品質な訓練セット × 十分な最適化ステップ」が効率面のスイートスポットである可能性を示唆する。一方で [Does RLVR Truly Unlock New Reasoning?](./rlvr-does-not-teach-new-reasoning.md) のfiltering派の主張（RLVR は base のカバレッジを狭めるだけ）からすると、「繰り返し最適化が支配的」という結果は **filtering/sharpening の飽和曲線** としても解釈でき、能力境界論争の直接的決着にはならない点に注意。
-
-**ACL 2026 Main 採択** は、RLスケーリング則の研究が NLP 本流コミュニティでの基盤研究として認められたことを意味する。
 
 ## 関連ページ
 - [ScaleRL: The Art of Scaling RL Compute](./scale-rl.md) — sigmoid フィット・漸近値 vs 効率の切り分け（本論文の power-law + k(N) saturation と相補的）
