@@ -38,7 +38,7 @@ MNLI（訓練データ）では、ヒューリスティックを**支持する�
 
 ## 3. 提案：HANS データセット
 
-**HANS = Heuristic Analysis for NLI Systems。** 3つの統語ヒューリスティックそれぞれについて、「成立する例(E)」と「**誤発火して非含意なのに含意と誤判定してしまう例(N)**」をテンプレートで大量生成（114カテゴリ）。近道に頼るモデルは、N の例で構造的に必ず失敗するよう設計されている。
+**HANS = Heuristic Analysis for NLI Systems。** 3つの統語ヒューリスティックそれぞれについて、「成立する例(E)」と「**誤発火して非含意なのに含意と誤判定してしまう例(N)**」をテンプレートで大量生成（3ヒューリスティック×各10サブケース＝**30サブケース・計約3万例**）。近道に頼るモデルは、N の例で構造的に必ず失敗するよう設計されている。
 
 3つは包含関係：**Constituent ⊂ Subsequence ⊂ Lexical overlap**。
 
@@ -75,7 +75,7 @@ DA (Decomposable Attention / bag-of-words)、ESIM (RNN)、SPINN (TreeRNN)、**BE
 ### この失敗は「能力不足」より「データの信号不足」
 
 ![HANS Figure 2: HANS例を加えて再訓練した結果](figures/hans-fig2-augmented.png)
-*Figure 2：訓練データに MNLI ＋ HANS 全30カテゴリの例を加えて再訓練した結果。Figure 1 では ほぼ0% だった Non-entailed 例（下段）が、ESIM/SPINN/BERT で **ほぼ100% に回復**。→ 失敗の主因はモデルの能力ではなく訓練データの信号不足。bag-of-words の DA だけは Lexical overlap で 25% に留まる（語順を使えないため）。*
+*Figure 2：訓練データに MNLI ＋ HANS 全30カテゴリの例を加えて再訓練した結果。Figure 1 では ほぼ0% だった Non-entailed 例（下段）が、ESIM/SPINN/BERT で **ほぼ100% に回復**。→ 失敗の主因はモデルの能力ではなく訓練データの信号不足。bag-of-words の DA だけは Lexical overlap で 約26% に留まる（語順を使えないため）。*
 
 - 訓練セットに HANS タイプの例を**少量追加して再訓練**すると、失敗が大幅に軽減 → モデルの表現力ではなく、**訓練データに近道を覆す信号が足りない**ことが主因。
 - 木構造の inductive bias を持つ SPINN は constituent/subsequence 系で相対的に良好 → 構造的バイアスが弱い信号を拾えることを示唆。

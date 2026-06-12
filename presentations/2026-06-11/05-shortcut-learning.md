@@ -71,7 +71,7 @@ GPT-4 / GPT-3.5-Turbo / Gemini-Pro（クローズド）、LLaMA2-Chat 7B·13B·7
 
 - **E は高いのに ¬E（誤発火例）で精度が崩れる**——例：Constituent ¬E は LLaMA2-13B で **0.8**、ChatGLM3 で **14.6**、最強の GPT-4 でも 80.0。これは HANS（1本目）の「E≈100% / ¬E≈0%」と**同じパターン**。
 - ＝モデルは意味でなく「語が重なる／部分列が一致する＝含意」という**近道**で答えている。
-- Negation / Position / Style（各単一列）でも同様に標準を下回る（本文・原典 Table 3 参照）。
+- Negation / Position / Style（各単一列）でも同様に標準を下回る（本文・原典 Table 2 参照）。
 
 <small>※数値は論文 Table 2（zero-shot）より抽出（全プロンプト設定の全体像は結果3の Table 2 画像を参照）。</small>
 
