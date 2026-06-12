@@ -55,6 +55,7 @@ figures/
   pk-fig1-abab.png            # Potemkin Fig 1: ABAB押韻を定義できるが応用で破綻
   pk-fig7-framework.png       # Potemkin Fig 7: 説明 vs 応用(分類/生成/編集)の評価フレーム
   sc-fig1-subseq.png          # Shortcut Learning Fig 1: 部分列ショートカットの挙動例
+  sc-table2-prompt-settings.png # Shortcut Learning Table 2: 4プロンプト設定×全モデルの精度(E/¬E)
 ```
 
 出典 arXiv：HANS 1902.01007 / GSM-Symbolic 2410.05229 / Reversal Curse 2309.12288 / Shortcut Learning 2410.13343 / Potemkin 2506.21521（ICML 2025, PMLR v267）。

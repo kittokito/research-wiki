@@ -57,7 +57,7 @@ GPT-4 / GPT-3.5-Turbo / Gemini-Pro（クローズド）、LLaMA2-Chat 7B·13B·7
 
 ### 結果1：ショートカット入りデータで精度が顕著に低下
 
-**Table 3（zero-shot, 精度%）抜粋** — 各ショートカットは **E＝ヒューリスティックが成立する例（含意）／¬E＝誤発火例（非含意）** に分かれる。
+**Table 2（zero-shot, 精度%）抜粋** — 各ショートカットは **E＝ヒューリスティックが成立する例（含意）／¬E＝誤発火例（非含意）** に分かれる。
 
 | モデル | Standard | Lexical E/¬E | Subsequence E/¬E | Constituent E/¬E |
 |---|---|---|---|---|
@@ -73,24 +73,18 @@ GPT-4 / GPT-3.5-Turbo / Gemini-Pro（クローズド）、LLaMA2-Chat 7B·13B·7
 - ＝モデルは意味でなく「語が重なる／部分列が一致する＝含意」という**近道**で答えている。
 - Negation / Position / Style（各単一列）でも同様に標準を下回る（本文・原典 Table 3 参照）。
 
-<small>※数値は arXiv HTML 版 Table 3（zero-shot）より抽出。スライドで大書きする場合は原典で要確認。</small>
+<small>※数値は論文 Table 2（zero-shot）より抽出（全プロンプト設定の全体像は結果3の Table 2 画像を参照）。</small>
 
 ### 結果2：大型化は解決にならない（逆スケーリング傾向）
 - zero-shot / few-shot では、**大きいモデルほどショートカットを使いやすい**。スケールでは克服できない（GSM-Symbolic / Reversal Curse の「スケールしても残る」と整合）。
 
 ### 結果3：CoT だけが効く緩和策、few-shot は逆効果になりうる
 
-**Table 3（GPT-3.5-Turbo, 精度%）をプロンプト戦略で比較** — ショートカットが効く ¬E（誤発火例）に注目。
+![Shortcut Learning Table 2: 4つのプロンプト設定での精度](figures/sc-table2-prompt-settings.png)
+*Table 2：全データセット・4プロンプト設定（zero-shot / few-shot ICL / zero-shot CoT / few-shot CoT）での精度%。E＝ヒューリスティック成立例・¬E＝誤発火例。**青いハイライトが濃いほど標準条件からの精度低下が大きい**。*
 
-| プロンプト戦略 | Standard | Subsequence ¬E | Constituent ¬E |
-|---|---|---|---|
-| Zero-shot | 56.7 | 58.3 | 40.2 |
-| Few-shot (ICL) | 61.7 | **23.3** | **9.3** |
-| Zero-shot CoT | 64.7 | 59.3 | 35.3 |
-| Few-shot CoT | **71.7** | 55.3 | 22.0 |
-
-- **Few-shot ICL は Standard が上がっても ¬E が激減**（Subseq 58.3→23.3、Constituent 40.2→9.3）＝例の提示がかえって近道を助長。
-- **CoT は Standard を最も押し上げ（71.7）、¬E も ICL 比で回復**＝依存を有意に低減。ただし完全には消えない。
+- **Few-shot ICL は標準精度が上がっても ¬E（誤発火例）が激減**：例として GPT-3.5-Turbo は Subseq ¬E 58.3→**23.3**・Constituent ¬E 40.2→**9.3**、ChatGLM3-6B は ¬E が軒並み **0.0** ＝例の提示がかえって近道を助長。
+- **CoT（特に few-shot CoT）は標準精度を最も押し上げる**＝依存を有意に低減。ただし ¬E は完全には戻らない。
 
 ### 結果4：過信し、説明は表層的
 - 自己申告の確信度は精度を**大きく上回る**＝**過信**。間違っていても自信満々（ショートカット条件でも確信度は概ね80〜100に張り付く）。
