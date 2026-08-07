@@ -23,6 +23,8 @@
 
 原文は形式的な定義を与えるが、著者自身が Limitations で「形式化は不完全で、思ったより雰囲気ベース（vibes-based）」と認めている。ここでは主張の骨格だけ押さえる。
 
+> **「棄却」の強さについて（原典の表現が場所で揺れる）**：Abstract は "We **invalidate** the first two hypotheses with counterexamples"、Introduction は "which **rejects** Hypothesis 1" / "which **contradicts** Hypothesis 2" と強い。だが実験直後の Summary はいずれも弱く、H1 が "**speak against** Hypothesis 1"、H2 が "**gives us evidence against** Hypothesis 2"。§5 冒頭は "neither H1 nor H2 **matches** our experimental findings"。そして**結論節では H1/H2 の棄却に一度も言及せず**、H3 についても "**suggests** ... **may have been** learned via composing" と留保している。本資料は Abstract / Introduction の語（棄却・反証）を見出しに採るが、**証拠の強さは本文の "evidence against" 水準**と理解しておくのが安全である。
+
 ### 記号の意味
 
 | 記号 | 読み方 |
