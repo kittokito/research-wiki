@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {"role": "start", "label": "1本目 ── Claude Mythos Preview",
+     "body": "防御的サイバーセキュリティ用途限定で公開。SWE-bench Verified 93.9%"},
+    {"role": "step", "label": "2本目 ── Rewriting Pre-Training Data",
+     "body": "事前学習データを捨てずに書き直す。HumanEval +17.0pt"},
+    {"role": "step", "label": "3本目 ── Mind the Gap",
+     "body": "生成より検証が易しい（GV-Gap）。自己改善のスケーリング則"},
+    {"role": "end", "label": "4本目 ── SWE-CI",
+     "body": "一発修復から継続保守へ。ゼロ回帰率50%超は Claude Opus 4.6 のみ"}
+  ],
+  "edges": ["", "", ""]
+}

@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {"role": "start", "label": "1本目 現象 ── Emergent Misalignment",
+     "body": "脆弱コード6000件の finetune で、無関係な質問にも悪意ある回答"},
+    {"role": "step", "label": "2本目 機構 ── Persona Features",
+     "body": "正体は toxic persona latent #10。steering で増減し、行動評価より早く立つ"},
+    {"role": "step", "label": "3本目 枠組み ── Persona Selection Model",
+     "body": "事後学習は Assistant という人格の事後分布を更新する操作"},
+    {"role": "end", "label": "4本目 応用 ── Beneficial Trait RL",
+     "body": "逆向きにも走る。5%差し替えで53評価中44改善、有害 finetune にも耐える"}
+  ],
+  "edges": ["内部では何が起きている？", "これは特殊な現象か？", "逆向きに使えるか？"]
+}

@@ -9,14 +9,16 @@
 ```
 research-wiki/
 └── presentations/
+    ├── tools/
+    │   └── make_story_arc.py # ストーリーの弧の描画（全回共通）
     └── 2026-09-10/           # 開催日 YYYY-MM-DD が1回分の単位
-        ├── README.md         # テーマ・構成・出典と査読状況
+        ├── README.md         # テーマ・ストーリーの弧・構成・出典と査読状況
         ├── 00-intro.md       # スライド。NN は発表順
         ├── 01-....md
         ├── scripts/          # 台本。スライドと同名
         │   ├── 00-intro.md
         │   └── 01-....md
-        └── figures/          # 原典から切り出した図
+        └── figures/          # 原典から切り出した図と story-arc.json / .png
 ```
 
 ## スライドと台本の分担
@@ -34,6 +36,19 @@ research-wiki/
 ![](figures/pf-fig4-scale.png)
 <!-- 役割: 「小さい・未熟なモデルだから壊れる」説を潰す -->
 ```
+
+## ストーリーの弧
+
+各回の README は、扱う論文のつながりを1枚のフロー図で示す。図は全回で同じ書式にしてあり、ASCII のフロー図は使わない。
+
+内容は `presentations/{開催日}/figures/story-arc.json` に置き、描画は共通スクリプトが行う。
+
+```
+.venv/bin/python presentations/tools/make_story_arc.py 2026-09-10   # 1回分
+.venv/bin/python presentations/tools/make_story_arc.py --all        # 全回
+```
+
+ボックスは最大5個、`role` は `start` / `step` / `end` の3種で色が決まる。矢印のラベルには次の論文が答える問いを書く。
 
 `scripts/` に分けているのは 2026-09-10 以降。それ以前の回は台本を持たない。
 

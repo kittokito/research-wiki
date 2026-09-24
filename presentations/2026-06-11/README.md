@@ -23,7 +23,7 @@
 
 ![ストーリーの弧](figures/story-arc.png)
 
-<small>※図は <code>figures/make_story_arc.py</code> で生成（<code>.venv/bin/python figures/make_story_arc.py</code> で再生成可）。</small>
+<small>※図は <code>presentations/tools/make_story_arc.py</code> で生成（<code>.venv/bin/python presentations/tools/make_story_arc.py 2026-06-11</code>）。内容は <code>figures/story-arc.json</code> にある。</small>
 
 ## 5本のつながり（クロスリンク）
 

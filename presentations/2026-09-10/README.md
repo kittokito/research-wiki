@@ -2,6 +2,12 @@
 
 ## 発表テーマ：狭い訓練がなぜ広く効くのか — アシスタントの「人格」を訓練するという見方
 
+## ストーリーの弧
+
+![ストーリーの弧](figures/story-arc.png)
+
+<small>※図は <code>presentations/tools/make_story_arc.py</code> で生成（<code>.venv/bin/python presentations/tools/make_story_arc.py 2026-09-10</code>）。内容は <code>figures/story-arc.json</code> にある。</small>
+
 ## 構成
 
 **スライド**（`NN-*.md`）は聞く側が見るもの。図・表・キーメッセージだけを置く。

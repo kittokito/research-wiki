@@ -21,6 +21,14 @@
 
 4. **SWE-CI** -- SWE-benchの先にある、継続的コードベース保守能力を評価するベンチマーク。一発修復から進化型評価への移行を提案し、Claude Opus 4.6のみがゼロ回帰率50%超を達成。
 
+## ストーリーの弧
+
+![ストーリーの弧](figures/story-arc.png)
+
+今回はテーマを設定せず、独立した4トピックを発表順に並べている。
+
+<small>※図は <code>presentations/tools/make_story_arc.py</code> で生成（<code>.venv/bin/python presentations/tools/make_story_arc.py 2026-04-16</code>）。内容は <code>figures/story-arc.json</code> にある。</small>
+
 ## 図表ディレクトリ
 
 `figures/` に各論文の主要図表を格納。

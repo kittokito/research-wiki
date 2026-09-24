@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"role": "start", "label": "1本目 ── Structured Task Hypothesis",
+     "body": "認識・学習・合成のどれか。この設定では合成。GD説を直撃して棄却"},
+    {"role": "step", "label": "2本目 ── Learning vs Retrieval",
+     "body": "認識と学習は連続量の両端。比率はプロンプト設計で動く"},
+    {"role": "end", "label": "3本目 ── Many-Shot ICL",
+     "body": "ショット数を3桁増やすと事前学習バイアスを上書きできる場合がある"}
+  ],
+  "edges": ["排他的な三択なのか？", "ショット数を3桁増やすと？"]
+}

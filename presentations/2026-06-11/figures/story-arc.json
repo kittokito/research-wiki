@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {"role": "start", "label": "起点 ── HANS (2019)",
+     "body": "モデルは意味ではなく表層的な近道で解いている"},
+    {"role": "step", "label": "水準1 表層 ── GSM-Symbolic",
+     "body": "表層を変えると壊れる"},
+    {"role": "step", "label": "水準2 論理 ── Reversal Curse",
+     "body": "論理を変えると壊れる"},
+    {"role": "step", "label": "水準3 評価 ── Potemkin",
+     "body": "正解しても理解とは限らない"},
+    {"role": "end", "label": "診断・橋渡し ── Shortcut Learning (2024)",
+     "body": "ショートカット学習として整理。LLM でも未克服"}
+  ],
+  "edges": ["LLM でも同じでは？", "", "", "では、どう捉える？"]
+}

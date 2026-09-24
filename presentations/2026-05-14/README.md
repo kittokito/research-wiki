@@ -26,6 +26,12 @@
 
 3. **MiniMax-M1 (MiniMax Team, 2025)** -- hybrid MoE + lightning attention の 456B/45.9B 推論モデル。本発表ではモデル自体の解説は短めにし、**CISPO (Clipped Importance Sampling Policy Optimization)** の議論をメインに据える。GRPO/DAPO 系のクリップが何を壊し、CISPO が importance sampling weight 側をクリップする設計でそれをどう避けるか、そしてなぜ ScaleRL に採用されたのかを掘る。
 
+## ストーリーの弧
+
+![ストーリーの弧](figures/story-arc.png)
+
+<small>※図は <code>presentations/tools/make_story_arc.py</code> で生成（<code>.venv/bin/python presentations/tools/make_story_arc.py 2026-05-14</code>）。内容は <code>figures/story-arc.json</code> にある。</small>
+
 ## 3本のつながり
 
 - **横軸（スケーリング則の関数形）**: Tan の **power-law (k(N)-saturation)** と Khatri の **sigmoid** は同じ「RL の予測可能スケーリング」を語る論文だが、関数形が異なる。対立というより計算量レンジ・タスク依存の相補関係として読むのが妥当。

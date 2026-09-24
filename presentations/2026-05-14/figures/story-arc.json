@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"role": "start", "label": "1本目 ── Scaling Behaviors (ACL 2026)",
+     "body": "RL の test loss は power-law に乗る。ただし学習効率 k(N) は飽和する"},
+    {"role": "step", "label": "2本目 ── ScaleRL (ICLR 2026 Oral)",
+     "body": "計算-性能を sigmoid でフィット。漸近性能を動かす要素と効率だけの要素を分ける"},
+    {"role": "end", "label": "3本目 ── MiniMax-M1 (CISPO)",
+     "body": "ScaleRL が採用した CISPO の設計に降りる"}
+  ],
+  "edges": ["関数形は power-law でよいのか？", "採用された損失は何をしているのか？"]
+}
