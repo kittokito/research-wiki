@@ -13,6 +13,9 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 ### Post_Training
 - [Curriculum Instruction Tuning](topics/Post_Training/curriculum-instruction-tuning.md) — SFTデータを難易度（易→難）で順序づけ・適応スケジュールする手法群（CAMPUS/TAPIR/Data-CUBE/D-MoLE/CITING 等）の概観。「データの順序・配合・難易度」を設計変数として体系化し、[DMT](papers/Post_Training/sft-data-composition.md) を動的・多段に一般化した位置づけ。収束加速・一般化強化が一貫報告される一方、負の転移・転移性の限界・難易度指標の主観性が共通の弱点 (EmergentMind 概観 / ~11論文統合) `— reference`
 
+### Reasoning
+- [LLMと真の論理的理解の壁：表層パターンか、意味の理解か](topics/Reasoning/llm-logical-understanding-wall.md) — 「ベンチ高得点＝真の論理理解か？」を3水準（表層摂動／論理摂動／評価の妥当性）で整理するポジション。[GSM-Symbolic](papers/Reasoning/gsm-symbolic.md)・[Paraphrase and Solve](papers/Reasoning/paraphrase-and-solve-scop.md)（表層）、[RobustLR](papers/Reasoning/robustlr.md)・[Reversal Curse](papers/Reasoning/reversal-curse.md)（論理）、[Potemkin Understanding](papers/Reasoning/potemkin-understanding.md)（評価妥当性）を束ね、「LLM は意味でなく表層・統計的規則性に依存して正解しうる」と結論。[RLVRの能力境界論争](topics/RL/rlvr-capability-boundary.md) の姉妹論点
+
 ## Models
 （モデル別ページ）
 
@@ -36,6 +39,10 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [DeepCrossAttention](papers/Architecture/deep-cross-attention.md) — 入力依存の学習可能重みによる残差接続の改良 (Heddes et al., 2025) `✅ ICML 2025`
 
 ### Pretraining
+- [Knowledge Capacity Scaling Laws (Physics of LM 3.3)](papers/Pretraining/knowledge-capacity-scaling-laws.md) — LM の保存知識量を bit で実測し **1パラメータ＝最大2 bit**（int8 でも維持）と確立。**核心: 各知識を ~1000回露出すると 2 bit/param の高密度に到達、~100回だと容量半減**。訓練時間・アーキテクチャ・量子化・MoE・データSNR の5因子×12結果。データ配合（[Rewriting](papers/Pretraining/rewriting-pretraining-data.md)/[FineData](papers/Pretraining/huggingface-finedata.md)）に容量の観点を与え、保存と抽出可能性が別である点で [Reversal Curse](papers/Reasoning/reversal-curse.md) と対 (Allen-Zhu & Li, 2024 / Meta FAIR) `✅ ICLR 2025 (Spotlight)`
+- [To Repeat or Not To Repeat (Token-Crisis)](papers/Pretraining/to-repeat-or-not-to-repeat.md) — 高品質テキストが枯渇する **token-crisis** 下で事前学習データを複数エポック**繰り返す**とどうなるかを T5/C4 で体系検証。**データ繰り返しは過学習＝multi-epoch degradation（多エポック劣化）を招く**。支配要因は**データサイズ・パラメータ数・目的関数**、影響小は**データ品質・FLOPs**（高品質 Wikipedia でも劣化は緩和されない）。大半の正則化が無効な中 **dropout が極めて有効**（後段投入＝dropstage、XL は追加チューニング要）。さらに **MoE が同等パラメータ dense の過学習挙動を低コストで予測**しハイパラ探索の安価な代理に。[Knowledge Capacity](papers/Pretraining/knowledge-capacity-scaling-laws.md)（繰り返し露出を有益とする）の表裏で、[RL Post-Training Scaling](papers/RL/rl-scaling-math-qwen25.md)（RL では再利用が有効）とは符号が逆転 (Xue, Fu, Zhou, Zheng, You, 2023 / NUS × Edinburgh × ETH) `✅ NeurIPS 2023`
+- [Scaling Data-Constrained Language Models](papers/Pretraining/scaling-data-constrained-language-models.md) — 上の [To Repeat or Not To Repeat](papers/Pretraining/to-repeat-or-not-to-repeat.md) と**同 NeurIPS 2023 の対ペア**。400超の run（10M–8.7B・最大900Bトークン）で **Chinchilla 則をデータ繰り返しに拡張した data-constrained scaling law** を提案。Chinchilla の L=A/N^α+B/D^β+E を、繰り返しで価値が指数減衰する**実効データ D'・実効パラメータ N'** に置換（**R\*_D≈15 が繰り返しの半減期**）。**【核心】最大~4エポックの繰り返しは新規データとほぼ同等、~16エポックまで有用、~40エポックで無価値**。データ制約下では Chinchilla と異なり**「パラメータよりエポックを速くスケール」**（過剰パラメータは速く減衰 R\*_N<R\*_D、25Bユニークで27%少パラメータが上回る）。補完策として**コード50%混入で実効トークン2倍**・フィルタはノイズデータのみ有効。Galactica 120B は過大と指摘 (Muennighoff, Rush, Barak, Raffel et al., 2023 / Hugging Face × Harvard × Turku) `✅ NeurIPS 2023 (Oral, Outstanding Paper Runner-Up)`
+- [Exploring the Limits of Transfer Learning (T5)](papers/Pretraining/t5-text-to-text-transformer.md) — NLP の全タスクを **text-to-text** に統一し、**pre-training objective・アーキテクチャ・データ・転移手法**を数十タスクで体系的にアブレーション。新データセット **C4** とスケールで要約・QA・分類など多数ベンチ SOTA。pretrain→finetune transfer の記念碑で、[A Survey on Negative Transfer](papers/Surveys_Overview/survey-on-negative-transfer.md)（転移が害になる側）の positive transfer 側の代表。C4 は [FineData](papers/Pretraining/huggingface-finedata.md) / [Rewriting Pre-Training Data](papers/Pretraining/rewriting-pretraining-data.md) の先駆 (Raffel et al., 2020 / Google) `✅ JMLR 2020`
 - [Rewriting Pre-Training Data](papers/Pretraining/rewriting-pretraining-data.md) — SwallowCode/SwallowMathでデータリライティングにより性能向上 (Fujii et al., 2025) `✅ ICLR 2026`
 - [FineData (HuggingFaceFW)](papers/Pretraining/huggingface-finedata.md) — 大規模オープン事前学習データセット群 (Hugging Face, 2025) `✅ NeurIPS 2024`
 - [ATLAS: Multilingual Scaling Laws](papers/Pretraining/atlas-multilingual-scaling-laws.md) — 過去最大規模の多言語スケーリング則（774実験/400+言語）、ATLASが+0.3 R²で既存則を上回り、1444言語ペアの転移行列とscratch vs finetuneのクロスオーバー点を同定 (Longpre, Kudugunta, Muennighoff et al., 2025) `✅ ICLR 2026`
@@ -50,6 +57,8 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](papers/Post_Training/sft-data-composition.md) — SFTで数学・コード・一般能力はスケーリング特性が異なる（math/codeは単調向上、一般は**~1000サンプルで頭打ち**）。逐次学習は **catastrophic forgetting**、同時学習は能力 conflict。**DMT**（専門データ→一般データに専門を比率kで少量混合する2段階）で両方を緩和 (Dong et al., 2023 / Alibaba・Qwen) `✅ ACL 2024 Main`
 - [When Scaling Meets LLM Finetuning](papers/Post_Training/scaling-llm-finetuning.md) — ファインチューニング性能を **LLMモデルサイズ・事前学習データ・finetuneパラメータ数・finetuneデータ** の4因子で分析し、finetuneデータ量と各因子の間に **power-based の乗法的結合スケーリング則**を発見。**(a) LLMモデルサイズのスケーリングが事前学習データより finetune に効く、(b) PET（prompt tuning/LoRA）のパラメータscalingは概して効きにくい、(c) 最適手法はタスク・データ量依存**（低データはPET有利）。FMT vs PET 比較、1B〜16B・機械翻訳/要約 (Zhang, Liu, Cherry, Firat, 2024 / Google DeepMind) `✅ ICLR 2024`
 - [Neural Thickets](papers/Post_Training/neural-thickets.md) — 事前学習重み近傍の多様なエキスパートをランダム摂動で発見 (Gan & Isola, 2026 / MIT) `✅ ICML 2026 (Spotlight)`
+- [SHLPT: Similarity Heuristic Lifelong Prompt Tuning](papers/Post_Training/shlpt-lifelong-prompt-tuning.md) — **lifelong prompt tuning（PEFT × 継続学習）**の **negative transfer** を緩和。**学習可能な類似度メトリック**でタスクを類似/非類似の2サブセットに分割し双方から有益な転移を引き出す＋**parameter pool** で catastrophic forgetting に対処、lifelong ベンチで SOTA 超。[When Scaling Meets LLM Finetuning](papers/Post_Training/scaling-llm-finetuning.md)（PETの限界）/ [DMT](papers/Post_Training/sft-data-composition.md)（忘却をデータ側で緩和）の継続学習・パラメータ側からの対 (Wu, Jiang, Lian, 2024) `✅ ACL 2024 Findings`
+- [A Survey on Negative Transfer](papers/Surveys_Overview/survey-on-negative-transfer.md) — **negative transfer（source 知識の利用が target 性能を下げる現象）**の初の体系的サーベイ。約50手法を **secure transfer / domain similarity estimation / distant transfer / NT mitigation** の4分類で整理し、multi-task / lifelong learning / adversarial attacks の NT も議論。上の [SHLPT](papers/Post_Training/shlpt-lifelong-prompt-tuning.md) の一般論版で、「類似度推定で転移可否を測る」系譜の先祖。[DMT](papers/Post_Training/sft-data-composition.md) の能力 conflict、[ATLAS](papers/Pretraining/atlas-multilingual-scaling-laws.md) の多言語転移行列の上位概念 (Zhang, Deng, Zhang, Wu, 2022) `✅ IEEE/CAA J. Automatica Sinica 2022`（カテゴリ: Surveys_Overview）
 - [Simple Self-Distillation](papers/Post_Training/simple-self-distillation-code.md) — 自身の出力のみでコード生成を改善するSSD (Zhang et al., 2026) `📝 preprint`
 - [Namazu Alpha](papers/Post_Training/namazu-alpha.md) — オープン基盤モデルの日本仕様適応 (Sakana AI, 2026) `— blog`
 
@@ -62,6 +71,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [BlueprintSymVL: A Discriminative Benchmark for VLM Symbol Recognition in Engineering Blueprints](papers/Evaluation/blueprintsymvl.md) — エンジニアリング図面（P&ID）の VLM シンボル認識を評価する**最初のドメイン特化ベンチマーク**。red-circle ハイライト付き **one-shot visual in-context querying**、count+label 両方を要求する strict criterion。**Gemini 2.5 Pro 50.5% > Qwen 40.5% > GPT-4o 30% > InternVL 4.5%** の discriminative power、Dense/Similar シナリオで性能崩壊・全モデル Recall≫Precision。結論: 現状 VLM は autonomous deployment に不適 (Shteriyanov et al., 2025 / McDermott ほか) `✅ Results in Engineering 2025`
 
 ### Technical_Report
+- [TabFM: A Zero-Shot Foundation Model for Tabular Data](papers/Technical_Report/tabfm.md) — 表形式データの分類・回帰を **in-context learning** として定式化、追加訓練・調整・特徴量エンジニアリング不要で**単一 forward pass** でゼロショット予測。alternating row/column attention + row compression + ICL の3機構、**SCM 由来の数億の合成データのみ**で事前学習、TabArena で教師あり定番手法を上回るトップ ELO。TabPFN/TabICL 系譜を統合し、[CLIP](papers/Multimodal/clip.md) 的な「基盤モデル＋ゼロショット転移」を表データに拡張 (Kong, Das et al., 2026 / Google Research) `— blog`
 - [Kimi K2.5](papers/Technical_Report/kimi-k25.md) — オープンソースマルチモーダルエージェントモデル (Kimi Team, 2026) `— tech report`
 - [MiniMax-M1](papers/Technical_Report/minimax-m1.md) — 世界初のオープンウェイト大規模 hybrid attention 推論モデル、456B MoE / 45.9B active、ネイティブ1M context。新規RL **CISPO**（IS重みクリップ）で 512 H800 × 3週間 / $534,700 のフルRL訓練、DeepSeek-R1/Qwen3-235B に匹敵（特に SWE・tool use・long context）(MiniMax Team, 2025) `— tech report`
 - [Qwen3.5-Omni](papers/Technical_Report/qwen35-omni.md) — 数百億パラメータの Hybrid Attention MoE omni-modal モデル、256k context、1億時間 audio-visual 学習。215 audio/audio-visual benchmark で SOTA・主要 audio で Gemini-3.1 Pro 超え、ARIA による安定ストリーミング TTS、Audio-Visual Vibe Coding 創発 (Qwen Team, 2026) `— tech report`
@@ -72,6 +82,9 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [Mind the Gap](papers/Reasoning/mind-the-gap-self-improvement.md) — 生成よりも検証の方が容易であることを示した自己改善研究 (Song et al., 2024) `✅ ICLR 2025`
 - [The Reversal Curse](papers/Reasoning/reversal-curse.md) — 「AはB」で学習しても「BはA」に汎化しない (Berglund et al., 2023) `✅ ICLR 2024`
 - [GSM-Symbolic](papers/Reasoning/gsm-symbolic.md) — 数値変更だけでLLM数学推論が大きくばらつく、パターンマッチングの限界 (Mirzadeh et al., 2024) `✅ ICLR 2025`
+- [Potemkin Understanding](papers/Reasoning/potemkin-understanding.md) — 「ベンチ正解＝理解」は成り立たない。人間と異なる仕方で概念を取り違えるなら正解は **potemkin understanding（理解の幻想）**に過ぎず、potemkin はモデル・タスク・ドメインに遍在し**概念表現の内的非一貫性**を反映。評価の妥当性そのものを崩す (Mancoridis, Weeks, Vafa, Mullainathan, 2025) `✅ ICML 2025`
+- [Paraphrase and Solve (SCoP)](papers/Reasoning/paraphrase-and-solve-scop.md) — 数学問題の**表層形のわずかな変更**で solve rate が激変＝表層形への非頑健。緩和策 Self-Consistency-over-Paraphrases を提案するが根本原因は残る。GSM-Symbolic と同型の脆弱性を言い換え軸で実証 (Zhou, Zhu, Antognini, Kim, Zhang, 2024) `✅ NAACL 2024`
+- [RobustLR](papers/Reasoning/robustlr.md) — 自然言語ルールベース上の**演繹推論**が最小論理編集・論理等価変換に**頑健でない**ことを診断。特に**否定・選言**の学習が困難で、論理意味でなく表層に依存と論証 (Sanyal, Liao, Ren, 2022 / USC) `✅ EMNLP 2022`
 - [The Geometry of Forgetting](papers/Reasoning/geometry-of-forgetting.md) — 埋め込み空間の幾何学から忘却・偽記憶が必然的に発生、有効次元~16のdimensionality illusion (Barman et al., 2026) `📝 preprint`
 - [Large Language Model Reasoning Failures](papers/Surveys_Overview/llm-reasoning-failures.md) — LLM推論失敗の包括的サーベイ (Song et al., 2026) `✅ TMLR 2026`
 
@@ -94,7 +107,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [RS-GRPO](papers/RL/rs-grpo.md) — リスク感応的目的関数でexploration dilemmaを緩和、pass@1維持+pass@k向上 (Jiang et al., 2025 / 清華大 × ByteDance Seed) `✅ ICLR 2026 (Poster)`
 - [Flash-RL / TIS: Off-Policy Framework Mismatch](papers/RL/flash-rl-tis.md) — vLLM rolloutとFSDP学習の分布乖離で効率的RLが暗黙にoff-policy化、Truncated Importance Samplingで数行修正。VeRL等主要フレームワークに統合済み (Yao, Liu et al., 2025 / UCSD × MSR) `— blog`
 - [ScaleRL: The Art of Scaling RL Compute](papers/RL/scale-rl.md) — 40万GPU時間超の体系実験でLLM向けRLのsigmoid scaling則を定式化、漸近値 vs 計算効率の切り分けで能力境界論争を再定式化、10万GPU時間単一ランで検証損失を事前予測 (Khatri, Madaan, Tiwari et al., 2025 / Meta × UT Austin) `✅ ICLR 2026 Oral`
-- [Scaling Behaviors of LLM RL Post-Training](papers/RL/rl-scaling-math-qwen25.md) — Qwen2.5 0.5B–72B全系列で数学推論RL（GRPO）のスケーリング則を定式化、log L(N,X)=−k(N)·log X+E(N)のpower-law、学習効率k(N)=K_max/(1+N_0/N)の飽和、データ制約下では「最適化ステップ総数」が「ユニークサンプル数」より支配的 (Tan, Geng, Yu et al., 2025 / Shanghai AI Lab × Oxford) `📝 preprint (ICLR 2026 Withdrawn)`
+- [Scaling Behaviors of LLM RL Post-Training](papers/RL/rl-scaling-math-qwen25.md) — Qwen2.5 0.5B–72B全系列で数学推論RL（GRPO）のスケーリング則を定式化、log L(N,X)=−k(N)·log X+E(N)のpower-law、学習効率k(N)=K_max/(1+N_0/N)の飽和、データ制約下では「最適化ステップ総数」が「ユニークサンプル数」より支配的 (Tan, Geng, Yu et al., 2025 / Shanghai AI Lab × Oxford) `✅ ACL 2026 Main（ICLR 2026 は withdraw 後に再投稿・採択）`
 - [On SFT, RL, and on-policy distillation (Brown & Claude Opus 4.7)](papers/RL/willccbb-sft-rl-opd.md) — SFT/RL/OPD/SDFT/OPSD を統一 token-level policy gradient（α, λ, π_T の3ダイアル）で整理するメタ分析。**compounding argument** で SFT-then-RL 順序を説明し、各メソッドを Pareto curve 上に配置。AI 共著の技術メタ分析の運用例 (Brown & Claude Opus 4.7, 2026 / X 投稿) `— blog`
 
 ### Agent_ToolUse
@@ -113,6 +126,7 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 - [The AI Layoff Trap](papers/Social_Science/ai-layoff-trap.md) — 需要外部性による自動化軍拡競争、ピグー税のみが解消可能 (Hemenway Falk & Tsoukalas, 2026) `📝 preprint`
 
 ### Physical_AI
+- [A Functional Taxonomy of World Models](papers/Physical_AI/a-functional-taxonomy-of-world-models.md) — 「world model」を機能で3分類: **renderer**（ピクセル観測・visual fidelity）/ **simulator**（幾何・物理・動力学的に忠実）/ **planner**（観測＋目標→action、renderer の逆関数）。**POMDP の agent loop** に位置づけ、「LM＝テキストの統計構造／world model＝空間と時間の統計構造」と対比。評価指標を **visual quality→renderer・forward-prediction→simulator・decision→planner** にマップし **unified world model** への収束を展望。本リポジトリの JEPA/world-model 群を読む座標系 (Fei-Fei Li, 2026 / World Labs) `— blog`
 - [DreamZero](papers/Physical_AI/dreamzero-world-action-models.md) — ビデオ拡散によるゼロショットロボットポリシー (Ye et al., 2026) `📋 workshop`
 - [V-JEPA 2](papers/Physical_AI/v-jepa-2.md) — 自己教師あり動画モデルによるロボット理解・予測・計画 (Assran et al., 2025) `📝 preprint`
 - [LeWorldModel (LeWM)](papers/Physical_AI/leworldmodel.md) — raw pixelsからend-to-end安定学習できる最初のJEPA、next-embedding prediction + Gaussian正則化の2損失項・1ハイパラ、15M×単GPUで foundation world model比 最大48倍高速な計画、潜在空間が物理量をprobingで保持 (Maes, Le Lidec, Scieur, LeCun, Balestriero, 2026 / Meta FAIR) `📝 preprint`
@@ -120,11 +134,13 @@ wikiに含まれる全ページのカタログ。カテゴリごとに整理。
 
 ### Multimodal
 - [CLIP: Learning Transferable Visual Models From Natural Language Supervision](papers/Multimodal/clip.md) — 4億 (image, text) ペアの contrastive 事前学習で **zero-shot ImageNet 76.2%**（ResNet-50 supervised 同等）、30+ タスクへ転移・distribution shift に頑健。視覚-言語基盤モデルの出発点、現 MLLM/diffusion の事実上標準 vision tower (Radford et al., 2021 / OpenAI) `✅ ICML 2021`
+- [One Single Hub Text Breaks CLIP](papers/Multimodal/hub-text-breaks-clip.md) — CLIP 系 cross-modal encoder の **hubness 脆弱性**を突く。無関係な多数画像と高類似度になる単一テキスト＝**hub text** を「hub 埋め込みの閉形式導出→逆変換 decode→beam local search」で生成。意味的に無意味な1テキストが多くの画像で人手キャプション超え（CLIPScore **Ours 0.842 > Human 0.759**, 勝率最大 90%）、retrieval 単一挿入で Precision@1 −29.3%。CLIPScore 指標と cross-modal retriever の脆弱性を露呈、[CLIP](papers/Multimodal/clip.md) への攻撃面 (Deguchi, Chousa, Sakai, 2026 / NTT × NAIST) `✅ ACL 2026`
 - [FROMAGe: Grounding Language Models to Images for Multimodal Inputs and Outputs](papers/Multimodal/fromage.md) — 凍結 OPT-6.7B + 凍結 CLIP を **線形射影層と `[RET]` token のみ**（trainable 0.1%未満）で結合。VIST 文脈 retrieval R@1 20.8 vs CLIP 5.9。「凍結バックボーン + 軽量 projection」レシピの祖型、後の LLaVA/BLIP-2/GILL の参照点 (Koh, Salakhutdinov, Fried, 2023 / CMU) `✅ ICML 2023`
 - [Video models are zero-shot learners and reasoners](papers/Multimodal/video-models-zero-shot-learners.md) — Veo 3が明示訓練外のタスク（segmentation/edge detection/editing/物理理解/affordance/道具使用）をゼロショットで解く現象を体系実証、迷路・対称性など初期visual reasoning発現 (Wiedemer, Li, Vicol et al., 2025 / Google DeepMind) `📝 preprint`
 
 ### Inference_Decoding
 - [Reasoning with Sampling](papers/Inference_Decoding/reasoning-with-sampling.md) — MCMCベースの推論時サンプリングでRL訓練なしにreasoning改善 (Karan & Du, 2025 / Harvard) `✅ ICLR 2026 (Oral)`
+- [The Implications of Large-Scale Test-Time Compute](papers/Inference_Decoding/implications-of-test-time-compute.md) — Noam Brown（OpenAI）の論説。**ベンチ成績がテスト時計算量に左右される度合いが増し、現代LLMの能力上限は未知**と主張。test-time compute を第3のスケーリング軸と位置づける。[Reasoning with Sampling](papers/Inference_Decoding/reasoning-with-sampling.md)/[LLM-as-a-Verifier](papers/Agent_ToolUse/llm-as-a-verifier.md) が具体手段、[RLVR能力境界論争](topics/RL/rlvr-capability-boundary.md) の姉妹論点（※X article 本文未取得・テーゼのみ記録） (Noam Brown, 2026) `— blog / ICLR 2026 招待講演`
 
 ### Efficiency_Optimization
 - [Flash-KMeans](papers/Efficiency_Optimization/flash-kmeans.md) — GPU最適化K-meansで最大17.9倍高速化 (Yang et al., 2026) `📝 preprint`

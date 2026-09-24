@@ -2,16 +2,16 @@
 title: "Scaling Behaviors of LLM RL Post-Training (Tan et al., 2025)"
 aliases: ["RL Post-Training Scaling", "Qwen2.5 RL Scaling", "k(N) Saturation"]
 created: 2026-04-22
-updated: 2026-04-22
+updated: 2026-06-11
 tags: [scaling-law, rl, rlvr, post-training, mathematical-reasoning, qwen25, grpo, data-efficiency, power-law]
-peer_review: preprint
-venue: ""
+peer_review: accepted
+venue: "ACL 2026 (Main)"
 sources: [src-rl-scaling-math-qwen25]
 ---
 
 # Scaling Behaviors of LLM Reinforcement Learning Post-Training
 
-> **査読**: 📝 preprint（ICLR 2026 に投稿 → **Withdrawn Submission**, OpenReview [KBut2YCZ4g](https://openreview.net/forum?id=KBut2YCZ4g)。以前 "ACL 2026 Main 採択" としていたのは誤情報のため取消）
+> **査読**: ✅ accepted — ACL 2026 Main。**経緯**: ICLR 2026 に投稿 → 低スコア査読（rating 4/2/4/4、championなし）後に著者が自主 withdraw（OpenReview [KBut2YCZ4g](https://openreview.net/forum?id=KBut2YCZ4g)）→ 72B拡張・予測検証・標準偏差を加えた改訂版が **ACL 2026 Main に採択**（arXiv v4 Comments で確認）。※過去に「ACL採択は誤情報」と取消した記述があったが、v4 で採択が確認されたため復元・訂正
 
 Tan, Geng, Yu, Zhang, Wan et al. (2025) — arXiv 2509.25300 / v4 (2026-04-17) / Shanghai AI Lab × Oxford ほか
 

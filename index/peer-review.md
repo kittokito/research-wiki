@@ -1,8 +1,8 @@
 # 査読・採択状況一覧
 
-> 最終更新: 2026-06-03 (追加: When Scaling Meets LLM Finetuning)
+> 最終更新: 2026-07-01 (TabFM (Google Research ブログ, n/a) を追加)
 
-## ✅ accepted（査読済み・採択）— 38件
+## ✅ accepted（査読済み・採択）— 49件
 
 | 論文 | 採択先 | 年 |
 |---|---|---|
@@ -10,13 +10,21 @@
 | [From Louvain to Leiden](../wiki/papers/Graph_Network/louvain-to-leiden.md) | Scientific Reports 2019 | 2019 |
 | [BERT Rediscovers the Classical NLP Pipeline](../wiki/papers/Pretraining/bert-rediscovers-nlp-pipeline.md) | ACL 2019 | 2019 |
 | [Linear Transformers: Transformers are RNNs](../wiki/papers/Architecture/linear-transformers.md) | ICML 2020 (PMLR v119, pp.5156-5165) | 2020 |
+| [Exploring the Limits of Transfer Learning (T5)](../wiki/papers/Pretraining/t5-text-to-text-transformer.md) | JMLR 2020 (vol.21) | 2020 |
 | [CLIP: Learning Transferable Visual Models From Natural Language Supervision](../wiki/papers/Multimodal/clip.md) | ICML 2021 (PMLR v139, pp.8748-8763) | 2021 |
 | [data2vec: A General Framework for Self-supervised Learning](../wiki/papers/Pretraining/data2vec.md) | ICML 2022 (Oral, PMLR v162) | 2022 |
 | [Does BERT Rediscover a Classical NLP Pipeline?](../wiki/papers/Pretraining/does-bert-rediscover-nlp-pipeline.md) | COLING 2022 | 2022 |
+| [A Survey on Negative Transfer](../wiki/papers/Surveys_Overview/survey-on-negative-transfer.md) | IEEE/CAA J. Automatica Sinica 2022 | 2022 |
+| [RobustLR: Robustness to Logical Perturbation](../wiki/papers/Reasoning/robustlr.md) | EMNLP 2022 | 2022 |
 | [FROMAGe: Grounding Language Models to Images](../wiki/papers/Multimodal/fromage.md) | ICML 2023 (PMLR v202) | 2023 |
+| [To Repeat or Not To Repeat (Token-Crisis)](../wiki/papers/Pretraining/to-repeat-or-not-to-repeat.md) | NeurIPS 2023 (Poster) | 2023 |
+| [Scaling Data-Constrained Language Models](../wiki/papers/Pretraining/scaling-data-constrained-language-models.md) | NeurIPS 2023 (Oral, Outstanding Paper Runner-Up) | 2023 |
 | [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md) | ICLR 2024 | 2023 |
 | [When Scaling Meets LLM Finetuning](../wiki/papers/Post_Training/scaling-llm-finetuning.md) | ICLR 2024 | 2024 |
 | [How Abilities in LLMs are Affected by SFT Data Composition (DMT)](../wiki/papers/Post_Training/sft-data-composition.md) | ACL 2024 (Main) | 2023 |
+| [SHLPT: Similarity Heuristic Lifelong Prompt Tuning](../wiki/papers/Post_Training/shlpt-lifelong-prompt-tuning.md) | ACL 2024 (Findings) | 2024 |
+| [Paraphrase and Solve (SCoP)](../wiki/papers/Reasoning/paraphrase-and-solve-scop.md) | NAACL 2024 (Long) | 2024 |
+| [Knowledge Capacity Scaling Laws (Physics of LM 3.3)](../wiki/papers/Pretraining/knowledge-capacity-scaling-laws.md) | ICLR 2025 (Spotlight) | 2024 |
 | [Random Hierarchy Model (RHM)](../wiki/papers/Pretraining/random-hierarchy-model.md) | Physical Review X 14, 031001 | 2023 |
 | [Automated Control Logic Test Case Generation](../wiki/papers/Domain_Specific/automated-plc-test-generation.md) | IEEE ETFA 2024 | 2024 |
 | [SECURE: Cybersecurity Benchmark](../wiki/papers/Evaluation/secure-cybersecurity-benchmark.md) | ACSAC 2024 | 2024 |
@@ -31,6 +39,7 @@
 | [DeepSeek-R1](../wiki/papers/RL/deepseek-r1.md) | Nature 2025 | 2025 |
 | [Dr. GRPO: Understanding R1-Zero-Like Training](../wiki/papers/RL/dr-grpo.md) | COLM 2025 | 2025 |
 | [SFT Memorizes, RL Generalizes](../wiki/papers/RL/sft-memorizes-rl-generalizes.md) | ICML 2025 (PMLR 267) | 2025 |
+| [Potemkin Understanding in LLMs](../wiki/papers/Reasoning/potemkin-understanding.md) | ICML 2025 (PMLR 267) | 2025 |
 | [Does RLVR Truly Unlock New Reasoning](../wiki/papers/RL/rlvr-does-not-teach-new-reasoning.md) | NeurIPS 2025 (Oral, Best Paper Runner-up) | 2025 |
 | [ProRL](../wiki/papers/RL/prorl.md) | NeurIPS 2025 (Poster) | 2025 |
 | [Gated DeltaNet](../wiki/papers/Architecture/gated-deltanet.md) | ICLR 2025 | 2024 |
@@ -39,11 +48,13 @@
 | [TurboQuant](../wiki/papers/Efficiency_Optimization/turboquant.md) | ICLR 2026 (Poster) | 2026 |
 | [ATLAS: Multilingual Scaling Laws](../wiki/papers/Pretraining/atlas-multilingual-scaling-laws.md) | ICLR 2026 (Poster) | 2025 |
 | [ScaleRL](../wiki/papers/RL/scale-rl.md) | ICLR 2026 (Oral) | 2025 |
+| [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) | ACL 2026 (Main) | 2025 |
 | [Transformers are Inherently Succinct](../wiki/papers/Architecture/transformers-are-inherently-succinct.md) | ICLR 2026 (Oral, Outstanding Paper) | 2025 |
 | [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) | ICLR 2026 (Oral) | 2025 |
 | [RS-GRPO](../wiki/papers/RL/rs-grpo.md) | ICLR 2026 (Poster) | 2025 |
 | [BlueprintSymVL: VLM Symbol Recognition in Engineering Blueprints](../wiki/papers/Evaluation/blueprintsymvl.md) | Results in Engineering 28 (Elsevier, CC BY 4.0) | 2025 |
 | [Neural Thickets](../wiki/papers/Post_Training/neural-thickets.md) | ICML 2026 (Spotlight) | 2026 |
+| [One Single Hub Text Breaks CLIP](../wiki/papers/Multimodal/hub-text-breaks-clip.md) | ACL 2026 (Main) | 2026 |
 
 ## 📋 workshop（ワークショップ採択）— 2件
 
@@ -58,14 +69,13 @@
 |---|---|
 | [Self-Organizing LLM Agents](../wiki/papers/Agent_ToolUse/self-organizing-llm-agents.md) | IEEE Access（投稿中） |
 
-## 📝 preprint（プレプリント）— 26件
+## 📝 preprint（プレプリント）— 25件
 
 | 論文 | カテゴリ |
 |---|---|
 | [Conditional Memory via Scalable Lookup](../wiki/papers/Architecture/conditional-memory-scalable-lookup.md) | Architecture |
 | [RLVR Capability Boundary Debate](../wiki/papers/RL/rlvr-capability-boundary-debate.md) | RL（ICLR 2026 Rejected） |
 | [Continuous Autoregressive LM (CALM)](../wiki/papers/Architecture/continuous-autoregressive-lm.md) | Architecture（ICLR 2026 Rejected） |
-| [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) | RL（ICLR 2026 Withdrawn） |
 | [Mixture-of-Depths Attention](../wiki/papers/Architecture/mixture-of-depths-attention.md) | Architecture |
 | [MSA: Memory Sparse Attention](../wiki/papers/Architecture/memory-sparse-attention.md) | Architecture |
 | [mHC: Manifold-Constrained Hyper-Connections](../wiki/papers/Architecture/manifold-constrained-hyper-connections.md) | Architecture |
@@ -89,10 +99,14 @@
 | [Learning, Fast and Slow: FST](../wiki/papers/RL/learning-fast-and-slow.md) | RL |
 | [Learn from your own latents (sample-complexity theory)](../wiki/papers/Pretraining/latent-sample-complexity.md) | Pretraining |
 
-## — n/a（査読対象外）— 20件
+## — n/a（査読対象外）— 24件
 
 | 論文/記事 | 種別 |
 |---|---|
+| [TabFM: A Zero-Shot Foundation Model for Tabular Data](../wiki/papers/Technical_Report/tabfm.md) | 発表ブログ（Google Research, 2026-06-30） |
+| [The Implications of Large-Scale Test-Time Compute](../wiki/papers/Inference_Decoding/implications-of-test-time-compute.md) | 論説エッセイ／ICLR 2026 招待講演（Noam Brown, OpenAI） |
+| [LLMと真の論理的理解の壁（トピック）](../wiki/topics/Reasoning/llm-logical-understanding-wall.md) | トピック合成（査読論文6本を束ねるポジション） |
+| [A Functional Taxonomy of World Models](../wiki/papers/Physical_AI/a-functional-taxonomy-of-world-models.md) | 論説エッセイ（Fei-Fei Li, World Labs / Substack） |
 | [Attention Residuals](../wiki/papers/Architecture/attention-residuals.md) | テクニカルレポート（Kimi Team） |
 | [Kimi K2.5](../wiki/papers/Technical_Report/kimi-k25.md) | テクニカルレポート（Kimi Team） |
 | [MiniMax-M1](../wiki/papers/Technical_Report/minimax-m1.md) | テクニカルレポート（MiniMax） |

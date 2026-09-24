@@ -820,3 +820,227 @@
   - `index/peer-review.md`: accepted 37→38（ICLR 2024 / 年2024）
   - `index/topics.md`: `scaling law` 5→7件（+scaling-llm-finetuning, +language-structure-acquisition）、新トピック `finetuning / PEFT (LoRA, prompt tuning)`（3件）
   - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+---
+
+## 2026-06-09 — 論文8件＋トピック1件追加（Physical_AI / Post_Training / Surveys_Overview / Pretraining×2 / Reasoning×3 ＋「LLMと真の論理的理解の壁」）
+
+- **論文追加**: A Functional Taxonomy of World Models (Fei-Fei Li, 2026 / World Labs)
+  - `sources/Physical_AI/a-functional-taxonomy-of-world-models.md` / `evidence/Physical_AI/a-functional-taxonomy-of-world-models.md` / `wiki/papers/Physical_AI/a-functional-taxonomy-of-world-models.md` 作成
+  - Substack 論説（2026-06-03、査読 n/a）。ユーザー提示元は X 投稿 (@drfeifei) からリンクされた同記事
+  - **内容**: 「world model」を機能で3分類——**renderer**（ピクセル観測・visual fidelity 最優先）/ **simulator**（幾何・物理・動力学的に忠実）/ **planner**（観測＋目標→action、renderer の逆関数）。**POMDP の agent loop**（state＝完全記述／observation＝部分知覚）に位置づけ、「LM＝テキストの統計構造／world model＝空間と時間の統計構造」と対比。評価指標を visual quality→renderer・forward-prediction→simulator・decision→planner にマップ。「simulation is the bridge」「終着点は unified world model」
+  - 限界/未解決: 3D・ロボットデータの不足、sim-to-real、生成モデルの幾何的矛盾（自己交差・スケール誤差）
+  - 査読: — n/a（論説エッセイ）
+  - **カテゴリ判断**: world model の機能分類が主題で、既存 Physical_AI（[V-JEPA 2](../wiki/papers/Physical_AI/v-jepa-2.md)/[LeWorldModel](../wiki/papers/Physical_AI/leworldmodel.md)/[DreamZero](../wiki/papers/Physical_AI/dreamzero-world-action-models.md)/[Scaling Laws of Motion Forecasting](../wiki/papers/Physical_AI/scaling-laws-motion-forecasting-planning.md)）がまさに world model クラスタのため **Physical_AI**（ユーザー承認済み）
+  - 図表: なし（Python生成グラフ・本文図とも挿入省略）
+  - `wiki/index.md` 配置: Physical_AI カテゴリ先頭
+  - `index/peer-review.md`: n/a 20→21件
+  - `index/topics.md`: `world model / JEPA` 3→4件、新トピック `world model taxonomy / spatial intelligence`（1件）
+
+- **論文追加**: Mitigate Negative Transfer with Similarity Heuristic Lifelong Prompt Tuning (SHLPT) (Wu, Jiang, Lian, 2024)
+  - `sources/Post_Training/shlpt-lifelong-prompt-tuning.md` / `evidence/Post_Training/shlpt-lifelong-prompt-tuning.md` / `wiki/papers/Post_Training/shlpt-lifelong-prompt-tuning.md` 作成
+  - **ACL 2024 Findings 採択**（2024.findings-acl.650, pp.10944–10959, DOI 10.18653/v1/2024.findings-acl.650）
+  - **内容**: lifelong prompt tuning（PEFT × 継続学習）の **negative transfer** を緩和する **SHLPT**。万能アルゴリズムは存在せず非類似タスクが負の転移を招く——原因は「アルゴリズム選択とタスク特性のミスアラインメント」。**学習可能な類似度メトリック**でタスクを類似/非類似の2サブセットに分割し双方から有益な転移を引き出し、**parameter pool** で catastrophic forgetting に対処。lifelong ベンチで SOTA 超
+  - 限界: 類似度メトリックの品質に依存、prompt tuning 枠内の結果で full finetuning への一般化は別途検証
+  - 査読: ✅ accepted — ACL 2024 Findings
+  - **カテゴリ判断**: prompt tuning（PEFT）× 継続学習が主題で、既存 Post_Training の PEFT/継続学習クラスタ（[When Scaling Meets LLM Finetuning](../wiki/papers/Post_Training/scaling-llm-finetuning.md)/[DMT](../wiki/papers/Post_Training/sft-data-composition.md)/[Curriculum Instruction Tuning](../wiki/topics/Post_Training/curriculum-instruction-tuning.md)）と直結のため **Post_Training**
+  - 図表: なし
+  - `wiki/index.md` 配置: Post_Training カテゴリ、Neural Thickets の直後
+  - `index/peer-review.md`: accepted 38→39（ACL 2024 Findings / 年2024）
+  - `index/topics.md`: `finetuning / PEFT (LoRA, prompt tuning)` 3→4件、`catastrophic forgetting / continual learning` 2→3件、新トピック `negative transfer / lifelong prompt tuning`（1件）
+  - **※重要な訂正**: ユーザー提示 URL `2024.findings-acl.650.pdf` を、当初 PDF 本体を読まず検索結果から「Are Human Conversations Special?」(arXiv 2403.05045) と誤同定し、誤った3ファイル＋索引を一旦作成した。ユーザー指摘を受け .bib/landing で正体を確認、本論文(SHLPT)が正しいと判明。誤ファイルを削除し本エントリ・各索引を訂正済み
+
+- **論文追加**: A Survey on Negative Transfer (Zhang, Deng, Zhang, Wu, 2022)
+  - `sources/Surveys_Overview/survey-on-negative-transfer.md` / `evidence/Surveys_Overview/survey-on-negative-transfer.md` / `wiki/papers/Surveys_Overview/survey-on-negative-transfer.md` 作成
+  - arXiv 2009.00909（提出 2020-09-02）、**IEEE/CAA Journal of Automatica Sinica 2022, pp.1–25** 掲載（査読付きジャーナル）
+  - **内容**: transfer learning の **negative transfer (NT)** の初の体系的サーベイ。NT の定義・要因を整理し約50手法を **secure transfer / domain similarity estimation / distant transfer / NT mitigation** の4分類でレビュー。multi-task / lifelong learning / adversarial attacks の NT も議論
+  - 限界: 2020年提出で古典的 TL/domain adaptation 中心、LLM 時代の転移（PEFT 等）は射程外
+  - 査読: ✅ accepted — IEEE/CAA Journal of Automatica Sinica 2022
+  - **カテゴリ判断**: サーベイ論文のため **Surveys_Overview**。直前追加の [SHLPT](../wiki/papers/Post_Training/shlpt-lifelong-prompt-tuning.md)（lifelong prompt tuning の NT 緩和）の一般論版で強く接続。wiki/index.md ではこのリポジトリの慣習（サーベイは話題クラスタ配下に配置、例: llm-reasoning-failures が ### Reasoning）に従い Post_Training の SHLPT 直後に隣接配置
+  - 図表: なし
+  - `index/peer-review.md`: accepted 39→40（IEEE/CAA J. Automatica Sinica 2022 / 年2022）
+  - `index/topics.md`: `negative transfer / lifelong prompt tuning` を `negative transfer / transfer learning` に改称し 1→4件（+survey, +atlas, +sft-data-composition）
+
+- **論文追加**: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5) (Raffel et al., 2020 / Google)
+  - `sources/Pretraining/t5-text-to-text-transformer.md` / `evidence/Pretraining/t5-text-to-text-transformer.md` / `wiki/papers/Pretraining/t5-text-to-text-transformer.md` 作成
+  - arXiv 1910.10683（提出 2019-10-23）、**JMLR 2020 (vol.21)** 掲載（査読付きジャーナル）
+  - **内容**: NLP の全テキストタスクを **text-to-text** に統一し、pre-training objective・アーキテクチャ・データ・転移手法を数十タスクで体系的にアブレーション。新データセット **C4** とスケールで多数ベンチ SOTA。データ・モデル・コード公開
+  - 限界: 2019–2020 の設定・規模での知見、英語・教師ありダウンストリーム中心、decoder-only 大規模 LLM への外挿は要注意
+  - 査読: ✅ accepted — JMLR 2020
+  - **カテゴリ判断**: pre-training objective・C4・pretrain→finetune transfer が主題のため **Pretraining**。直近追加の transfer learning 系（[A Survey on Negative Transfer](../wiki/papers/Surveys_Overview/survey-on-negative-transfer.md) / [SHLPT](../wiki/papers/Post_Training/shlpt-lifelong-prompt-tuning.md)）の **positive transfer 側の代表**。C4 は [FineData](../wiki/papers/Pretraining/huggingface-finedata.md)/[Rewriting Pre-Training Data](../wiki/papers/Pretraining/rewriting-pretraining-data.md) の先駆
+  - 図表: なし
+  - `wiki/index.md` 配置: Pretraining カテゴリ先頭（データセット系譜の FineData/Rewriting の手前）
+  - `index/peer-review.md`: accepted 40→41（JMLR 2020 / 年2020）
+  - `index/topics.md`: `negative transfer / transfer learning` 4→5件、`data quality / rewriting` 3→4件、新トピック `text-to-text / unified task framework`（1件）
+
+- **トピック＋論文3件追加**: 「LLMと真の論理的理解の壁」ポジション（ユーザー提示の4 URL: PMLR v267 mancoridis25a / 2024.naacl-long.153 / openreview GPKTIktA0k / RobustLR）
+  - **トピック作成**: `wiki/topics/Reasoning/llm-logical-understanding-wall.md` —「ベンチ高得点＝真の論理的理解か？」を3水準（①表層摂動 ②論理摂動 ③評価の妥当性）で整理し、下記4論文＋既存（GSM-Symbolic / Reversal Curse / LLM Reasoning Failures）を束ねる。結論「LLM は意味でなく表層・統計的規則性に依存して正解しうる」。[RLVRの能力境界論争](../wiki/topics/RL/rlvr-capability-boundary.md) の姉妹論点
+  - **論文追加**: Potemkin Understanding in LLMs (Mancoridis, Weeks, Vafa, Mullainathan, 2025) — **ICML 2025 (PMLR v267)**。`sources/evidence/wiki/papers` の **Reasoning** に作成。ベンチ正解は人間と異なる誤解の場合 potemkin（理解の幻想）に過ぎず、概念表現の内的非一貫性を反映。評価の妥当性そのものを崩す
+  - **論文追加**: Paraphrase and Solve / SCoP (Zhou, Zhu, Antognini, Kim, Zhang, 2024) — **NAACL 2024 Long (2024.naacl-long.153)**。**Reasoning**。表層形のわずかな変更で数学 solve rate が激変、SCoP で緩和も根本原因は残る。GSM-Symbolic と同型
+  - **論文追加**: RobustLR (Sanyal, Liao, Ren, 2022) — **EMNLP 2022 (arXiv 2205.12598)**。**Reasoning**。演繹推論が論理摂動・論理等価変換に頑健でなく、特に否定・選言が困難。論理意味でなく表層依存と論証
+  - **既存リンク**: openreview GPKTIktA0k = [The Reversal Curse](../wiki/papers/Reasoning/reversal-curse.md)（既に repo 内・ICLR 2024）。新規作成せずトピックから参照
+  - **4 URL目の補足**: 当初 `chatgpt.com/c/...`（ユーザー個人の ChatGPT 会話、認証必須で取得不可）が提示されたが、ユーザーが「RobustLR」と明示。RobustLR を採用
+  - **カテゴリ判断**: 3本とも推論・理解の限界の実証で、既存 Reasoning クラスタ（GSM-Symbolic / Reversal Curse）と同系のため **Reasoning**。Potemkin は評価妥当性論で Evaluation 寄りの面もあるが、ユーザーの「論理的理解の壁」フレーミングと Reasoning クラスタ整合を優先
+  - 図表: なし
+  - `index/peer-review.md`: accepted 41→44（RobustLR=EMNLP2022 / SCoP=NAACL2024 / Potemkin=ICML2025）
+  - `index/topics.md`: `LLM reasoning` 3→6件、新トピック `真の論理的理解の壁 / logical robustness`（6件）
+
+- **論文追加**: Physics of Language Models: Part 3.3, Knowledge Capacity Scaling Laws (Allen-Zhu & Li, 2024 / Meta FAIR)
+  - `sources/Pretraining/knowledge-capacity-scaling-laws.md` / `evidence/Pretraining/knowledge-capacity-scaling-laws.md` / `wiki/papers/Pretraining/knowledge-capacity-scaling-laws.md` 作成
+  - arXiv 2404.05405、**ICLR 2025 Spotlight**（OpenReview FxNNiUgtfa＝ユーザー提示 URL）
+  - **内容**: LM の保存知識量を情報理論的に bit で実測し **1パラメータ＝最大2 bit**（int8 でも維持、7B≒14B bit）。訓練時間・アーキテクチャ・量子化・MoE・データSNR の5因子×12結果
+  - **ユーザーがメモしたい核心**: 訓練時間＝各知識の露出回数が容量を支配。**各知識を約1000回露出させると 2 bits/param の高密度に到達、約100回だと容量はおよそ半減（~1 bit/param）**。→ source/evidence/wiki 各ページで強調記載済み
+  - 査読: ✅ accepted — ICLR 2025 (Spotlight)
+  - **カテゴリ判断**: 知識保存容量のスケーリング則で、既存 Pretraining のスケーリング則・データクラスタ（ATLAS/RHM/language-structure/Rewriting/FineData）と直結のため **Pretraining**
+  - 図表: なし
+  - `index/peer-review.md`: accepted 44→45（ICLR 2025 Spotlight / 年2024）
+  - `index/topics.md`: `scaling law` 7→8件、新トピック `knowledge storage / capacity (bits-per-param)`（1件）・`memorization / exposure / repetition`（2件）
+  - 備考: 「メモしておきたい」という依頼だが、内容は本ソースに帰属する研究知見のため、永続メモリでなく wiki（source/evidence/wiki ページ）に記録
+
+- 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+---
+
+## 2026-06-11 — 論説追加「The Implications of Large-Scale Test-Time Compute」(Noam Brown / Inference_Decoding)
+
+- **論説追加**: The Implications of Large-Scale Test-Time Compute (Noam Brown, 2026 / OpenAI)
+  - `sources/Inference_Decoding/implications-of-test-time-compute.md` / `evidence/Inference_Decoding/implications-of-test-time-compute.md` / `wiki/papers/Inference_Decoding/implications-of-test-time-compute.md` 作成
+  - ユーザー提示 URL = X 投稿（@polynoamial, status 2064210146558136827）→ X article「Implications of Large-Scale Test-Time Compute」。同タイトルの **ICLR 2026 招待講演**（Post-AGI Science and Society Workshop, 2026-04-26）に対応
+  - **内容（テーゼ）**: LLM 性能向上に伴いベンチ成績がテスト時計算量に左右される度合いが増し、現代 LLM の能力上限は未知でありうる。test-time compute を第3のスケーリング軸と位置づける position essay
+  - **取得範囲の注記（重要）**: X article 本文は認証必須で**全文未取得**。記録は X 公式プレビュー＋ICLR 講演メタ情報から確認できた**テーゼレベル**に限定。具体的論証・数値は未収録で source/evidence/wiki に「要加筆」と明記。全文入手後に加筆予定
+  - 査読: — n/a（論説／招待講演）
+  - **カテゴリ判断**: test-time compute（推論時計算）が主題で、既存 [Reasoning with Sampling](../wiki/papers/Inference_Decoding/reasoning-with-sampling.md) と同居の **Inference_Decoding**。test-time compute クラスタ（reasoning-with-sampling / llm-as-a-verifier / minimax-m1）と能力境界論争（RLVR / 論理的理解の壁）に接続
+  - 図表: なし
+  - `index/peer-review.md`: n/a 22→23件
+  - `index/topics.md`: `test-time compute` 4→5件
+  - 各インデックス（wiki/index.md, index/recent.md, index/peer-review.md, index/topics.md）を更新
+
+---
+
+## 2026-06-11 — 査読ステータス訂正「Scaling Behaviors of LLM RL Post-Training」(preprint/Withdrawn → accepted: ACL 2026 Main)
+
+- **対象**: [Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md)（rl-scaling-math-qwen25, Tan et al.）
+- **きっかけ**: ユーザー依頼で arXiv 最新版（**v4, 2026-04-17**）を取得。Comments 欄に **"This Paper has been accepted by ACL 2026 Main Conference"** と明記を確認
+- **判明した経緯（OpenReview KBut2YCZ4g 調査と統合）**: ICLR 2026 に投稿 → 査読 rating **4/2/4/4**（confidence 3/4/4/4、champion不在）で、スコープの狭さ（Qwen2.5・数学のみ）・pretraining則の焼き直し感・予測妥当性の欠如・統計報告の不備を指摘され、メタレビュー前に著者が自主 **withdraw** → **72B拡張・予測検証・標準偏差を加えた改訂版が ACL 2026 Main に採択**
+- **訂正内容**:
+  - `sources/RL/rl-scaling-math-qwen25.md`: `peer_review` preprint→**accepted**、`venue` ""→**"ACL 2026 (Main)"**、メモに査読経緯追記
+  - `wiki/papers/RL/rl-scaling-math-qwen25.md`: frontmatter 同上、査読 blockquote を「📝 preprint / Withdrawn / ACL採択は誤情報」→「✅ accepted — ACL 2026 Main（ICLR withdraw 後に再投稿・採択）」に書換、`updated` 2026-06-11
+  - `evidence/RL/rl-scaling-math-qwen25.md`: 査読経緯を補足
+  - `index/peer-review.md`: preprint セクションから削除し accepted へ移動（accepted 45→46、preprint 26→25）
+  - `index/wiki/index.md`: RL 行のタグ `📝 preprint (ICLR 2026 Withdrawn)`→`✅ ACL 2026 Main`
+  - `index/recent.md`: 過去の「⚠️ 偽陽性の修正（ACL採択は誤り→preprint）」エントリに2026-06-11再訂正の追記
+- **背景**: 過去（log 742行目, 2026-06-03頃）に「ACL 2026 Main 採択は誤情報」として preprint に差し戻した経緯があったが、これは ICLR withdraw のみを見た**誤った訂正**だった。v4 で採択が確認されたため accepted に復元・再訂正（当該過去エントリは本エントリで上書き）
+
+---
+
+## 2026-06-11 — index/recent.md の整理（5/29以前の冗長エントリを圧縮）
+
+- ユーザー指摘「5/29 より前のエントリは情報量が多すぎる。論文の概要が伝わるようまとめてほしい」を受け、recent.md の wall-of-text 化していた追加エントリを圧縮
+- **対象14エントリ**（各 1000〜2500字 → 約400〜850字）: 2026-05-29（Transformers Succinct / RAG vs Agentic）, 05-28（BlueprintSymVL）, 05-27（Vector DB→Agent Runtime）, 05-19（Learning Fast and Slow / SFT Memorizes RL Generalizes / Your Evals Will Break）, 05-11（Gated DeltaNet / Qwen3 / DeepSeek-V4）, 05-07（On SFT, RL, OPD）, 05-01（Lightning Attention-2 / Linear Transformers）, 04-30（FROMAGe / CLIP）
+- **方針**: 各エントリを「コア貢献＋主要数値＋位置づけリンク1-2本＋出典」の2-4文に圧縮（4/27 以前の既存簡潔エントリと同水準）。式の導出・全ベンチ数値ダンプ・多数の相互リンク連鎖は削除。詳細は各 wiki/papers・evidence ページに保存済みのため changelog 側は要約で十分
+- 4/27 以前のエントリは既に簡潔なため変更なし。6/03〜6/11 のエントリは「5/29 より前」の対象外のため変更なし
+- **付随修正**: 4/07 の SSRN 6372438 エントリのリンク切れ（Press_Releases → Safety_Alignment へ移動済みだったがパス未更新）を修正
+- recent.md 総行数 204→203、リンク切れ 0
+
+---
+
+## 2026-06-19 — 論文追加「To Repeat or Not To Repeat: Insights from Scaling LLM under Token-Crisis」(NeurIPS 2023)
+
+- **論文追加**: To Repeat or Not To Repeat (Xue, Fu, Zhou, Zheng, You, 2023 / NUS × University of Edinburgh × ETH Zurich, arXiv 2305.13230, **NeurIPS 2023 Poster**, OpenReview Af5GvIj3T5)
+  - `sources/Pretraining/to-repeat-or-not-to-repeat.md` 作成（processed）
+  - `evidence/Pretraining/to-repeat-or-not-to-repeat.md` 作成（11 insight・Table 1-4 数値・Fig 6 を抽出）
+  - `wiki/papers/Pretraining/to-repeat-or-not-to-repeat.md` 作成
+- **内容**: 高品質テキストが枯渇する **token-crisis** 下で事前学習データを複数エポック繰り返すとどうなるかを T5/C4 で体系検証。**データ繰り返しは過学習＝multi-epoch degradation を招き、支配要因はデータサイズ・パラメータ数・目的関数、影響小はデータ品質・FLOPs**。緩和策では **dropout が極めて有効**（後段投入＝dropstage、XL は追加チューニング要）。**MoE が同等パラメータ dense の過学習挙動を低コスト予測**しハイパラ探索の安価な代理（コスト0.48倍）に
+- **位置づけ**: [Knowledge Capacity Scaling Laws](../wiki/papers/Pretraining/knowledge-capacity-scaling-laws.md)（繰り返し露出を有益とする）の表裏、[Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md)（RL では再利用が有効）とは符号が逆転、[Rewriting](../wiki/papers/Pretraining/rewriting-pretraining-data.md)/[FineData](../wiki/papers/Pretraining/huggingface-finedata.md) の品質・量改善路線と補完
+- **インデックス更新**:
+  - `wiki/index.md`: Pretraining セクション、knowledge-capacity 直後に追加（繰り返し/露出の表裏ペアとして隣接配置）
+  - `index/recent.md`: 2026-06-19 セクション新設
+  - `index/peer-review.md`: accepted 46→47件（NeurIPS 2023, year 2023 として FROMAGe の次に挿入）、ヘッダ更新
+  - `index/topics.md`: `memorization / exposure / repetition` 2→3件、`scaling law` 8→9件、`data quality / rewriting` 4→5件、新トピック `data-constrained scaling / 多エポック学習 (token-crisis)` 3件を新設
+- 図表は挿入せず（最近の Pretraining 追加と同方針。SCHEMA では任意）
+
+---
+
+## 2026-06-19 — 論文追加「Scaling Data-Constrained Language Models」(NeurIPS 2023 Oral / Outstanding Paper Runner-Up)
+
+- **論文追加**: Scaling Data-Constrained Language Models (Muennighoff, Rush, Barak, Le Scao, Piktus, Tazi, Pyysalo, Wolf, Raffel, 2023 / Hugging Face × Harvard × University of Turku, arXiv 2305.16264, **NeurIPS 2023 Oral / Outstanding Main Track Paper Runner-Up**, OpenReview j5BuTrEj35)
+  - `sources/Pretraining/scaling-data-constrained-language-models.md` 作成（processed）
+  - `evidence/Pretraining/scaling-data-constrained-language-models.md` 作成（Eq 2/5/6 の数式・Fig 1-6・Table の数値を抽出）
+  - `wiki/papers/Pretraining/scaling-data-constrained-language-models.md` 作成
+- **内容**: 400超の run（10M–8.7B・最大900Bトークン・最大1500エポック・C4）で **Chinchilla 則をデータ繰り返しに拡張した data-constrained scaling law** を提案。実効データ D'=U_D+U_D·R\*_D·(1−e^(−R_D/R\*_D))（R\*_D≈15 が繰り返しの半減期）。**最大~4エポックの繰り返しは新規データとほぼ同等・~16エポックまで有用・~40エポックで無価値、データ制約下では「パラメータよりエポックを速くスケール」（R\*_N<R\*_D）、コード50%混入で実効トークン2倍、フィルタはノイズデータのみ有効**
+- **位置づけ**: 直前追加の [To Repeat or Not To Repeat](../wiki/papers/Pretraining/to-repeat-or-not-to-repeat.md) と**同 NeurIPS 2023・ほぼ同時投稿の token-crisis 対ペア**（あちらは T5 で機序・緩和策、本論文は decoder でスケーリング則・配分）。「大モデルはデータ制約下で不利」を経験則↔理論で対応。[Scaling Behaviors of LLM RL Post-Training](../wiki/papers/RL/rl-scaling-math-qwen25.md) はこの RL 後学習版、[Rewriting](../wiki/papers/Pretraining/rewriting-pretraining-data.md)/[FineData](../wiki/papers/Pretraining/huggingface-finedata.md) の実効データ拡張路線と直結
+- **インデックス更新**:
+  - `wiki/index.md`: Pretraining セクション、to-repeat-or-not-to-repeat の直後に追加（対ペアとして隣接配置）
+  - `index/recent.md`: 2026-06-19 セクションに追加（対ペアとして to-repeat の上）
+  - `index/peer-review.md`: accepted 47→48件（NeurIPS 2023 Oral, year 2023）、ヘッダ更新
+  - `index/topics.md`: `memorization / exposure / repetition` 3→4件、`data-constrained scaling / 多エポック学習` 3→4件、`scaling law` 9→10件、`data quality / rewriting` 5→6件
+- 図表は挿入せず（最近の Pretraining 追加と同方針。SCHEMA では任意）
+
+---
+
+## 2026-06-19 — index/recent.md の整理（6/03〜6/19 の冗長エントリを圧縮）
+
+- ユーザー指摘「recent.md の論文説明文が冗長、特に最近のもの」を受け、2026-06-11 の整理（5/29以前が対象）以降に追加した **6/03・6/09・6/11・6/19 の冗長エントリを圧縮**（5/29以前は前回圧縮済みで対象外）
+- **対象18エントリ**（各 1000〜2500字 → 約250〜500字）: 6/19（Scaling Data-Constrained LM / To Repeat or Not To Repeat）, 6/11（test-time compute）, 6/09（Knowledge Capacity / 論理的理解の壁トピック / Potemkin / Paraphrase and Solve / RobustLR / T5 / Survey on Negative Transfer / Functional Taxonomy of World Models / SHLPT）, 6/03（When Scaling Meets LLM Finetuning / BERT Rediscovers / Does BERT Rediscover / RHM / 言語構造の獲得理論 / Curriculum Instruction Tuning / data2vec / Learn from your own latents）
+- **方針**: 各エントリを「コア貢献＋主要数値1-2個＋位置づけリンク1-2本＋著者/venue の出典」の2-4文に圧縮（5/29以前の既存簡潔エントリと同水準）。著者は筆頭数名＋「ほか」、所属は略称、数式の記号定義・全ベンチ数値ダンプ・相互リンク連鎖を削除。詳細は各 wiki/papers・evidence に保存済み
+- **査読ステータス一斉再検証エントリ（6/03）は監査記録のため非圧縮で保持**
+- **再発防止**: ユーザーは2026-06-11・2026-06-19の2回同じ指摘 → グローバルメモリに feedback `recent-md-concise` を追加（新規追加時から簡潔に書く運用に）
+
+---
+
+## 2026-06-24 — 論文追加「One Single Hub Text Breaks CLIP: Identifying Vulnerabilities in Cross-Modal Encoders via Hubness」(ACL 2026 Main)
+
+- **論文追加**: One Single Hub Text Breaks CLIP (Deguchi, Chousa, Sakai, 2026 / NTT, Inc. × 奈良先端科学技術大学院大学 NAIST, arXiv 2604.27674, v1 2026-04-30, **ACL 2026 Main 採択**)
+  - `sources/Multimodal/hub-text-breaks-clip.md` 作成（processed）
+  - `evidence/Multimodal/hub-text-breaks-clip.md` 作成（3段階手法・Table 1-6 / Fig 2-5 の数値を抽出）
+  - `wiki/papers/Multimodal/hub-text-breaks-clip.md` 作成
+- **内容**: CLIP 系 **cross-modal encoder の hubness 脆弱性**を実証。無関係な多数画像と不当に高い類似度を持つ単一の **hub text** を「(1) hub 埋め込みの**閉形式導出**（CLIPScore は cosine ベースなので正規化画像埋め込みの平均が最適、Cauchy–Schwarz 等号条件）→ (2) 逆変換モデルで埋め込みを decode（4,096候補）→ (3) **beam local search** で精錬（先行 GLS の beam 拡張、black-box）」の3段階で生成。意味的に無意味な gibberish 1テキストが多くの画像で人手参照キャプションの CLIPScore を超える（clip-vit-base-patch32 で **Ours 0.842 > Human 0.759 > GLS 0.732**、nocaps **Ours 0.814 > Human 0.758**、強モデル DFN5B-CLIP-ViT-H-14-378 で勝率 **90%**、CLIPScore は M=2.5 で 1.0 超も発生）。image-to-text retrieval は**単一挿入 (#CT=1) でも Precision@1 −29.3%**・#CT=1,000 で Recall@1k −75.5%、ランダムキャプション挿入では劣化せず hub text 固有。PCA で hub text が画像クラスタに潜り込む＝**modality gap** との関連を示唆
+- **位置づけ**: [CLIP](../wiki/papers/Multimodal/clip.md) の埋め込み脆弱性面（typographic attack に並ぶ）、評価妥当性論点の cross-modal 版（[Your Evals Will Break](../wiki/papers/Evaluation/your-evals-will-break.md) / [Potemkin Understanding](../wiki/papers/Reasoning/potemkin-understanding.md)）。先行研究 Deguchi et al. (EACL 2026, COMET 攻撃) の cross-modal 拡張
+- **インデックス更新**:
+  - `wiki/index.md`: Multimodal セクション、CLIP の直後に追加（攻撃対象に隣接配置）
+  - `index/recent.md`: 2026-06-24 セクション新設
+  - `index/peer-review.md`: accepted 48→49件（ACL 2026 Main, year 2026, Neural Thickets の次に挿入）、ヘッダ更新
+  - `index/topics.md`: `multimodal` 5→6件、`embedding` 2→3件、`VLM evaluation / visual benchmark` 3→4件、新トピック `hubness / cross-modal embedding 脆弱性` 1件を新設
+- 図表は挿入せず（最近の追加と同方針。SCHEMA では任意）
+
+---
+
+## 2026-07-01 — SCHEMA に recent.md 記述ルール追記／TabFM 追加／recent.md 圧縮
+
+### SCHEMA.md 更新（recent.md の肥大化を恒久ルール化）
+- ユーザー指摘「recent.md が毎回長くなる。SCHEMA に書いているか？」→ **書かれていなかった**（ルールは個人メモリ `recent-md-concise` のみに存在し、SCHEMA を見る新規セッション/サブエージェントに伝わらない構造）
+- SCHEMA.md に3点追記:
+  - 「インデックスの並び順」表の recent.md 行に「記述量は下記ルールに従い簡潔に保つ」を追記
+  - 新セクション **「index/recent.md の記述ルール」** を新設: 1エントリ=コア貢献＋主要数値＋位置づけリンク1-2本＋著者/venue を **2-4文（目安250〜500字）**、著者は筆頭＋「ほか」・所属略称・数式は結論のみ・ベンチ1-2個・リンク1-2本、**新規追加時から簡潔に書く**、詳細は wiki/papers・evidence へ。エントリ雛形も掲載
+  - 「メンテナンス（Lint）」に「recent.md の肥大化エントリ（4文・500字超）」検出を追加
+
+### 論文追加: TabFM (Google Research ブログ, 2026-06-30)
+- **論文追加**: TabFM: A Zero-Shot Foundation Model for Tabular Data (Kong, Das ほか, 2026 / Google Research, blog, peer_review n/a)
+  - `sources/Technical_Report/tabfm.md` 作成（processed）
+  - `evidence/Technical_Report/tabfm.md` 作成
+  - `wiki/papers/Technical_Report/tabfm.md` 作成
+- **内容**: 表形式データの分類・回帰を **in-context learning** として定式化、追加訓練・ハイパラ調整・特徴量エンジニアリング不要で**単一 forward pass** でゼロショット予測。ハイブリッドアーキ（alternating row/column attention + row compression + ICL transformer）、**構造因果モデル(SCM)由来の数億の合成データのみ**で事前学習。TabArena（38分類+13回帰、700〜150,000サンプル）でトップ ELO。TabPFN/TabICL 系譜の統合。重みは HF `google/tabfm-1.0.0-pytorch`、コードは GitHub `google-research/tabfm`、BigQuery `AI.PREDICT` 統合予定
+- **カテゴリ判断**: モデルリリースのため Technical_Report に配置（表形式FMの専用カテゴリは無し）
+- **位置づけ**: [CLIP](../wiki/papers/Multimodal/clip.md) 的な「基盤モデル＋ゼロショット転移」を表データ領域へ拡張。SCM 全面合成学習は [Rewriting](../wiki/papers/Pretraining/rewriting-pretraining-data.md)/[Qwen3](../wiki/papers/Technical_Report/qwen3.md) の synthetic data 系譜と方向性が異なる（実データ希少領域向け）
+- **インデックス更新**: `wiki/index.md`(Technical_Report 先頭)、`index/recent.md`(2026-07-01 新設)、`index/peer-review.md`(n/a 23→24件)、`index/topics.md`(`zero-shot transfer` 3→4件、`synthetic data / self-curation` 2→3件、新トピック `tabular data / tabular foundation model (ICL)` 新設)
+- 図表は挿入せず（ブログ・図の出典明示が難しいため）
+
+### index/recent.md 圧縮（新ルール適用・肥大化エントリ一掃）
+- 新 SCHEMA ルール適用。全108論文エントリを実文字数（URL除去後）で走査し **500字超を全て圧縮**
+- 6/19 圧縮パスで漏れていた **DMT (sft-data-composition, 6/03)** ・6/24 追加の **hub-text-breaks-clip** を圧縮
+- さらに 4/23〜5/28 の残存肥大エントリを圧縮: BlueprintSymVL・Memory-Efficient CD・SFT Memorizes RL Generalizes・DeepSeek-V4・Gated DeltaNet・Learning Fast and Slow・Dr. GRPO・On SFT/RL/OPD・Vector DB（長い英語タイトルは表示リンクを短縮）
+- **結果**: 108エントリ全てが ≤500字（監査記録の査読ステータス一斉再検証エントリは非圧縮で保持）
+
+---
+
+## 2026-07-03 — 論文ブラウザ browse.html を追加（検索/フィルタUI）
+
+- ユーザー要望「見やすいUIが欲しい・論文が探しづらい」を受け、全ページを検索・フィルタできるローカル HTML ビューを新設
+- **生成スクリプト** `tools/build_browse.py`（.venv・pyyaml）を追加。`wiki/papers`・`wiki/topics`・`wiki/models` の frontmatter＋`sources/` の著者/年/原典URL＋`wiki/index.md` の厳選要約を集約し、自己完結 HTML を出力（外部依存なし・オフライン可・135KB）
+- **browse.html**（生成物・計103件: 論文99/トピック3/モデル1）の機能:
+  - 全文検索（タイトル・別名・著者・タグ・要約・venue 横断）＋曖昧検索（部分列一致）
+  - カテゴリ／査読ステータスでの絞り込み（件数バッジ付きチップ）
+  - 追加日・更新日・発表年・タイトル順ソート、ライト/ダークテーマ、`/` で検索フォーカス
+  - 各カードに wiki/evidence/source/原典リンク（ローカル .md は実際に開ける）
+- **堅牢性**: slug 前方一致で ID 接尾辞付きソース（karpathy-tweet-...）も著者/年を救済、`</`・`<!--` を無害化して script 埋め込み事故を防止。検証で壊れたリンク0件・要約空0件・著者なし0件を確認
+- **SCHEMA.md 更新**: ディレクトリ構成に `browse.html`・`tools/build_browse.py` を追加、Ingest 手順に step 9「browse.html 再生成」を追加、新セクション「論文ブラウザ (browse.html)」で仕組み・再生成・「生成物は手で編集しない」方針を明記

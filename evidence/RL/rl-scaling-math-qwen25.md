@@ -43,4 +43,4 @@ date_extracted: 2026-04-22
   - power-law: log L(N, X) = −k(N) · log X + E(N)
   - 学習効率飽和: k(N) = K_max / (1 + N_0 / N)
 - 実験フレームワーク / ハイパーパラメータの詳細は Appendix A（Prompt Templates, Data Reuse Experiment Setup）, Appendix B（GRPO Hyperparameter Ablation, Advanced Models との比較）, Appendix C（FLOPs 計算方法, 係数比較, hyper-parameter fitting）, Appendix D（Loss Decomposition Model）に収録
-- arXiv 2509.25300 / v4 (2026-04-17) — ACL 2026 Main 採択版
+- arXiv 2509.25300 / v4 (2026-04-17) — **ACL 2026 Main 採択版**（査読経緯: ICLR 2026 投稿 → 低スコア査読後 withdraw [KBut2YCZ4g](https://openreview.net/forum?id=KBut2YCZ4g) → 改訂版が ACL 2026 Main 採択）

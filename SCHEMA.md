@@ -8,6 +8,9 @@
 research-wiki/
 ├── SCHEMA.md           # 本ファイル（運用規約）
 ├── log.md              # 時系列変更ログ（append-only）
+├── browse.html         # 論文ブラウザ（検索/フィルタUI・自己完結・生成物）
+├── tools/              # 補助スクリプト
+│   └── build_browse.py # browse.html を生成（sources・wiki・index を集約）
 ├── sources/            # 生ソース（不変）
 │   └── {Category}/     # カテゴリ別サブフォルダ
 │       └── {slug}.md   # 1ソース1ファイル
@@ -229,6 +232,7 @@ related_sources: [src-id1]
 6. 未解決の問いがあれば `index/open-questions.md` に追加
 7. `log.md` に変更を記録
 8. `wiki/index.md` と `index/` 配下を更新
+9. 論文ブラウザを再生成: `.venv` を有効化して `python tools/build_browse.py`（`browse.html` を最新化）
 
 ### 記述スタイル
 - 簡潔な技術日本語
@@ -254,11 +258,41 @@ related_sources: [src-id1]
 | ファイル | 並び順 |
 |---|---|
 | `wiki/index.md` | カテゴリ内は**話題クラスタ順**（関連論文が隣接するよう手動配置）。同一クラスタ内は**追加順（append）**。論争・系譜・手法バリエーションなど、論点構造が読めるよう配置する。機械的ソートは避ける |
-| `index/recent.md` | **日付降順**（新しい追加が上） |
+| `index/recent.md` | **日付降順**（新しい追加が上）。各エントリの記述量は下記「index/recent.md の記述ルール」に従い簡潔に保つ |
 | `index/peer-review.md` | 査読状態グループ内で**採択年の昇順**（古い研究から新しい研究へ） |
 | `index/topics.md` | 特に規定なし（トピック追加順が基本。アルファベット順への整列は任意） |
 
 `wiki/index.md` のカテゴリが20件を超えたら、`wiki/topics/{Category}/` にサブトピックページを切り出すことを検討する。
+
+### index/recent.md の記述ルール
+
+`index/recent.md` は**変更ログ（カタログ）**であり、各論文の詳細は既に `wiki/papers/` と `evidence/` に保存されている。したがって recent.md の各エントリは**簡潔に保ち、wall-of-text 化させない**こと。詳細を書きたくなったら recent.md ではなく該当の `wiki/papers/{Category}/{slug}.md`・`evidence/{Category}/{slug}.md` 側に書き、recent.md からはそこへリンクする。
+
+- 1エントリ = **コア貢献 + 主要数値 + 位置づけリンク1-2本 + 著者/venue の出典** を **2-4文（目安250〜500字）**にまとめる
+- 著者は筆頭数名 + 「ほか」、所属は略称（例: `NUS × Edinburgh × ETH`）
+- 数式は結論の形だけ記す（導出・記号定義は wiki 側へ）。ベンチマーク数値は最重要の1-2個のみ
+- 位置づけ（関連ページ）へのリンクは1-2本に絞る
+- **新規追加の時点から簡潔に書く**（後でまとめて圧縮しない）。全ベンチ数値のダンプ・数式の導出・著者全員のフルネーム羅列・相互リンクの連鎖は書かない
+- 既に圧縮済みの過去エントリ（2026-05-29 以前が目安）と同水準の分量を保つ
+
+エントリの雛形:
+
+```markdown
+- [{タイトル}](../wiki/papers/{Category}/{slug}.md) を追加 — {著者筆頭}ほか（{所属略称}）、{venue}。{コア貢献1-2文＋主要数値1-2個}。{位置づけ1文＋関連リンク1-2本} ({著者, 年})
+```
+
+### 論文ブラウザ (browse.html)
+
+`browse.html` は全ページを**検索・フィルタ**できる自己完結型の HTML ビュー（外部依存なし・ブラウザで直接開ける・オフライン可）。`tools/build_browse.py` が以下を集約して生成する:
+
+- `wiki/papers/**`・`wiki/topics/**`・`wiki/models/**` の frontmatter（title・aliases・tags・peer_review・venue・updated）
+- `sources/{Category}/{slug}.md` の著者・発表年・原典 URL・date_added（slug 前方一致で救済）
+- `wiki/index.md` の厳選済み一行要約（カードの説明文。無ければ本文先頭で代替）
+- wiki 本体・`evidence`・`sources`・原典への各リンク
+
+機能: 全文検索（タイトル・別名・著者・タグ・要約・venue を横断）＋曖昧検索（部分列一致）、カテゴリ／査読ステータスでの絞り込み、追加日・更新日・発表年・タイトル順ソート、ライト/ダークテーマ。
+
+**再生成**: 論文を追加・更新したら（Ingest 手順 9）`.venv` を有効化して `python tools/build_browse.py` を実行する。`browse.html` は**生成物なので手で編集しない**（見た目・機能の変更は `tools/build_browse.py` 側に入れて再生成する）。
 
 ### メンテナンス（Lint）
 定期的に以下を検出する:
@@ -268,3 +302,4 @@ related_sources: [src-id1]
 - 孤立ページ（被リンクゼロ）
 - index未登録のページ
 - `wiki/index.md` のカテゴリ肥大化（20件超）
+- `index/recent.md` の肥大化したエントリ（4文・目安500字を大きく超えるもの → 上記「index/recent.md の記述ルール」に沿って圧縮）
