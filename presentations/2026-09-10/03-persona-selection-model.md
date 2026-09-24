@@ -1,7 +1,7 @@
 # 3. The Persona Selection Model
 
 > Sam Marks, Jack Lindsey, Christopher Olah（Anthropic）| Alignment Science Blog、2026-02-23
-> https://alignment.anthropic.com/2026/psm/ ／ 台本: [03-persona-selection-model.script.md](03-persona-selection-model.script.md)
+> https://alignment.anthropic.com/2026/psm/ ／ 台本: [scripts/03-persona-selection-model.md](scripts/03-persona-selection-model.md)
 
 > **査読論文ではなくブログ記事。新規実験も少ない。他の3本と読み方を変える**
 

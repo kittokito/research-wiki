@@ -1,7 +1,7 @@
 # 4. RL Towards Broadly and Persistently Beneficial Models
 
 > Akshay V. Jagadeesh, Rahul K. Arora, Khaled Saab ほか、Karan Singhal（OpenAI）| arXiv preprint、2026-06-22
-> arXiv: https://arxiv.org/abs/2606.24014 ／ 台本: [04-beneficial-trait-rl.script.md](04-beneficial-trait-rl.script.md)
+> arXiv: https://arxiv.org/abs/2606.24014 ／ 台本: [scripts/04-beneficial-trait-rl.md](scripts/04-beneficial-trait-rl.md)
 
 ---
 

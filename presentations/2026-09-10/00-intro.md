@@ -1,6 +1,6 @@
 # 0. 導入 — 狭い訓練がなぜ広く効くのか
 
-> 台本: [00-intro.script.md](00-intro.script.md)
+> 台本: [scripts/00-intro.md](scripts/00-intro.md)
 
 ---
 

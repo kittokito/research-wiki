@@ -1,7 +1,7 @@
 # 2. Persona Features Control Emergent Misalignment
 
 > Miles Wang, Tom Dupré la Tour, Olivia Watkins ほか、Dan Mossing（OpenAI）| ICLR 2026 Poster
-> arXiv: https://arxiv.org/abs/2506.19823 ／ 台本: [02-persona-features.script.md](02-persona-features.script.md)
+> arXiv: https://arxiv.org/abs/2506.19823 ／ 台本: [scripts/02-persona-features.md](scripts/02-persona-features.md)
 
 ---
 

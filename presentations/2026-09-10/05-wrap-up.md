@@ -1,6 +1,6 @@
 # 5. まとめと留保
 
-> 台本: [05-wrap-up.script.md](05-wrap-up.script.md)
+> 台本: [scripts/05-wrap-up.md](scripts/05-wrap-up.md)
 
 ---
 

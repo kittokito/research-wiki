@@ -5,16 +5,16 @@
 ## 構成
 
 **スライド**（`NN-*.md`）は聞く側が見るもの。図・表・キーメッセージだけを置く。
-**台本**（`NN-*.script.md`）は話す側が手元で見るもの。スライド番号（S1、S2 …）で対応する。
+**台本**（`scripts/NN-*.md`）は話す側が手元で見るもの。スライド番号（S1、S2 …）で対応する。
 
 | # | スライド | 台本 | 枚数 |
 |---|---|---|---|
-| 0 | [導入](00-intro.md) | [台本](00-intro.script.md) | 5 |
-| 1 | [Emergent Misalignment](01-emergent-misalignment.md) | [台本](01-emergent-misalignment.script.md) | 17 |
-| 2 | [Persona Features Control Emergent Misalignment](02-persona-features.md) | [台本](02-persona-features.script.md) | 15 |
-| 3 | [The Persona Selection Model](03-persona-selection-model.md) | [台本](03-persona-selection-model.script.md) | 14 |
-| 4 | [RL Towards Broadly and Persistently Beneficial Models](04-beneficial-trait-rl.md) | [台本](04-beneficial-trait-rl.script.md) | 12 |
-| 5 | [まとめと留保](05-wrap-up.md) | [台本](05-wrap-up.script.md) | 6 |
+| 0 | [導入](00-intro.md) | [台本](scripts/00-intro.md) | 5 |
+| 1 | [Emergent Misalignment](01-emergent-misalignment.md) | [台本](scripts/01-emergent-misalignment.md) | 17 |
+| 2 | [Persona Features Control Emergent Misalignment](02-persona-features.md) | [台本](scripts/02-persona-features.md) | 15 |
+| 3 | [The Persona Selection Model](03-persona-selection-model.md) | [台本](scripts/03-persona-selection-model.md) | 14 |
+| 4 | [RL Towards Broadly and Persistently Beneficial Models](04-beneficial-trait-rl.md) | [台本](scripts/04-beneficial-trait-rl.md) | 12 |
+| 5 | [まとめと留保](05-wrap-up.md) | [台本](scripts/05-wrap-up.md) | 6 |
 
 台本には、スライドに載せなかった実験設定の細部・論文内の数値不一致・想定問答（**聞かれたら**）を入れてある。
 

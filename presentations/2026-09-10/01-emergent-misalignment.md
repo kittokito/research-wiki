@@ -1,7 +1,7 @@
 # 1. Emergent Misalignment
 
 > Betley, Tan, Warncke ほか、Owain Evans（Truthful AI / UCL / CLR ほか）| ICML 2025 Oral
-> arXiv: https://arxiv.org/abs/2502.17424 ／ 台本: [01-emergent-misalignment.script.md](01-emergent-misalignment.script.md)
+> arXiv: https://arxiv.org/abs/2502.17424 ／ 台本: [scripts/01-emergent-misalignment.md](scripts/01-emergent-misalignment.md)
 
 ---
 
