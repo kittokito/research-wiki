@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {
+      "role": "start",
+      "label": "1本目 報酬だけで RL ── DeepSeek-R1",
+      "body": "SFT なしの RL で AIME 15.6% → 77.9%。ただし強い base が前提"
+    },
+    {
+      "role": "step",
+      "label": "2本目 正解を hint に作る ── ExPO",
+      "body": "正解が出ない難問で、正解を見せて自分に trace を書かせる"
+    },
+    {
+      "role": "step",
+      "label": "3本目 何を RL するか ── Curriculum RL",
+      "body": "易→難の schedule で Hard 0.0 → 32.9。ただし open-loop"
+    },
+    {
+      "role": "end",
+      "label": "4本目 能力を引き継ぐ ── MAI-Thinking-1",
+      "body": "RL 後の重みは継がず、trace を持ち帰って学び直し、再 RL"
+    }
+  ],
+  "edges": [
+    "base が弱く、正解が出ない難問では？",
+    "RL に何を解かせればよいか？",
+    "RL で得た能力をどう次へ引き継ぐか？"
+  ]
+}
