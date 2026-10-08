@@ -90,13 +90,13 @@
 
 **通常の GRPO**：1問 $q$ に $G$ 本の応答 $o_1,\dots,o_G$ を旧 policy $\pi_{\theta_{\text{old}}}$ から生成し、正誤の報酬 $R_i\in\{0,1\}$ を group 内で正規化して advantage にする
 
-$$\hat A_i=\frac{R_i-\operatorname{mean}(R_1,\dots,R_G)}{\operatorname{std}(R_1,\dots,R_G)}$$
+$$\hat A_i=\frac{R_i-\mathrm{mean}(R_1,\dots,R_G)}{\mathrm{std}(R_1,\dots,R_G)}$$
 
 → **全部不正解なら $R_i$ がすべて 0 で $\hat A_i=0$。勾配は出ない**
 
 **ExP-GRPO**：その目的関数に、正解 $a^\star$ を見せて書かせた説明 $\tilde c$ の対数尤度を足す
 
-$$J(\theta)=\mathbb{E}\Big[\underbrace{\tfrac{1}{G}\sum_{i=1}^{G}\tfrac{1}{|o_i|}\sum_{t}\min\!\big(\rho_{i,t}\hat A_{i,t},\ \operatorname{clip}(\rho_{i,t},1-\varepsilon,1+\varepsilon)\hat A_{i,t}\big)}_{\text{通常の GRPO 項（}o_i\sim\pi_{\theta_{\text{old}}}(\cdot\mid q)\text{）}}\;+\;\underbrace{\beta\,\log\pi_\theta(\tilde c,a^\star\mid q)}_{\text{ExP-SFT 項（}\tilde c\sim\pi_\theta(\cdot\mid q,a^\star)\text{）}}\Big]$$
+$$J(\theta)=\mathbb{E}\Big[\underbrace{\tfrac{1}{G}\sum_{i=1}^{G}\tfrac{1}{|o_i|}\sum_{t}\min\!\big(\rho_{i,t}\hat A_{i,t},\ \mathrm{clip}(\rho_{i,t},1-\varepsilon,1+\varepsilon)\hat A_{i,t}\big)}_{\text{通常の GRPO 項（}o_i\sim\pi_{\theta_{\text{old}}}(\cdot\mid q)\text{）}}\;+\;\underbrace{\beta\,\log\pi_\theta(\tilde c,a^\star\mid q)}_{\text{ExP-SFT 項（}\tilde c\sim\pi_\theta(\cdot\mid q,a^\star)\text{）}}\Big]$$
 
 - 左の項：$G$ 本は**正解を見せずに**生成。説明 $\tilde c$ はこの $G$ 本に**入らない**ので advantage は付かない
 - 右の項：説明は正解を**見て**生成するが、尤度の条件は $q$ だけ（学習時は正解を隠す）。全滅でもここから勾配が出る
